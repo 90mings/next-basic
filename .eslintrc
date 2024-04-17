@@ -1,0 +1,89 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "airbnb",
+    "prettier"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "parserOptions": {
+    "jsx": "react-jsx",
+    "ecmaVersion": 2021,
+    "sourceType": "script",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "project": "./jsconfig.json"
+  },
+  "plugins": ["react", "eslint", "react-hooks", "prettier", "import"],
+  "rules": {
+    "react/jsx-filename-extension": ["warn", { "extensions": [".js"] }],
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    //
+    "prettier/prettier": "error",
+    "jsx-a11y/rule-name": "off",
+    "arrow-body-style": ["error", "always"],
+    "func-style": ["error", "expression", { "allowArrowFunctions": true }],
+    "prefer-arrow-callback": ["error", { "allowNamedFunctions": true }],
+    "prefer-arrow/prefer-arrow-functions": [
+      "error",
+      {
+        "disallowPrototype": true,
+        "singleReturnOnly": false,
+        "classPropertiesAllowed": false
+      }
+    ],
+    "react/prop-types": "off",
+    "react/jsx-no-bind": "off",
+    "no-useless-concat": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-props-no-spreading": "off",
+    "import/no-anonymous-default-export": "off",
+    "import/prefer-default-export": "off",
+    "import/no-unresolved": "off",
+    "import/no-extraneous-dependencies": "off",
+    "consistent-return": "off",
+    "arrow-parens": ["error", "always"],
+    "array-callback-return": ["off"],
+    "no-console": "warn",
+    "no-shadow": "off",
+    "babel/camelcase": "warn",
+    "radix": "warn",
+    "no-nested-ternary": "warn",
+    "no-plusplus": "off",
+    "no-unused-vars": "warn",
+    "no-undef": "warn",
+    "no-param-reassign": "warn",
+    "react/no-unstable-nested-components": ["off"],
+    "react/no-children-prop": ["off"],
+    "react/button-has-type": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "prefer-regex-literals": "off",
+    "no-use-before-define": "off",
+    "babel/no-unused-expressions": "off",
+    "no-return-assign": "off"
+  },
+  "globals": {
+    "React": "writable"
+  }
+}

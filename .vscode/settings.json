@@ -1,0 +1,46 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.renderWhitespace": "boundary",
+  "javascript.format.enable": false,
+  "files.autoSave": "onFocusChange",
+
+  "material-icon-theme.folders.associations": {
+    "_components": "Components",
+    "_constants": "Constant",
+    "_hooks": "Hook",
+    "_services": "Api",
+    "_stores": "Container",
+    "_types": "Typescript",
+    "_utils": "Utils",
+    "(route)": "Routes"
+  }
+
+  /* 설정 가능한 항목들
+  prettier.arrowParens
+  prettier.bracketSpacing
+  prettier.endOfLine
+  prettier.htmlWhitespaceSensitivity
+  prettier.insertPragma
+  prettier.jsxBracketSameLine
+  prettier.jsxSingleQuote
+  prettier.printWidth
+  prettier.proseWrap
+  prettier.quoteProps
+  prettier.requirePragma
+  prettier.semi
+  prettier.singleQuote
+  prettier.tabWidth
+  prettier.trailingComma
+  prettier.useTabs
+  prettier.vueIndentScriptAndStyle
+  */
+}
