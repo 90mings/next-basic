@@ -5,7 +5,7 @@ import {
   STROAGE_LOADING,
   STROAGE_USER_INFO,
   TOKEN_ID,
-} from '@constants/common';
+} from '@/constants/common';
 
 import clipboardCopy from 'clipboard-copy';
 

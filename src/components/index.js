@@ -1,6 +1,8 @@
 //
 import { default as Loading } from './common/Loading';
 import { default as CustomLoading } from './common/CustomLoading';
+// text
+import { default as GText } from './text/GText';
 //
 import { default as DefaultButton } from './buttons/DefaultButton';
 import { default as LinkButton } from './buttons/LinkButton';
@@ -15,6 +17,8 @@ export {
   // common
   Loading,
   CustomLoading,
+  // text
+  GText,
   // button
   DefaultButton,
   LinkButton,

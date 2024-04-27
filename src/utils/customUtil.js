@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { KAKAO_REST_API_KEY } from '@constants/common';
+import { KAKAO_REST_API_KEY } from '@/constants/common';
 
 import { isEmpty } from './commonUtils';
 

@@ -10,7 +10,7 @@ import {
   USER_TYPE_CUSTOMER,
   USER_TYPE_NON_MEMBER,
   USER_TYPE_PARTNER,
-} from '@constants/common';
+} from '@/constants/common';
 import {
   copyToClipboard,
   isEmpty,

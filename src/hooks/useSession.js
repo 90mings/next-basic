@@ -7,9 +7,9 @@ import {
   STROAGE_LOADING,
   STROAGE_USER_INFO,
   TOKEN_ID,
-} from '../constant/common';
+} from '@/constants/common';
 import { csUserState } from '../recoil/user';
-import utils from '@utils/index';
+import utils from '@/utils/index';
 
 const useSession = () => {
   const resetCsUserState = useResetRecoilState(csUserState);

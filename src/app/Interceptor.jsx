@@ -7,15 +7,15 @@ import {
   API_TOKEN_URL,
   API_URL,
   API_VERSION,
-} from '@constants/enviroment';
+} from '@/constants/enviroment';
 import {
   SUCCESS,
   TOKEN_INVALIDE_ERROR,
   TOKEN_NOT_FOUND_ERROR,
-} from '@constants/errorCode';
-import utils from '@utils/index';
-import useModal from '@hooks/useModal';
-import { loadingState } from '@store/common';
+} from '@/constants/errorCode';
+import utils from '@/utils/index';
+import useModal from '@/hooks/useModal';
+import { loadingState } from '@/store/common';
 
 const apiInstance = axios.create({
   baseURL: API_URL,

@@ -1,7 +1,7 @@
 'use client';
-import { LinkButton } from '@components/g';
 import styles from './page.module.css';
-import { MAIN } from '@constants/pageURL';
+import { LinkButton } from '@/components/g';
+import { MAIN } from '@/constants/pageURL';
 import { useRouter } from 'next/navigation';
 
 const Login = () => {

@@ -1,14 +1,14 @@
-import { extendTheme, withDefaultProps } from '@chakra-ui/react'
+import { extendTheme, withDefaultProps } from '@chakra-ui/react';
 
-import { radioTheme } from './radio'
-import { checkboxTheme } from './checkbox'
-import { accordionTheme } from './accordion'
-import { buttonTheme } from './button'
-import { switchTheme } from './switch'
-import { inputTheme } from './input'
-import { tabsTheme } from './tabs'
-import { selectTheme } from './select'
-import { menuTheme } from './menu'
+import { radioTheme } from './radio';
+import { checkboxTheme } from './checkbox';
+import { accordionTheme } from './accordion';
+import { buttonTheme } from './button';
+import { switchTheme } from './switch';
+import { inputTheme } from './input';
+import { tabsTheme } from './tabs';
+import { selectTheme } from './select';
+import { menuTheme } from './menu';
 
 export const theme = extendTheme(
   withDefaultProps({
@@ -17,10 +17,6 @@ export const theme = extendTheme(
     },
   }),
   {
-    fonts: {
-      heading: 'var(--font-noto-sans_KR)',
-      body: 'var(--font-noto-sans_KR)',
-    },
     components: {
       Radio: radioTheme,
       Checkbox: checkboxTheme,
@@ -31,6 +27,44 @@ export const theme = extendTheme(
       Tabs: tabsTheme,
       Select: selectTheme,
       Menu: menuTheme,
+    },
+    fonts: {
+      heading: 'var(--font-noto-sans_KR)',
+      body: 'var(--font-noto-sans_KR)',
+    },
+    fontSizes: {
+      base: '38px',
+      xs: '0.75rem',
+      sm: '0.875rem',
+      md: '38',
+      lg: '1.125rem',
+      xl: '1.25rem',
+      '2xl': '1.5rem',
+      '3xl': '1.875rem',
+      '4xl': '2.25rem',
+      '5xl': '3rem',
+      '6xl': '4rem',
+      /*
+      xs: '0.75rem',
+      sm: '0.875rem',
+      md: '1rem',
+      lg: '1.125rem',
+      xl: '1.25rem',
+      '2xl': '1.5rem',
+      '3xl': '1.875rem',
+      '4xl': '2.25rem',
+      '5xl': '3rem',
+      '6xl': '4rem',
+      */
+    },
+    breakpoints: {
+      base: '0em',
+      xs: '300px',
+      sm: '480px', // 30em
+      md: '768px', // 48em
+      lg: '992px', // 62em
+      xl: '1280px', // 80em
+      '2xl': '1536px', // 96em
     },
     colors: {
       transparent: 'transparent',
@@ -141,4 +175,4 @@ export const theme = extendTheme(
       },
     },
   },
-)
+);

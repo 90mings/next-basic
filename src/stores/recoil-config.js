@@ -1,5 +1,5 @@
 import { recoilPersist } from 'recoil-persist';
-import { STROAGE_KEY } from '../constant/common';
+import { STROAGE_KEY } from '@/constants/common';
 
 export const useSessionStorage = true;
 

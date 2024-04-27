@@ -11,9 +11,9 @@ import {
   ModalHeader,
   ModalOverlay,
 } from '@chakra-ui/modal';
-import useModal from '@hooks/useModal';
-import utils from '@utils/index';
-import { CustomIcon, DefaultButton } from '@components/g';
+import useModal from '@/hooks/useModal';
+import utils from '@/utils/index';
+import { CustomIcon, DefaultButton } from '@/components/g';
 
 const AlertModal = () => {
   const { modal, closeModal } = useModal();

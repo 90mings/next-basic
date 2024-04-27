@@ -21,6 +21,10 @@ import {
   AiFillCloseCircle as fillCloseCircle,
 } from 'react-icons/ai';
 import {
+  MdOutlineKeyboardDoubleArrowLeft as doubleArrowLeft,
+  MdOutlineKeyboardDoubleArrowRight as doubleArrowRight,
+} from 'react-icons/md';
+import {
   FaArrowAltCircleRight as fillRightArrowCircle,
   FaPlusCircle as fillPlusCircle,
   FaRegCheckCircle as checkCircle,
@@ -57,6 +61,8 @@ import { VscArrowSwap as swap } from 'react-icons/vsc';
 import { RxDividerVertical as verticalLine } from 'react-icons/rx';
 
 export default {
+  doubleArrowLeft,
+  doubleArrowRight,
   swap,
   arrowDown,
   briefcase,

@@ -1,18 +1,23 @@
 'use client';
 
-import { CustomLoading, Loading, ModalAgent } from '@components/g';
-import { useEffect } from 'react';
+import { CustomLoading, Loading, ModalAgent } from '@/components/g';
+import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { customLoadingState, loadingState } from '@store/common';
-import useModal from '@hooks/useModal';
+import { customLoadingState, loadingState } from '@/store/common';
+import useModal from '@/hooks/useModal';
+import { Box, useTheme, useBreakpointValue, Text } from '@chakra-ui/react';
+import { GText } from '@/components/g';
 
 const WarpPage = ({ children }) => {
+  const theme = useTheme();
+  const themeBreakpoints = useBreakpointValue(theme.breakpoints);
+  const themeFontSize = useBreakpointValue(theme.fontSizes);
+  //
   const [loading, setLoading] = useRecoilState(loadingState);
   const [customLoading, setCustomLoading] = useRecoilState(customLoadingState);
   const { closeModal } = useModal();
 
   const [initPage, setInitPage] = useState(false);
-
   useEffect(() => {
     console.log(`### ${process.env.REACT_APP_NODE_ENV} ###`);
     closeModal();
@@ -22,12 +27,34 @@ const WarpPage = ({ children }) => {
   }, []);
 
   return (
-    <div className="warp-page">
+    <Box className="warp-page" position={'relative'}>
+      <Box
+        position={'absolute'}
+        top={'5px'}
+        left={'5px'}
+        w="200px"
+        h="50px"
+        zIndex={999}
+        borderRadius={'10px'}
+        bg={{
+          base: 'red',
+          xs: 'orange',
+          sm: 'yellow',
+          md: 'green.200',
+          lg: 'blue.200',
+          xl: 'black',
+        }}
+      >
+        <GText textAlign={'center'} fontSize={themeFontSize}>
+          {`${themeBreakpoints}, ${themeFontSize}`}
+        </GText>
+      </Box>
+
       <ModalAgent />
       {loading && <Loading />}
       {customLoading && <CustomLoading />}
       {children}
-    </div>
+    </Box>
   );
 };
 

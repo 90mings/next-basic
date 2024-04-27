@@ -1,6 +1,6 @@
 import { atom } from 'recoil';
 import { persistAtom } from './recoil-config';
-// import {  } from '@constants/common';
+// import {  } from '@/constants/common';
 
 // 로그인 및 회원가입
 export const tempUserInfoState = atom({

@@ -23,12 +23,13 @@ export const FORM_MIN_WIDTH_PX = '1048px';
 export const MODAL_CLOSE_ON_OVERLAY_CLICK = false;
 
 // Storage Key
-export const TOKEN_ID = 'gossok-cs-token';
-export const REF_TOKEN_ID = 'gossok-cs-refresh-token';
-export const STROAGE_USER_INFO = 'gossok-cs-user';
-export const AUTO_LOGIN_KEY = 'gossok-cs-auto-login';
-export const STROAGE_KEY = 'gossok-cs-persist';
-export const STROAGE_LOADING = 'gossok-cs-loading';
+export const PROJECT_NAME = 'eeum';
+export const TOKEN_ID = `${PROJECT_NAME}-token`;
+export const REF_TOKEN_ID = `${PROJECT_NAME}-refresh-token`;
+export const STROAGE_USER_INFO = `${PROJECT_NAME}-user`;
+export const AUTO_LOGIN_KEY = `${PROJECT_NAME}-auto-login`;
+export const STROAGE_KEY = `${PROJECT_NAME}-persist`;
+export const STROAGE_LOADING = `${PROJECT_NAME}-loading`;
 
 // 보여지는 페이지 수
 export const DEFAULT_PAGE_BLOCK = 5;

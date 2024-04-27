@@ -10,8 +10,8 @@ import {
   ModalHeader,
   ModalOverlay,
 } from '@chakra-ui/modal';
-import { CustomIcon, DefaultButton } from '@components/g';
-import useModal from '@hooks/useModal';
+import { CustomIcon, DefaultButton } from '@/components/g';
+import useModal from '@/hooks/useModal';
 
 const ConfirmModal = () => {
   const { modal, closeModal } = useModal();
