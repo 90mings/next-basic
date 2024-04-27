@@ -3,13 +3,34 @@
 import { useEffect, useState, useRef } from 'react';
 import { Box, Flex, HStack, Text } from '@chakra-ui/react';
 import { CustomIcon } from '..';
-import GText from '@/components/g';
+import { GText } from '@/components/g';
+import utils from '@/utils/index';
 
-const SwipeButton = ({ width, height = 110, onSuccess, isOneWay = false }) => {
+const SwipeButton = ({ onSuccess, isOneWay = false }) => {
   useEffect(() => {
     // buttonRef.current.click();
     // buttonRef.current.focus();
+    console.log('width', width);
+    getWidth();
   }, []);
+
+  let width = 0;
+  const height = 110;
+  // 적응형
+  const getWidth = () => {
+    const bp = utils.getBreakpoint();
+    let width = 0;
+    console.log(bp, typeof bp);
+    switch (bp) {
+      case 'sm':
+        width = 500;
+      case 'xs':
+        width = 400;
+      default:
+        width = 620;
+    }
+    // setWidth(width);
+  };
 
   const [isDragging, setIsDragging] = useState(false);
   const [unlock, setUnlock] = useState(false);

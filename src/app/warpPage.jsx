@@ -3,10 +3,11 @@
 import { CustomLoading, Loading, ModalAgent } from '@/components/g';
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { customLoadingState, loadingState } from '@/store/common';
+import { customLoadingState, loadingState } from '@/stores/common';
 import useModal from '@/hooks/useModal';
 import { Box, useTheme, useBreakpointValue, Text } from '@chakra-ui/react';
 import { GText } from '@/components/g';
+import utils from '@/utils/index';
 
 const WarpPage = ({ children }) => {
   const theme = useTheme();
@@ -46,7 +47,7 @@ const WarpPage = ({ children }) => {
         }}
       >
         <GText textAlign={'center'} fontSize={themeFontSize}>
-          {`${themeBreakpoints}, ${themeFontSize}`}
+          {`${themeBreakpoints}, ${themeFontSize}, ${utils.getBreakpoint()}`}
         </GText>
       </Box>
 

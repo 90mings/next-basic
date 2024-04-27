@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useRecoilState } from 'recoil';
-import { modalState } from '@/store/modalRecoil';
+import { modalState } from '@/stores/modalRecoil';
 import utils from '@/utils/index';
 
 const useModal = () => {

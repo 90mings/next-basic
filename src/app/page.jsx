@@ -14,8 +14,13 @@ const Home = () => {
   return (
     <main>
       <Box position={'relative'} h="100vh" bg="#ECFBFF">
-        <Center position={'absolute'} top={20} zIndex={10} w="100%">
-          <Image position={'absolute'} top={0} w="80%" src={SplashTitle.src} />
+        <Center position={'absolute'} top={20} zIndex={10} w={'100%'}>
+          <Image
+            position={'absolute'}
+            top={0}
+            w={{ md: '70%', sm: '70%' }}
+            src={SplashTitle.src}
+          />
         </Center>
 
         <Box
@@ -30,13 +35,13 @@ const Home = () => {
         >
           <Box w="100%" maxH={'500px'} position={'fixed'} bottom={0}>
             <Center w="100%" px={3} pb={'80px'}>
-              <SlideToUnlockButton width={{ md: 620, sm: 500 }} />
+              <SlideToUnlockButton />
             </Center>
 
             <Center w="100%" pb={'116px'}>
               <GText
                 fontWeight={400}
-                fontSize={'30px'}
+                fontSize={{ md: '30px', sm: '28px' }}
                 lineHeight={'36px'}
                 color={'#00000080'}
               >

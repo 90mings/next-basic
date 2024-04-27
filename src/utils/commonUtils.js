@@ -279,28 +279,6 @@ export const handleOnClickAllCheckItem = (
  * @param {Object} target: 비교 할 오브젝트
  * @returns: 비교 전 값 대상으로 비교 후 변경된 값만 추출
  */
-/*
-export const diffObjects = (org, target) => {
-  const diff = {};
-  Object.keys(target).forEach((key) => {
-    if (
-      !Object.prototype.hasOwnProperty.call(org, key) ||
-      target[key] !== org[key]
-    ) {
-      console.log('target[key]', target[key]);
-      diff[key] = target[key];
-    }
-  });
-  return diff;
-};
-*/
-
-/**
- * ## 오브젝트 비교 및 추출
- * @param {Object} org: 비교 전 오브젝트
- * @param {Object} target: 비교 할 오브젝트
- * @returns: 비교 전 값 대상으로 비교 후 변경된 값만 추출
- */
 export const diffObjects = (org, target) => {
   if (target === org) return {};
   if (
@@ -328,7 +306,6 @@ export const diffObjects = (org, target) => {
   });
   return diff;
 };
-
 const deepEqual = (obj1, obj2) => {
   const stringifiedObj1 = JSON.stringify(obj1);
   const stringifiedObj2 = JSON.stringify(obj2);
@@ -742,4 +719,24 @@ const OSInfoDev = () => {
   }
   const OSDev = OSName + OSVers;
   return OSDev;
+};
+
+export const getBreakpoint = () => {
+  const breakpoints = ['base', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'];
+  const width = window.innerWidth;
+  /*
+  base: '0em',
+  xs: '300px',
+  sm: '480px', // 30em
+  md: '768px', // 48em
+  lg: '992px', // 62em
+  xl: '1280px', // 80em
+  '2xl': '1536px', // 96em
+  */
+  if (width < 30 * 16) return breakpoints[1]; // sm
+  if (width < 48 * 16) return breakpoints[2]; // md
+  if (width < 62 * 16) return breakpoints[3]; // lg
+  if (width < 80 * 16) return breakpoints[4]; // xl
+  if (width < 96 * 16) return breakpoints[5]; // 2xl
+  return breakpoints[3]; // md
 };

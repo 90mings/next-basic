@@ -15,7 +15,7 @@ import {
 } from '@/constants/errorCode';
 import utils from '@/utils/index';
 import useModal from '@/hooks/useModal';
-import { loadingState } from '@/store/common';
+import { loadingState } from '@/stores/common';
 
 const apiInstance = axios.create({
   baseURL: API_URL,

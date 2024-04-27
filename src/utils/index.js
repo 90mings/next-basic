@@ -34,6 +34,7 @@ import {
   makeDaysOptionComp,
   getNumberStr,
   copyObject,
+  getBreakpoint,
 } from './commonUtils';
 import {
   parseDateToStr,
@@ -65,6 +66,7 @@ import { getLALOInfo } from './customUtil';
 import { exportNum } from './exportUtil';
 
 const utils = {
+  getBreakpoint,
   exportNum,
   parseRemoveHyphen,
   parseCeil,
