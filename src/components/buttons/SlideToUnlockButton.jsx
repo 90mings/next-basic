@@ -1,36 +1,18 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
-import { Box, Flex, HStack, Text } from '@chakra-ui/react';
-import { CustomIcon } from '..';
-import { GText } from '@/components/g';
-import utils from '@/utils/index';
+import { useState, useRef } from 'react';
+import { Box, HStack } from '@chakra-ui/react';
+import { GText, CustomIcon } from '@/components';
+import { useBreakpointValue } from '@chakra-ui/react';
 
-const SwipeButton = ({ onSuccess, isOneWay = false }) => {
-  useEffect(() => {
-    // buttonRef.current.click();
-    // buttonRef.current.focus();
-    console.log('width', width);
-    getWidth();
-  }, []);
-
-  let width = 0;
-  const height = 110;
-  // 적응형
-  const getWidth = () => {
-    const bp = utils.getBreakpoint();
-    let width = 0;
-    console.log(bp, typeof bp);
-    switch (bp) {
-      case 'sm':
-        width = 500;
-      case 'xs':
-        width = 400;
-      default:
-        width = 620;
-    }
-    // setWidth(width);
-  };
+const SwipeButton = ({
+  width = 620,
+  height = 110,
+  onSuccess,
+  isOneWay = false,
+}) => {
+  // 가변처리
+  const w = useBreakpointValue(width);
 
   const [isDragging, setIsDragging] = useState(false);
   const [unlock, setUnlock] = useState(false);
@@ -56,7 +38,7 @@ const SwipeButton = ({ onSuccess, isOneWay = false }) => {
     if (!isDragging) return;
     const distance = e.touches[0].clientX - startX;
     if (isOneWay) {
-      setSliderX(Math.min(Math.max(0, distance), width));
+      setSliderX(Math.min(Math.max(0, distance), w));
     } else {
       setSliderX(distance);
     }
@@ -71,7 +53,7 @@ const SwipeButton = ({ onSuccess, isOneWay = false }) => {
     if (!isDragging) return;
     const distance = e.clientX - startX;
     if (isOneWay) {
-      setSliderX(Math.min(Math.max(0, distance), width));
+      setSliderX(Math.min(Math.max(0, distance), w));
     } else {
       setSliderX(distance);
     }
@@ -81,13 +63,13 @@ const SwipeButton = ({ onSuccess, isOneWay = false }) => {
     setIsDragging(false);
 
     if (isOneWay) {
-      if (sliderX >= width) {
+      if (sliderX >= w) {
         handleOnSuccess();
       } else {
         setSliderX(0);
       }
     } else {
-      if (Math.abs(sliderX) >= width) {
+      if (Math.abs(sliderX) >= w) {
         handleOnSuccess();
       } else {
         setSliderX(0);
@@ -101,7 +83,7 @@ const SwipeButton = ({ onSuccess, isOneWay = false }) => {
       ref={buttonRef}
       style={{
         boxSizing: 'content-box',
-        width: `${width}px`,
+        width: `${w}px`,
         height: `${height}px`,
         backgroundColor: '#00000066',
         borderRadius: '120px',
@@ -115,7 +97,7 @@ const SwipeButton = ({ onSuccess, isOneWay = false }) => {
         style={{
           boxSizing: 'content-box',
           borderRadius: '120px',
-          width: `${width}px`,
+          width: `${w}px`,
           height: '100%',
           backgroundColor: unlock ? '#496E0B' : '#FEC240',
           transition: 'transform 0.3s ease',

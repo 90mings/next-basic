@@ -18,26 +18,19 @@ const toggleVariant = definePartsStyle((props) => {
   const { colorScheme: c } = props; // extract colorScheme from component props
   return {
     tablist: {
-      // tabSize: 'sm',
       boxSizing: 'border-box',
     },
     tab: {
       boxSizing: 'border-box',
       _first: {
-        borderLeftRadius: '6px',
+        borderLeftRadius: '10px',
       },
       _last: {
-        borderRightRadius: '6px',
+        borderRightRadius: '10px',
       },
-      bg: 'rgba(229, 230, 233, 1)',
-      color: 'rgba(0, 9, 32, 0.5)',
-      border: '1px solid',
-      borderColor: 'rgba(229, 230, 233, 1)',
+      border: '0px solid',
       _selected: {
-        bg: '#fff',
         border: '1px solid',
-        borderColor: 'rgba(0, 9, 32, 1)',
-        color: 'rgba(0, 9, 32, 1)',
       },
     },
     tabpanel: {},

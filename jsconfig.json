@@ -6,7 +6,7 @@
       "@/images/*": ["/public/images/*"],
       "@/svgs/*": ["/public/svgs/*"],
       "@/styles/g/*": ["/src/styles/*"],
-      "@/components/g": ["/src/components/index"],
+      "@/components": ["/src/components/index"],
       "@/hooks/*": ["/src/hooks/*"],
       "@/stores/*": ["/src/stores/*"],
       "@/utils/*": ["/src/utils/*"],

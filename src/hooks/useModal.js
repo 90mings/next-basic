@@ -1,7 +1,9 @@
+'use client';
+
 import { useCallback } from 'react';
 import { useRecoilState } from 'recoil';
-import { modalState } from '@/stores/modalRecoil';
 import utils from '@/utils/index';
+import { modalState } from '@/stores/modalRecoil';
 
 const useModal = () => {
   const [modal, setModal] = useRecoilState(modalState);
@@ -28,6 +30,9 @@ const useModal = () => {
               closeModal();
             },
         onCancelText: props.onCancelText || '취소',
+        // custom options
+        status: props.status || 0,
+        step: props.step || 1,
       });
     },
     [setModal],

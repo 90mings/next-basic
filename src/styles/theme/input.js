@@ -6,12 +6,14 @@ const { definePartsStyle, defineMultiStyleConfig } =
 
 const baseStyle = definePartsStyle({
   field: {
-    color: 'rgba(0, 9, 32, 1)',
+    color: '#000',
     border: '1px solid',
-    borderColor: '#E3E8F1 !important',
+    borderColor: '#E3E8F1',
     background: '#FFF',
-    // borderRadius: 'full',
     borderRadius: '4px',
+    _placeholder: {
+      color: '#C7C8CE',
+    },
     _disabled: {
       opacity: 1,
       bg: 'rgba(245, 247, 251, 1)',
@@ -29,7 +31,7 @@ const baseStyle = definePartsStyle({
 
 const simpleStyle = definePartsStyle({
   field: {
-    color: 'rgba(0, 9, 32, 1)',
+    color: '#000',
     border: '0px solid',
     borderColor: '#E3E8F1 !important',
     background: '#FFF',

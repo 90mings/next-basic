@@ -1,3 +1,5 @@
+'use client';
+
 import { Icon } from '@chakra-ui/react';
 import icons from './index';
 

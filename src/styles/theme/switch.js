@@ -8,14 +8,30 @@ const baseStyle = definePartsStyle({
   // define the part you're going to style
   container: {
     // ...
+    // width: '100px',
+    // height: '60px',
+    // size: 'lg',
+    width: '100px',
+    height: '60px',
   },
   thumb: {
     bg: '#FFF',
+    mt: '7px',
+    ml: '3px',
+    w: '44px',
+    h: '44px',
+    _checked: {
+      bg: '#FFF',
+      transform: 'translateX(50px)',
+    },
   },
   track: {
-    bg: '#E3E8F1',
+    width: '100px',
+    height: '60px',
+    bg: '#466E05',
+    // bg: 'red',
     _checked: {
-      bg: 'positive.default',
+      bg: '#75B125',
     },
   },
 });

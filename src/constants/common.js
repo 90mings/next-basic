@@ -11,10 +11,10 @@ export const KAKAOTALK_INQUIRY_LINK = 'https://pf.kakao.com/_xgypVb/chat';
 export const HELP_PHONE_NUM = '01086034022';
 
 // 공통 상수
-export const USER_TYPE_BIZ = 1;
-export const USER_TYPE_PARTNER = 2;
-export const USER_TYPE_CUSTOMER = 3;
-export const USER_TYPE_NON_MEMBER = 4;
+export const TYPE_RING_SOUND = 1; // 링사운드
+export const TYPE_SUBJECT = 2; // 주제
+export const TYPE_CONSONANT = 3; // 자음
+export const TYPE_VOWEL = 4; // 모음
 
 export const FORM_MIN_WIDTH_PX = '1048px';
 
@@ -51,83 +51,9 @@ export const TERMINAL_KIND_VALUE_LIST = ['', '버스', '기차', '공항'];
 
 export const NOTIFICATION_FLAG = 2;
 
-export const DELIVERY_WEIGHT_LIST = [
-  '0~5kg',
-  '5~10kg',
-  '10~15kg',
-  '15~20kg',
-  '20~25kg',
-  '25~30kg',
-  '30kg~',
-];
-
 export const BIZ_USER_TYPE = ['기업', '고객'];
 
 export const DELIVERY_PACKAGE_TYPE_LIST = ['박스', '서류', '가방', '직접입력'];
-
-export const DELIVERY_CATEGORY_LIST = [
-  '농/수/축산물',
-  '가공식품/음료',
-  '화훼류',
-  '의류/패션잡화',
-  '의료/약류',
-  '서류',
-  '기타',
-];
-
-export const PAYMENT_STATUS_LIST = [
-  '미결제',
-  '결제대기',
-  '결제완료',
-  '결제취소',
-];
-
-export const DELIVERY_STATUS_LIST = [
-  '접수신청',
-  '접수완료',
-  '출발지 픽업중',
-  '출발 터미널 도착',
-  '터미널 간 이동',
-  '도착 터미널 도착',
-  '도착지 배송중',
-  '배송완료',
-  '접수취소',
-];
-
-export const DELIVERY_INFO_LIST = [
-  '접수신청',
-  '접수완료',
-  '출발지 픽업중',
-  '출발 터미널 도착',
-  '터미널 간 이동',
-  '도착 터미널 도착',
-  '도착지 배송중',
-  '배송완료',
-];
-
-export const DELIVERY_PAYMENT_PAYER_LIST = ['보내는분(발신)', '받는분(수신)'];
-
-export const DELIVERY_PAYMENT_METHOD_LIST = [
-  '예치금',
-  '카드',
-  '무통장',
-  '카드(자동결제)',
-];
-
-export const DELIVERY_PAYMENT_EXTRA_LIST = [
-  '물품 갯수 추가',
-  '물품 부피 상이',
-  '물품 무게 상이',
-  '기상 악화',
-  '시간 할증',
-  '수취인 부재',
-  '배송지 불일치',
-  '배송지 변경',
-  '기타(입력)',
-];
-
-// 1 전체, 2 미정산
-export const DEFAULT_UNPAID_FEE_FLAG = 1;
 
 // 은행 목록
 export const BANK_LIST = [

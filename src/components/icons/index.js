@@ -11,7 +11,7 @@ import {
   AiOutlineRight as right,
   AiOutlineMenu as more,
   AiOutlineUser as account,
-  AiOutlineArrowLeft as arrowLeft,
+  // AiOutlineArrowLeft as arrowLeft,
   AiOutlineArrowDown as arrowDown,
   AiFillCaretDown as downArrow,
   AiFillCaretUp as upArrow,
@@ -23,9 +23,11 @@ import {
 import {
   MdOutlineKeyboardDoubleArrowLeft as doubleArrowLeft,
   MdOutlineKeyboardDoubleArrowRight as doubleArrowRight,
+  MdArrowBackIosNew as back,
+  MdOutlineChevronRight as next,
 } from 'react-icons/md';
 import {
-  FaArrowAltCircleRight as fillRightArrowCircle,
+  // FaArrowAltCircleRight as fillRightArrowCircle,
   FaPlusCircle as fillPlusCircle,
   FaRegCheckCircle as checkCircle,
   FaCheckCircle as fillCheckCircle,
@@ -37,6 +39,9 @@ import {
   BiCheckSquare as checkSquare,
   BiChevronDown as down,
 } from 'react-icons/bi';
+
+import { IoIosArrowBack as arrowLeft } from 'react-icons/io';
+
 import { IoWarningSharp as fillWarning } from 'react-icons/io5';
 import {
   FiPlusCircle as plusCircle,
@@ -52,6 +57,12 @@ import {
   RiEdit2Line as edit,
   RiPrinterLine as print,
   RiVipDiamondLine as diamond,
+  RiFlag2Fill as flag,
+  RiRestartFill as restartFill,
+  RiPlayCircleFill as playFill,
+  RiPauseCircleFill as pauseFill,
+  RiArrowRightCircleFill as fillRightArrowCircle,
+  RiVerifiedBadgeFill as verifiedFill,
 } from 'react-icons/ri';
 
 import { PiPaperPlaneTilt as plane } from 'react-icons/pi';
@@ -61,6 +72,13 @@ import { VscArrowSwap as swap } from 'react-icons/vsc';
 import { RxDividerVertical as verticalLine } from 'react-icons/rx';
 
 export default {
+  verifiedFill,
+  pauseFill,
+  playFill,
+  restartFill,
+  flag,
+  back,
+  next,
   doubleArrowLeft,
   doubleArrowRight,
   swap,

@@ -7,10 +7,12 @@ const DefaultButton = (props) => {
 
   const {
     size = 'md',
-    fontSize = '16px',
-    fontWeight = 400,
+    fontSize = '38px',
+    fontWeight = 600,
     lineHeight,
   } = props;
+
+  const { borderRadius, borderColor, bg } = props;
   const { id, text = '버튼' } = props;
 
   const { onClick, active, isDisabled = false } = props;
@@ -25,16 +27,19 @@ const DefaultButton = (props) => {
 
   return (
     <Button
+      w={'100%'}
+      h={'100%'}
       id={id}
       onClick={onClick}
       isDisabled={isDisabled}
-      bg={`${tempTheme}.default`}
+      bg={bg || `${tempTheme}.default`}
       _hover={{}}
       _active={{
-        bg: isDisabled ? '' : `${tempTheme}.activeColor`,
+        bg: isDisabled ? '' : bg ? '' : `${tempTheme}.activeColor`,
       }}
       color={`${tempTheme}.fontColor`}
-      borderColor={`${tempTheme}.borderColor`}
+      borderRadius={borderRadius}
+      borderColor={borderColor || `${tempTheme}.borderColor`}
       size={size}
       _disabled={{
         cursor: isDisabled ? 'not-allowed' : 'pointer',

@@ -5,7 +5,7 @@ export const modalState = atom({
   default: {
     type: 'alert',
     isOpen: false,
-    isClose: true,
+    isClose: false,
     title: '',
     text: '',
     textOptions: [],
@@ -14,5 +14,8 @@ export const modalState = atom({
     onCancel: () => {},
     onCancelText: '취소',
     response: {},
+    // custom
+    status: 0,
+    step: 0,
   },
 });

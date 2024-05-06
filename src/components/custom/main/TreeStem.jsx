@@ -1,0 +1,113 @@
+'use client';
+
+import { Box, Center, Image } from '@chakra-ui/react';
+import LeafSvgs from '@/svgs/leaf/index';
+
+const TreeStem = (props) => {
+  return (
+    <Box w="678.36px" h="496px" position={'relative'}>
+      <Image
+        className="leaf01"
+        zIndex={3}
+        position={'absolute'}
+        left={'129.4px'}
+        bottom={'26.59px'}
+        w="361.02px"
+        h="273.86px"
+        src={LeafSvgs.leaf01}
+      />
+      <Image
+        className="leaf02"
+        zIndex={4}
+        position={'absolute'}
+        top={'162.42px'}
+        left={0}
+        w="231.79px"
+        h="205.36px"
+        src={LeafSvgs.leaf02}
+      />
+      <Image
+        className="leaf03"
+        zIndex={4}
+        position={'absolute'}
+        top={'22px'}
+        right={'116.37px'}
+        w="214px"
+        h="183px"
+        src={LeafSvgs.leaf03}
+      />
+      <Image
+        className="leaf04"
+        zIndex={2}
+        position={'absolute'}
+        top={0}
+        left={'163.31px'}
+        w="316.26px"
+        h="275.88px"
+        src={LeafSvgs.leaf04}
+      />
+      <Image
+        className="leaf05"
+        zIndex={4}
+        position={'absolute'}
+        top={'137px'}
+        right="8.37px"
+        w="229px"
+        h="219px"
+        src={LeafSvgs.leaf05}
+      />
+      <Image
+        className="leaf06"
+        zIndex={5}
+        position={'absolute'}
+        left="37.99px"
+        bottom={'43.01px'}
+        w="154px"
+        h="175px"
+        src={LeafSvgs.leaf06}
+      />
+      <Image
+        className="leaf07"
+        zIndex={2}
+        position={'absolute'}
+        bottom={0}
+        right={'144.34px'}
+        w="201.3px"
+        h="140.07px"
+        src={LeafSvgs.leaf07}
+      />
+      <Image
+        className="leaf08"
+        zIndex={5}
+        position={'absolute'}
+        top={'56px'}
+        left={'77.99px'}
+        w="207px"
+        h="193px"
+        src={LeafSvgs.leaf08}
+      />
+      <Image
+        className="leaf09"
+        zIndex={5}
+        position={'absolute'}
+        top={'96px'}
+        right={'115.37px'}
+        w="167px"
+        h="187px"
+        src={LeafSvgs.leaf09}
+      />
+      <Image
+        className="leaf10"
+        zIndex={1}
+        position={'absolute'}
+        bottom={'33.43px'}
+        right={0}
+        w="217.37px"
+        h="171.58px"
+        src={LeafSvgs.leaf10}
+      />
+    </Box>
+  );
+};
+
+export default TreeStem;

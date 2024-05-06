@@ -1,3 +1,46 @@
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-M';
+  src: url('/fonts/fonts/Pretendard-Medium.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-L';
+  src: url('/fonts/fonts/Pretendard-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+* {
+  font-family: 'Pretendard', sans-serif;
+  /* // font-family: 'Noto Sans KR', sans-serif !important; */
+  /* // font-family: 'Pretendard', sans-serif !important; */
+}
+
+:root {
+  --xs-width: 300px;
+  --sm-width: 480px;
+  --md-width: 768px;
+  --lg-width: 992px;
+  /*
+  base: '0em',
+  xs: '300px',
+  sm: '480px', // 30em
+  md: '768px', // 48em
+  lg: '992px', // 62em
+  xl: '1280px', // 80em
+  '2xl': '1536px', // 96em
+  */
+}
+
 html,
 body {
   min-height: 100vh;
@@ -12,11 +55,13 @@ body {
 
 main {
   width: 100%;
+  min-height: 100vh;
   height: 100%;
+  position: relative;
 }
 
 .warp-page {
-  min-height: 600px;
+  /* min-height: 600px; */
   height: 100%;
   max-height: 100vh;
 }

@@ -9,6 +9,14 @@ import {
 
 import clipboardCopy from 'clipboard-copy';
 
+export const isClient = () => {
+  if (typeof window !== 'undefined') {
+    return true;
+  } else {
+    return false;
+  }
+};
+
 export const removeAppStorage = () => {
   removeLocalItem('recoil-persist');
   removeSessionItem('recoil-persist');
@@ -330,17 +338,26 @@ export const getPageContentNum = (
 };
 
 export const getNumberStr = (value) => {
+  if (!isClient()) {
+    return;
+  }
   if (isEmpty(value)) return value;
   const tempValue = value.match(/\d+/g).map(Number);
   return tempValue.join().replace(/,/g, '');
 };
 
 export const checkEmail = (value) => {
+  if (!isClient()) {
+    return;
+  }
   const regex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
   return regex.test(value);
 };
 
 export const checkPhoneNum = (value) => {
+  if (!isClient()) {
+    return;
+  }
   if (isEmpty(value)) return;
   const cleaned = `${value}`.replace(/\D/g, '');
   const regex1 = /^(\d{3,4})(\d{3,4})(\d{4})$/;
@@ -365,7 +382,9 @@ export const checkPassword = (pw) => {
 };
 
 export const handleClickEvent = (event, target, data) => {
-  console.log('handleClickEvent', event);
+  if (!isClient()) {
+    return;
+  }
   // e.stopPropagation();
   if (target === 'check') {
     console.log('check');
@@ -392,6 +411,9 @@ export const handleClickEvent = (event, target, data) => {
  * @returns
  */
 export const removeNullValues = (obj) => {
+  if (!isClient()) {
+    return;
+  }
   const tempObj = { ...obj };
   Object.keys(tempObj).forEach((key) => {
     if (isEmpty(tempObj[key]) || tempObj[key] === 0) {
@@ -410,6 +432,9 @@ export const removeNullValues = (obj) => {
 };
 
 export const isNotEmpty = (value) => {
+  if (!isClient()) {
+    return;
+  }
   if (value === null) return false;
   if (value === undefined) return false;
   if (typeof value === 'undefined') return false;
@@ -430,10 +455,16 @@ export const isNotEmpty = (value) => {
 };
 
 export const isEmpty = (value) => {
+  if (!isClient()) {
+    return;
+  }
   return !isNotEmpty(value);
 };
 
 export const copyObject = (obj) => {
+  if (!isClient()) {
+    return;
+  }
   const copiedObj = {};
   Object.keys(obj).forEach((key) => {
     copiedObj[key] = typeof obj[key] === 'string' ? '' : 0;
@@ -442,6 +473,9 @@ export const copyObject = (obj) => {
 };
 
 export const copyToClipboard = async (text) => {
+  if (!isClient()) {
+    return;
+  }
   const result = await clipboardCopy(text)
     .then(() => {
       return true;
@@ -454,6 +488,9 @@ export const copyToClipboard = async (text) => {
 };
 
 export const makeDaysOptionComp = () => {
+  if (!isClient()) {
+    return;
+  }
   const numbers = Array.from({ length: 31 }, (_, index) => {
     return index + 1;
   });
@@ -471,6 +508,9 @@ export const makeDaysOptionComp = () => {
 };
 
 export const downloadUrlFile = async (url, filename) => {
+  if (!isClient()) {
+    return;
+  }
   const result = await fetch(url)
     .then((response) => {
       return response.blob();
@@ -494,6 +534,9 @@ export const downloadUrlFile = async (url, filename) => {
 export const uploadExcelToExportData = () => {};
 
 export const isMobile = () => {
+  if (!isClient()) {
+    return;
+  }
   if (OSInfo().osType === 1) {
     return false;
   }
@@ -513,6 +556,9 @@ export const isMobile = () => {
 };
 
 export const OSInfo = () => {
+  if (!isClient()) {
+    return;
+  }
   const osInfo = {
     osType: null, // 사용자 운영체제(1:web, 2:mobile, 3:web&mobile)
     mobileOsType: null, // 사용자 모바일 운영체제(1:iOS, 2:AOS) - 모바일 사용자만 필수
@@ -569,6 +615,9 @@ export const OSInfo = () => {
 };
 
 const OSInfoDev = () => {
+  if (!isClient()) {
+    return;
+  }
   const agent = navigator.userAgent;
   const AgentUserOs = agent.replace(/ /g, '');
   const OsNo = agent.toLowerCase();
@@ -722,17 +771,20 @@ const OSInfoDev = () => {
 };
 
 export const getBreakpoint = () => {
+  if (!isClient()) {
+    return;
+  }
   const breakpoints = ['base', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'];
   const width = window.innerWidth;
   /*
-  base: '0em',
-  xs: '300px',
-  sm: '480px', // 30em
-  md: '768px', // 48em
-  lg: '992px', // 62em
-  xl: '1280px', // 80em
-  '2xl': '1536px', // 96em
-  */
+    base: '0em',
+    xs: '300px',
+    sm: '480px', // 30em
+    md: '768px', // 48em
+    lg: '992px', // 62em
+    xl: '1280px', // 80em
+    '2xl': '1536px', // 96em
+    */
   if (width < 30 * 16) return breakpoints[1]; // sm
   if (width < 48 * 16) return breakpoints[2]; // md
   if (width < 62 * 16) return breakpoints[3]; // lg

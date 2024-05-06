@@ -1,17 +1,5 @@
 import { Tooltip } from '@chakra-ui/react';
 import {
-  DELIVERY_CATEGORY_LIST,
-  DELIVERY_PACKAGE_TYPE_LIST,
-  DELIVERY_PAYMENT_METHOD_LIST,
-  DELIVERY_STATUS_LIST,
-  DELIVERY_WEIGHT_LIST,
-  PAYMENT_STATUS_LIST,
-  USER_TYPE_BIZ,
-  USER_TYPE_CUSTOMER,
-  USER_TYPE_NON_MEMBER,
-  USER_TYPE_PARTNER,
-} from '@/constants/common';
-import {
   copyToClipboard,
   isEmpty,
   isNotEmpty,
@@ -231,164 +219,18 @@ export const parseCeil = (amount) => {
   return Math.ceil(Number(amount) / 100) * 100;
 };
 
-export const parseTerminalType = (terminalType) => {
-  switch (terminalType) {
-    case 1:
-      return '터미널';
-    case 2:
-      return '정류장';
-    default:
-      return '';
-  }
-};
-
-export const parseTerminalKind = (terminalKind) => {
-  switch (terminalKind) {
-    case 1:
-      return '버스';
-    case 2:
-      return '기차';
-    case 3:
-      return '항공';
-    default:
-      return '';
-  }
-};
-
-export const parseAddressText = (main, sub, splitLength = 12) => {
-  const tempMain = isEmpty(main) ? '' : main;
-  const tempSub = isEmpty(sub) ? '' : sub;
-  const longText = `${tempMain} ${tempSub.length > 0 ? tempSub : ''}`;
-  if (longText.length > splitLength) {
-    return parseLongText(longText, splitLength);
-  }
-  return longText;
-};
-export const parseSelectAddressText = (addressItem) => {
-  const addrTypeValue = addressItem.addrType === 1 ? ' (픽업)' : ' (탁송)';
-  if (addressItem.baseAddrFlag === 1) {
-    return addressItem.addrRegist + addrTypeValue;
-  }
-  return addressItem.addrRegist;
-};
-
-export const parsePaymentStatus = (status) => {
-  const tempStatus = Number(status);
-  if (tempStatus === 0) return '';
-  return PAYMENT_STATUS_LIST[tempStatus - 1];
-};
-
-export const parsePaymentMethod = (status) => {
-  const tempStatus = Number(status);
-  if (tempStatus === 0) return '';
-  return DELIVERY_PAYMENT_METHOD_LIST[tempStatus - 1];
-};
-
-export const parseDeliveryStatus = (status) => {
-  const tempStatus = Number(status);
-  if (tempStatus === 0) return '';
-  return DELIVERY_STATUS_LIST[tempStatus - 1];
-};
-
-export const parseRoleValue = (role) => {
-  switch (role) {
-    case 1:
-      return '통합 관리자';
-    case 2:
-      return '관리자';
-    case 3:
-      return '통합 담당자';
-    case 4:
-      return '담당자';
-    default:
-      return '권한';
-  }
-};
-
 export const parseClipBoardForExcel = async (userType, datas) => {
   try {
     const text = datas
       .map((targetData) => {
         const data = removeNullValues(targetData);
-
         Object.keys(data).forEach((key) => {
           if (typeof data[key] === 'string') {
             data[key] = data[key].replace(/\r?\n/g, '');
           }
         });
-
         const row = [];
-        row.push(data.deliveryNo);
-        row.push(parseDateToStr(data.createdTime, '', true));
-        row.push(
-          isNotEmpty(data.reservationDateTime)
-            ? parseTimeToTM(data.reservationDateTime)
-            : '',
-        );
-
-        if (userType === USER_TYPE_PARTNER) {
-          row.push(data.partnerUserTerminalName || '');
-          row.push(data.partnerUserName || '');
-        } else if (userType === USER_TYPE_BIZ) {
-          row.push(data.companyName || '');
-          row.push(data.bizUserDivision || '');
-        } else if (
-          userType === USER_TYPE_NON_MEMBER ||
-          userType === USER_TYPE_CUSTOMER
-        ) {
-          row.push(data.normalUserName || '');
-          row.push(data.normalUserPhoneNum || '');
-        }
-
-        row.push(data.senderName || '');
-        row.push(data.senderPhoneNum || '');
-        row.push(data.senderMainAddr || '');
-        if (isNotEmpty(data.senderSubAddr)) {
-          row[row.length - 1] += ` ${data.senderSubAddr}`;
-        }
-
-        row.push(data.receiverName || '');
-        row.push(data.receiverPhoneNum || '');
-        row.push(data.receiverMainAddr || '');
-        if (isNotEmpty(data.receiverSubAddr)) {
-          row[row.length - 1] += ` ${data.receiverSubAddr}`;
-        }
-
-        row.push(data.departureTerminalName || '');
-        row.push(data.arrivalTerminalName || '');
-        row.push(data.packageType || '');
-        row.push(data.count || 0);
-        row.push(
-          isNotEmpty(data.weight)
-            ? DELIVERY_WEIGHT_LIST[Number(data.weight) - 1]
-            : '',
-        );
-        row.push(
-          isNotEmpty(data.itemCategory)
-            ? DELIVERY_CATEGORY_LIST[Number(data.itemCategory) - 1]
-            : '',
-        );
-        row.push(data.item || '');
-        row.push(data.itemAmount || 0);
-        row.push(data.firstAmount || 0);
-        row.push(data.secondAmount || 0);
-        row.push(data.thirdAmount || 0);
-        row.push(data.totalAmount || 0);
-        row.push(data.payerFlag === 1 ? '보내는분' : '받는분');
-        row.push(
-          isNotEmpty(data.payMethod) ? parsePaymentMethod(data.payMethod) : '',
-        );
-        row.push(
-          isNotEmpty(data.paymentStatus)
-            ? parsePaymentStatus(data.paymentStatus)
-            : '',
-        );
-        row.push(
-          isNotEmpty(data.deliveryStatus)
-            ? parseDeliveryStatus(data.deliveryStatus)
-            : '',
-        );
-
+        row.push('data');
         return row.join('\t');
       })
       .join('\n');

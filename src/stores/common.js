@@ -40,3 +40,9 @@ export const checkedItemsState = atom({
   key: 'checkedItemsState',
   default: [],
 });
+
+// service common
+export const listenTypeState = atom({
+  key: 'listenTypeState',
+  default: 0, // 0: 여성음성, 1: 남성음성
+});

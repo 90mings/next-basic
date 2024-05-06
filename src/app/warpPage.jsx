@@ -1,12 +1,11 @@
 'use client';
 
-import { CustomLoading, Loading, ModalAgent } from '@/components/g';
+import { CustomLoading, Loading, ModalAgent, GText } from '@/components';
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { customLoadingState, loadingState } from '@/stores/common';
 import useModal from '@/hooks/useModal';
 import { Box, useTheme, useBreakpointValue, Text } from '@chakra-ui/react';
-import { GText } from '@/components/g';
 import utils from '@/utils/index';
 
 const WarpPage = ({ children }) => {
@@ -29,6 +28,7 @@ const WarpPage = ({ children }) => {
 
   return (
     <Box className="warp-page" position={'relative'}>
+      {/*
       <Box
         position={'absolute'}
         top={'5px'}
@@ -50,6 +50,7 @@ const WarpPage = ({ children }) => {
           {`${themeBreakpoints}, ${themeFontSize}, ${utils.getBreakpoint()}`}
         </GText>
       </Box>
+      */}
 
       <ModalAgent />
       {loading && <Loading />}

@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, HStack } from '@chakra-ui/layout';
 import { Text, VStack, Center, CircularProgress } from '@chakra-ui/react';
 

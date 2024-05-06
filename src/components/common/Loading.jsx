@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, HStack } from '@chakra-ui/layout';
 import { Spinner } from '@chakra-ui/spinner';
 
