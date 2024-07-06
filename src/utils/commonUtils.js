@@ -1,13 +1,20 @@
+'use client';
+
 import {
-  AUTO_LOGIN_KEY,
-  REF_TOKEN_ID,
   STROAGE_KEY,
   STROAGE_LOADING,
+  STROAGE_ADMIN_TOKEN_ID,
+  STROAGE_ADMIN_REF_TOKEN_ID,
+  STROAGE_ADMIN_USER_INFO,
+  STROAGE_ADMIN_AUTO_LOGIN_KEY,
   STROAGE_USER_INFO,
-  TOKEN_ID,
+  STROAGE_TOKEN_ID,
+  STROAGE_REF_TOKEN_ID,
+  STROAGE_AUTO_LOGIN_KEY,
 } from '@/constants/common';
 
 import clipboardCopy from 'clipboard-copy';
+import { STROAGE_FCM_TOKEN_ID } from 'src/constants/common';
 
 export const isClient = () => {
   if (typeof window !== 'undefined') {
@@ -17,21 +24,41 @@ export const isClient = () => {
   }
 };
 
+export const setBridge = () => {
+  if (!isClient()) return;
+  const scriptBridge = document.createElement('script');
+  scriptBridge.src = '/bridgeReturn.js';
+  scriptBridge.onload = () => {
+    if (process.env.NEXT_PUBLIC_NODE_ENV === 'development') {
+      console.log('bridgeReturn');
+    }
+  };
+  document.body.appendChild(scriptBridge);
+  const scriptMinterface = document.createElement('script');
+  scriptMinterface.src = '/minterface.js';
+  scriptMinterface.onload = () => {
+    if (process.env.NEXT_PUBLIC_NODE_ENV === 'development') {
+      console.log('minterface');
+    }
+  };
+  document.body.appendChild(scriptMinterface);
+};
+
 export const removeAppStorage = () => {
   removeLocalItem('recoil-persist');
   removeSessionItem('recoil-persist');
   removeLocalItem(STROAGE_USER_INFO);
-  removeLocalItem(AUTO_LOGIN_KEY);
+  removeLocalItem(STROAGE_AUTO_LOGIN_KEY);
   removeLocalItem(STROAGE_KEY);
   removeLocalItem(STROAGE_LOADING);
-  removeLocalItem(TOKEN_ID);
-  removeLocalItem(REF_TOKEN_ID);
+  removeLocalItem(STROAGE_TOKEN_ID);
+  removeLocalItem(STROAGE_REF_TOKEN_ID);
   removeSessionItem(STROAGE_USER_INFO);
-  removeSessionItem(AUTO_LOGIN_KEY);
+  removeSessionItem(STROAGE_AUTO_LOGIN_KEY);
   removeSessionItem(STROAGE_KEY);
   removeSessionItem(STROAGE_LOADING);
-  removeSessionItem(TOKEN_ID);
-  removeSessionItem(REF_TOKEN_ID);
+  removeSessionItem(STROAGE_TOKEN_ID);
+  removeSessionItem(STROAGE_REF_TOKEN_ID);
 };
 
 // 유저정보
@@ -53,20 +80,63 @@ export const setUserInfo = (id, pw) => {
     }),
   );
 };
-
-// 자동로그인
-export const getAutoLogin = () => {
-  const result = getLocalItem(AUTO_LOGIN_KEY);
+export const getAdminUserInfo = () => {
+  const result = getLocalItem(STROAGE_ADMIN_USER_INFO);
   if (result) {
     if (typeof result === 'string') {
       return JSON.parse(result);
     }
     return result;
   }
-  return false;
+};
+export const setAdminUserInfo = (id, pw) => {
+  setLocalItem(
+    STROAGE_ADMIN_USER_INFO,
+    JSON.stringify({
+      id,
+      pw,
+    }),
+  );
+};
+
+// fmcToken
+export const getFcmToken = () => {
+  const result = getSessionItem(STROAGE_FCM_TOKEN_ID);
+  if (result) {
+    if (typeof result === 'string') {
+      return JSON.parse(result);
+    }
+    return result;
+  }
+};
+export const setFcmToken = (value) => {
+  setSessionItem(STROAGE_FCM_TOKEN_ID, JSON.stringify(value));
+};
+
+// 자동로그인
+export const getAutoLogin = () => {
+  const result = getLocalItem(STROAGE_AUTO_LOGIN_KEY);
+  if (result) {
+    if (typeof result === 'string') {
+      return JSON.parse(result);
+    }
+    return result;
+  }
 };
 export const setAutoLogin = (value) => {
-  setLocalItem(AUTO_LOGIN_KEY, JSON.stringify(value));
+  setLocalItem(STROAGE_AUTO_LOGIN_KEY, JSON.stringify(value));
+};
+export const getAdminAutoLogin = () => {
+  const result = getLocalItem(STROAGE_ADMIN_AUTO_LOGIN_KEY);
+  if (result) {
+    if (typeof result === 'string') {
+      return JSON.parse(result);
+    }
+    return result;
+  }
+};
+export const setAdminAutoLogin = (value) => {
+  setLocalItem(STROAGE_ADMIN_AUTO_LOGIN_KEY, JSON.stringify(value));
 };
 
 // 로딩
@@ -82,23 +152,40 @@ export const inActiveLoading = () => {
 
 // 토큰
 export const setAccessToken = (value) => {
-  setLocalItem(TOKEN_ID, value);
+  setLocalItem(STROAGE_TOKEN_ID, value);
 };
 export const getAccessToken = () => {
-  return getLocalItem(TOKEN_ID);
+  return getLocalItem(STROAGE_TOKEN_ID);
 };
 export const getRefreshToken = () => {
-  return getLocalItem(REF_TOKEN_ID);
+  return getLocalItem(STROAGE_REF_TOKEN_ID);
 };
 export const setRefreshToken = (value) => {
-  setLocalItem(REF_TOKEN_ID, value);
+  setLocalItem(STROAGE_REF_TOKEN_ID, value);
 };
 export const removeAccessToken = (value) => {
-  removeLocalItem(TOKEN_ID, value);
+  removeLocalItem(STROAGE_TOKEN_ID, value);
 };
-
 export const removeRefreshToken = (value) => {
-  removeLocalItem(REF_TOKEN_ID, value);
+  removeLocalItem(STROAGE_REF_TOKEN_ID, value);
+};
+export const setAdminAccessToken = (value) => {
+  setSessionItem(STROAGE_ADMIN_TOKEN_ID, value);
+};
+export const getAdminAccessToken = () => {
+  return getSessionItem(STROAGE_ADMIN_TOKEN_ID);
+};
+export const getAdminRefreshToken = () => {
+  return getSessionItem(STROAGE_ADMIN_REF_TOKEN_ID);
+};
+export const setAdminRefreshToken = (value) => {
+  setSessionItem(STROAGE_ADMIN_REF_TOKEN_ID, value);
+};
+export const removeAdminAccessToken = (value) => {
+  removeLocalItem(STROAGE_ADMIN_TOKEN_ID, value);
+};
+export const removeAdminRefreshToken = (value) => {
+  removeLocalItem(STROAGE_ADMIN_REF_TOKEN_ID, value);
 };
 
 // 저장소
@@ -369,9 +456,11 @@ export const checkPhoneNum = (value) => {
   if (regex2.test(cleaned)) {
     return true;
   }
+  /*
   if (regex3.test(cleaned)) {
     return true;
   }
+  */
   return false;
 };
 
@@ -465,10 +554,24 @@ export const copyObject = (obj) => {
   if (!isClient()) {
     return;
   }
-  const copiedObj = {};
-  Object.keys(obj).forEach((key) => {
-    copiedObj[key] = typeof obj[key] === 'string' ? '' : 0;
-  });
+  let copiedObj = null;
+  if (obj.length > 1) {
+    copiedObj = JSON.parse(JSON.stringify(obj));
+  } else {
+    copiedObj = {};
+    Object.keys(obj).forEach((key) => {
+      copiedObj[key] = typeof obj[key] === 'string' ? '' : 0;
+    });
+  }
+  return copiedObj;
+};
+
+export const changeObject = (obj, key, value) => {
+  if (!isClient()) {
+    return;
+  }
+  const copiedObj = copyObject(obj);
+  copiedObj[key] = value;
   return copiedObj;
 };
 
@@ -533,28 +636,6 @@ export const downloadUrlFile = async (url, filename) => {
 
 export const uploadExcelToExportData = () => {};
 
-export const isMobile = () => {
-  if (!isClient()) {
-    return;
-  }
-  if (OSInfo().osType === 1) {
-    return false;
-  }
-  return true;
-  /*
-  const { userAgent } = navigator;
-  if (
-    userAgent.match(
-      /iPhone|iPod|Android|Windows CE|BlackBerry|Symbian|Windows Phone|webOS|Opera Mini|Opera Mobi|POLARIS|IEMobile|lgtelecom|nokia|SonyEricsson/i,
-    ) != null ||
-    userAgent.match(/LG|SAMSUNG|Samsung/) != null
-  ) {
-    return true;
-  }
-  return false;
-  */
-};
-
 export const OSInfo = () => {
   if (!isClient()) {
     return;
@@ -613,7 +694,6 @@ export const OSInfo = () => {
   }
   return osInfo;
 };
-
 const OSInfoDev = () => {
   if (!isClient()) {
     return;
@@ -770,6 +850,29 @@ const OSInfoDev = () => {
   return OSDev;
 };
 
+export const isMobile = () => {
+  if (!isClient()) {
+    return;
+  }
+  const width = window.innerWidth;
+  if (OSInfo().osType !== 2 && width >= 760) {
+    return false;
+  }
+  return true;
+  /*
+  const { userAgent } = navigator;
+  if (
+    userAgent.match(
+      /iPhone|iPod|Android|Windows CE|BlackBerry|Symbian|Windows Phone|webOS|Opera Mini|Opera Mobi|POLARIS|IEMobile|lgtelecom|nokia|SonyEricsson/i,
+    ) != null ||
+    userAgent.match(/LG|SAMSUNG|Samsung/) != null
+  ) {
+    return true;
+  }
+  return false;
+  */
+};
+
 export const getBreakpoint = () => {
   if (!isClient()) {
     return;
@@ -785,10 +888,53 @@ export const getBreakpoint = () => {
     xl: '1280px', // 80em
     '2xl': '1536px', // 96em
     */
+
+  /*
   if (width < 30 * 16) return breakpoints[1]; // sm
   if (width < 48 * 16) return breakpoints[2]; // md
   if (width < 62 * 16) return breakpoints[3]; // lg
   if (width < 80 * 16) return breakpoints[4]; // xl
   if (width < 96 * 16) return breakpoints[5]; // 2xl
-  return breakpoints[3]; // md
+  */
+
+  /*
+  xs: '300px',
+  sm: onlyMobile ? '400px' : '480px', // 30em
+  md: onlyMobile ? '500px' : '768px', // 48em
+  lg: onlyMobile ? '700px' : '992px', // 62em
+  xl: onlyMobile ? '800px' : '1280px', // 80em
+  '2xl': '1536px', // 96em
+  */
+
+  if (width < 400) return breakpoints[1]; // xs
+  if (width < 500) return breakpoints[2]; // sm
+  if (width < 700) return breakpoints[3]; // md
+  if (width < 800)
+    return breakpoints[4]; // lg
+  else return breakpoints[5];
+};
+
+export const getFontSize = (fontSize, targetWidth = 800) => {
+  if (!isClient()) {
+    return;
+  }
+  if (isMobile()) {
+    const designWidth = targetWidth;
+    const width = window.innerWidth;
+    const percent = width / designWidth;
+    return `${fontSize * percent}px`;
+  } else {
+    return `${fontSize / 2}px`;
+  }
+};
+
+export const getHeight = (h) => {
+  if (!isClient()) {
+    return;
+  }
+  const designHeight = 1340;
+  const percent = ((h / designHeight) * 100).toFixed(4);
+  const temp = `${Number(percent) + 0.47}%`;
+  console.log(temp);
+  return temp;
 };

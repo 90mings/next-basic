@@ -1,40 +1,65 @@
 import { useResetRecoilState } from 'recoil';
-import { navigationIndexState, tempAutoLoginState } from '../recoil/common';
 import {
-  AUTO_LOGIN_KEY,
-  REF_TOKEN_ID,
+  STROAGE_AUTO_LOGIN_KEY,
+  STROAGE_REF_TOKEN_ID,
   STROAGE_KEY,
   STROAGE_LOADING,
   STROAGE_USER_INFO,
-  TOKEN_ID,
+  STROAGE_TOKEN_ID,
+  STROAGE_ADMIN_AUTO_LOGIN_KEY,
+  STROAGE_ADMIN_REF_TOKEN_ID,
+  STROAGE_ADMIN_TOKEN_ID,
+  STROAGE_ADMIN_USER_INFO,
 } from '@/constants/common';
-import { csUserState } from '../recoil/user';
 import utils from '@/utils/index';
+import { tempAutoLoginState } from '@/stores/commonRecoil';
+import { adminUserState } from '@/stores/userRecoil';
+import { normalUserState } from 'src/stores/userRecoil';
+import { STROAGE_FCM_TOKEN_ID } from 'src/constants/common';
 
 const useSession = () => {
-  const resetCsUserState = useResetRecoilState(csUserState);
-  const resetGlobalTabIndex = useResetRecoilState(navigationIndexState);
+  const resetAdminUser = useResetRecoilState(adminUserState);
+  const resetNormalUser = useResetRecoilState(normalUserState);
   const resetTempAutoLogin = useResetRecoilState(tempAutoLoginState);
 
-  const removeUserInfo = (isLogout = true) => {
-    resetCsUserState();
-    resetGlobalTabIndex();
+  const removeCommon = () => {
     resetTempAutoLogin();
-
-    if (isLogout) {
-      utils.removeLocalItem(STROAGE_USER_INFO);
-      utils.removeLocalItem(AUTO_LOGIN_KEY);
-    }
     utils.removeLocalItem(STROAGE_KEY);
     utils.removeLocalItem(STROAGE_LOADING);
-    utils.removeLocalItem(TOKEN_ID);
-    utils.removeSessionItem(TOKEN_ID);
-    utils.removeLocalItem(REF_TOKEN_ID);
-    utils.removeSessionItem(REF_TOKEN_ID);
+  };
+
+  const removeUserInfo = (isLogout = true) => {
+    resetNormalUser();
+    removeCommon();
+    if (isLogout) {
+      utils.setSnsInfo(null, null);
+      utils.setMAutoLogin(false);
+      utils.removeLocalItem(STROAGE_USER_INFO);
+      utils.removeLocalItem(STROAGE_AUTO_LOGIN_KEY);
+    }
+    utils.removeLocalItem(STROAGE_TOKEN_ID);
+    utils.removeSessionItem(STROAGE_TOKEN_ID);
+    utils.removeLocalItem(STROAGE_REF_TOKEN_ID);
+    utils.removeSessionItem(STROAGE_REF_TOKEN_ID);
+    utils.removeSessionItem(STROAGE_FCM_TOKEN_ID);
+  };
+
+  const removeAdminUserInfo = (isLogout = true) => {
+    resetAdminUser();
+    removeCommon();
+    if (isLogout) {
+      utils.removeLocalItem(STROAGE_ADMIN_USER_INFO);
+      utils.removeLocalItem(STROAGE_ADMIN_AUTO_LOGIN_KEY);
+    }
+    utils.removeLocalItem(STROAGE_ADMIN_TOKEN_ID);
+    utils.removeSessionItem(STROAGE_ADMIN_TOKEN_ID);
+    utils.removeLocalItem(STROAGE_ADMIN_REF_TOKEN_ID);
+    utils.removeSessionItem(STROAGE_ADMIN_REF_TOKEN_ID);
   };
 
   return {
     removeUserInfo,
+    removeAdminUserInfo,
   };
 };
 

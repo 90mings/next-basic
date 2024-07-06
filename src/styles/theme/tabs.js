@@ -10,7 +10,7 @@ const baseStyle = definePartsStyle({
     fontWeight: 400,
   },
   tabpanel: {
-    fontFamily: 'Noto Sans KR',
+    // fontFamily: 'Noto Sans KR',
   },
 });
 

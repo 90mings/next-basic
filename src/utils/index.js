@@ -2,8 +2,12 @@ import {
   removeAppStorage,
   getUserInfo,
   setUserInfo,
+  getAdminUserInfo,
+  setAdminUserInfo,
   getAutoLogin,
   setAutoLogin,
+  getAdminAutoLogin,
+  setAdminAutoLogin,
   getActiveLoading,
   activeLoading,
   inActiveLoading,
@@ -11,6 +15,7 @@ import {
   checkPhoneNum,
   changeObjectArray,
   isMobile,
+  OSInfo,
   isEmpty,
   isNotEmpty,
   getPageContentNum,
@@ -29,13 +34,37 @@ import {
   setRefreshToken,
   removeAccessToken,
   removeRefreshToken,
+  getAdminAccessToken,
+  setAdminAccessToken,
+  getAdminRefreshToken,
+  setAdminRefreshToken,
+  removeAdminAccessToken,
+  removeAdminRefreshToken,
   removeLocalItem,
   removeSessionItem,
   makeDaysOptionComp,
   getNumberStr,
   copyObject,
+  changeObject,
   getBreakpoint,
+  getFontSize,
+  getHeight,
+  setBridge,
+  setFcmToken,
+  getFcmToken,
 } from './commonUtils';
+import {
+  execute,
+  exLogin,
+  exLogout,
+  setMAutoLogin,
+  getMAutoLogin,
+  setSnsInfo,
+  getSnsInfo,
+  getInitPopFlag,
+  setInitPopFlag,
+  exGetFcmToken,
+} from './executeUtils';
 import {
   parseDateToStr,
   parseDateToArr,
@@ -51,25 +80,34 @@ import {
   parseWeightValue,
   parseCeil,
   parseRemoveHyphen,
+  getH,
 } from './parseUtil';
+import { handleConsonantsTitle } from './customUtils';
 
-import { getLALOInfo } from './customUtil';
-
-import { exportNum } from './exportUtil';
+import { exportNum, exportRandomItem } from './exportUtil';
 
 const utils = {
+  setBridge,
+  OSInfo,
   getBreakpoint,
-  exportNum,
+  //
+  setFcmToken,
+  getFcmToken,
   parseRemoveHyphen,
   parseCeil,
   parseWeightValue,
   copyObject,
+  changeObject,
   parseClipBoardForExcel,
   removeAppStorage,
   getUserInfo,
   setUserInfo,
+  getAdminUserInfo,
+  setAdminUserInfo,
   getAutoLogin,
   setAutoLogin,
+  getAdminAutoLogin,
+  setAdminAutoLogin,
   getActiveLoading,
   activeLoading,
   inActiveLoading,
@@ -81,6 +119,12 @@ const utils = {
   setRefreshToken,
   removeAccessToken,
   removeRefreshToken,
+  getAdminAccessToken,
+  setAdminAccessToken,
+  getAdminRefreshToken,
+  setAdminRefreshToken,
+  removeAdminAccessToken,
+  removeAdminRefreshToken,
   removeLocalItem,
   removeSessionItem,
   copyToClipboard,
@@ -109,8 +153,28 @@ const utils = {
   handleOnClickAllCheck,
   handleOnClickAllCheckItem,
   checkedItemsProcess,
-  //
-  getLALOInfo,
+  getH,
+  getFontSize,
+  getHeight,
+
+  // execute
+  execute,
+  exLogin,
+  exLogout,
+  setMAutoLogin,
+  getMAutoLogin,
+  setSnsInfo,
+  getSnsInfo,
+  getInitPopFlag,
+  setInitPopFlag,
+  exGetFcmToken,
+
+  // export
+  exportNum,
+  exportRandomItem,
+
+  // custom
+  handleConsonantsTitle,
 };
 
 export default utils;

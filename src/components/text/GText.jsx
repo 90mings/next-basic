@@ -1,6 +1,8 @@
 'use client';
 
 import { Text, useBreakpointValue, useTheme } from '@chakra-ui/react';
+import utils from '@/utils/index';
+import { useEffect, useState } from 'react';
 
 const GText = ({
   fontSize,
@@ -12,13 +14,23 @@ const GText = ({
   textShadow,
 }) => {
   const theme = useTheme();
+
   const themeFontSize = useBreakpointValue(theme.fontSizes);
+
+  const [tempFontSize, setTempFontSize] = useState('');
+
+  useEffect(() => {
+    if (fontSize) {
+      setTempFontSize(utils.getFontSize(fontSize));
+    }
+  }, [fontSize]);
+
   return (
     <Text
       textShadow={textShadow}
       fontWeight={fontWeight}
-      fontSize={fontSize ? fontSize : themeFontSize}
-      color={color ? color : '#000000'}
+      fontSize={tempFontSize}
+      color={color || '#000'}
       lineHeight={lineHeight}
       textAlign={textAlign}
     >

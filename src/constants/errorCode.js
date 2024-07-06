@@ -6,52 +6,35 @@ export const SUCCESS = 0;
 // 조회 DATA NULL 오류(NO_DATA_ERROR)
 export const NO_DATA_ERROR = 1000;
 
-// 로그인 필요 오류(REQUIRE_SIGNIN_ERROR)
-export const REQUIRE_SIGNIN_ERROR = 1001;
-
 // 회원가입 필요 오류(REQUIRE_SIGNUP_ERROR)
-export const REQUIRE_SIGNUP_ERROR = 1002;
-
-// 계정 활성화 오류(USER_ACTIVATE_ERROR)
-export const USER_ACTIVATE_ERROR = 1003;
+export const REQUIRE_SIGNUP_ERROR = 1001;
 
 // JWT token null 오류(TOKEN_NOT_FOUND_ERROR)
-export const TOKEN_NOT_FOUND_ERROR = 1004;
+export const TOKEN_NOT_FOUND_ERROR = 1002;
 
 // JWT token 검증 오류(TOKEN_INVALIDE_ERROR)
-export const TOKEN_INVALIDE_ERROR = 1005;
-
-// 계정 권한 없음 오류(USER_PERMISSION_ERROR)
-export const USER_PERMISSION_ERROR = 1006;
-
-// 계정 확인 오류(USER_NOT_FOUND_ERROR)
-export const USER_NOT_FOUND_ERROR = 1007;
+export const TOKEN_INVALIDE_ERROR = 1003;
 
 // 중복 오류(DUPLICATE_ERROR)
-export const DUPLICATE_ERROR = 1008;
+export const DUPLICATE_ERROR = 1004;
 
 // API request 유효성 오류(ARGUMENT_NOT_VALID_ERROR)
-export const ARGUMENT_NOT_VALID_ERROR = 1009;
+export const ARGUMENT_NOT_VALID_ERROR = 1005;
 
 // API request parse 오류(REQ_MESSAGE_NOT_READABLE_ERROR)
-export const REQ_MESSAGE_NOT_READABLE_ERROR = 1010;
+export const REQ_MESSAGE_NOT_READABLE_ERROR = 1006;
 
 // HTTP request method 오류(REQ_METHOD_NOT_SUPPORTED_ERROR)
-export const REQ_METHOD_NOT_SUPPORTED_ERROR = 1011;
+export const REQ_METHOD_NOT_SUPPORTED_ERROR = 1007;
 
 // DB 관련(JPA) 오류(JPA_INTERNAL_ERROR)
-export const JPA_INTERNAL_ERROR = 1012;
+export const JPA_INTERNAL_ERROR = 1008;
 
 // Timeout 오류(TIME_OUT_ERROR)
-export const TIME_OUT_ERROR = 1013;
+export const TIME_OUT_ERROR = 1009;
 
 // UPLOAD FILE MAX SIZE 오류(FILE_MAX_SIZE_ERROR)
-export const FILE_MAX_SIZE_ERROR = 1014;
-
-// EMAIL 발송 오류(SEND_EMAIL_ERROR)
-export const SEND_EMAIL_ERROR = 1015;
+export const FILE_MAX_SIZE_ERROR = 1010;
 
 // 기타 미정의 오류(ETC_ERROR)
-export const ETC_ERROR = 1016;
-
-export const BIZ_USER_MONEY_LIMIT_ERROR = 1017;
+export const ETC_ERROR = 1011;

@@ -1,20 +1,21 @@
-export const PUB_TRANS_API_URL =
-  'https://api.odsay.com/v1/api/searchAsapPubTransPath';
-export const BIKE_API_URL = 'https://api.odsay.com/v1/api/searchAsapBikePath';
-export const NAVER_CLIENT_ID = 'F3NxihAOmJViCwNhL027';
-export const ODSAY_API_KEY = 'BdYr/ZmIEax1ZeIrrgdqzQ'; // real
-// export const ODSAY_API_KEY = 'nDjf+SvzzuSg3uDjwG6tNPvKaCA9WplUDdancgvI4aA'; // dev local
-export const KAKAO_REST_API_KEY = '0e356aaa28089b189be477fd4d80521f';
+// SNS 관련
+export const SNS_TYPE_KAKAO = 1;
+export const SNS_TYPE_NAVER = 2;
+export const SNS_TYPE_GOOGLE = 3;
+export const SNS_TYPE_APPLE = 4;
 
-export const KAKAOTALK_INQUIRY_LINK = 'https://pf.kakao.com/_xgypVb/chat';
+// 상태관련
+export const PASS_BASIC_FLAG = 1;
+export const PASS_FAIL_FLAG = 2;
+export const PASS_SUCCESS_FLAG = 3;
 
-export const HELP_PHONE_NUM = '01086034022';
+export const LIMIT_SECONDS = 300;
 
 // 공통 상수
 export const TYPE_RING_SOUND = 1; // 링사운드
-export const TYPE_SUBJECT = 2; // 주제
+export const TYPE_VOWEL = 2; // 모음
 export const TYPE_CONSONANT = 3; // 자음
-export const TYPE_VOWEL = 4; // 모음
+export const TYPE_SUBJECT = 4; // 주제
 
 export const FORM_MIN_WIDTH_PX = '1048px';
 
@@ -24,36 +25,28 @@ export const MODAL_CLOSE_ON_OVERLAY_CLICK = false;
 
 // Storage Key
 export const PROJECT_NAME = 'eeum';
-export const TOKEN_ID = `${PROJECT_NAME}-token`;
-export const REF_TOKEN_ID = `${PROJECT_NAME}-refresh-token`;
-export const STROAGE_USER_INFO = `${PROJECT_NAME}-user`;
-export const AUTO_LOGIN_KEY = `${PROJECT_NAME}-auto-login`;
 export const STROAGE_KEY = `${PROJECT_NAME}-persist`;
 export const STROAGE_LOADING = `${PROJECT_NAME}-loading`;
+export const STROAGE_FCM_TOKEN_ID = `${PROJECT_NAME}-fcm-token`;
+export const STROAGE_TOKEN_ID = `${PROJECT_NAME}-token`;
+export const STROAGE_REF_TOKEN_ID = `${PROJECT_NAME}-refresh-token`;
+export const STROAGE_SNS_INFO = `${PROJECT_NAME}-sns-info`;
+export const STROAGE_USER_INFO = `${PROJECT_NAME}-user`;
+export const STROAGE_AUTO_LOGIN_KEY = `${PROJECT_NAME}-auto-login`;
+export const STROAGE_INIT_POP_FLAG = `${PROJECT_NAME}-init-pop-flag`;
+export const STROAGE_ADMIN_TOKEN_ID = `${PROJECT_NAME}-token`;
+export const STROAGE_ADMIN_REF_TOKEN_ID = `${PROJECT_NAME}-admin-refresh-token`;
+export const STROAGE_ADMIN_USER_INFO = `${PROJECT_NAME}-admin-user`;
+export const STROAGE_ADMIN_AUTO_LOGIN_KEY = `${PROJECT_NAME}-admin-auto-login`;
 
 // 보여지는 페이지 수
 export const DEFAULT_PAGE_BLOCK = 5;
 
-// 몇개씩 조회할 것인지
 export const DEFAULT_CONTENT_NUM = 10;
 
-// 몇개씩 조회할 것인지
 export const LONG_CONTENT_NUM = 16;
 
-// 1: 도착지, 2: 출발지
-export const DEFAULT_TERMINAL_TYPE = 1;
-
-// 0 전체, 1 버스, 2 기차, 3 공항
-export const DEFAULT_TERMINAL_KIND = 0;
-export const TERMINAL_KIND_VALUE_LIST = ['', '버스', '기차', '공항'];
-
-// Notification default flag 1: 발송, 2: 미발송
-
 export const NOTIFICATION_FLAG = 2;
-
-export const BIZ_USER_TYPE = ['기업', '고객'];
-
-export const DELIVERY_PACKAGE_TYPE_LIST = ['박스', '서류', '가방', '직접입력'];
 
 // 은행 목록
 export const BANK_LIST = [
@@ -90,23 +83,341 @@ export const BANK_LIST = [
   '케이뱅크',
 ];
 
-export const CS_USER_ID = 'csUserId';
-export const TERMINAL_ID = 'terminalId';
-export const TERMINAL_LINE_ID = 'terminalLineId';
-export const PARTNER_USER_ID = 'partnerUserId';
-export const BIZ_ID = 'bizId';
-export const BIZ_USER_ID = 'bizUserId';
-export const BIZ_USER_MONEY_REQUEST_ID = 'bizUserMoneyRequestId';
-export const PARTNER_USER_FEE_ID = 'partnerUserFeeId';
-export const DELIVERY_ID = 'deliveryId';
+export const STEP_FORM_PERCENT = '52.2388%';
+export const RING_TEST_FORM_PERCENT = '41.0448%';
+export const TEST_FORM_PERCENT = '39.40%';
+export const TEST_LARGE_FORM_PERCENT = '30%';
 
-// 기업
-export const DOWNLOAD_EXCEL_BIZ =
-  'https://prod-gossok-contents.s3.ap-northeast-2.amazonaws.com/excel/%EA%B3%A0%EC%8F%99_%EA%B8%B0%EC%97%85%EA%B3%A0%EA%B0%9D_%EB%8B%A4%EB%9F%89_%EC%A0%91%EC%88%98_%EC%97%85%EB%A1%9C%EB%93%9C%EC%96%91%EC%8B%9D.xlsx';
+export const TEST_FORM_BORDER = {
+  xl: '4px dashed',
+  lg: '3px dashed',
+  md: '3px dashed',
+  sm: '2px dashed',
+  xs: '2px dashed',
+};
 
-// 현장
-export const DOWNLOAD_EXCEL_PARTNER =
-  'https://prod-gossok-contents.s3.ap-northeast-2.amazonaws.com/excel/%EA%B3%A0%EC%8F%99_%ED%98%84%EC%9E%A5%EA%B3%A0%EA%B0%9D_%EB%8B%A4%EB%9F%89_%EC%A0%91%EC%88%98_%EC%97%85%EB%A1%9C%EB%93%9C%EC%96%91%EC%8B%9D.xlsx';
-// 일반
-export const DOWNLOAD_EXCEL_CUSTOMER =
-  'https://prod-gossok-contents.s3.ap-northeast-2.amazonaws.com/excel/%EA%B3%A0%EC%8F%99_%EC%9D%BC%EB%B0%98%EA%B3%A0%EA%B0%9D_%EB%8B%A4%EB%9F%89_%EC%A0%91%EC%88%98_%EC%97%85%EB%A1%9C%EB%93%9C%EC%96%91%EC%8B%9D.xlsx';
+// lg: 700, md: 500, sm: 400, xs: 300
+export const FONT_SIZE_200 = {
+  xl: '200px',
+  lg: '190px',
+  md: '180px',
+  sm: '170px',
+  xs: '160px',
+};
+export const FONT_SIZE_90 = {
+  xl: '90px',
+  lg: '90px',
+  md: '90px',
+  sm: '60px',
+  xs: '50px',
+};
+export const FONT_SIZE_80 = {
+  xl: '80px',
+  lg: '70px',
+  md: '65px',
+  sm: '48px',
+  xs: '42px',
+};
+export const FONT_SIZE_70 = {
+  xl: '70px',
+  lg: '70px',
+  md: '60px',
+  sm: '50px',
+  xs: '40px',
+};
+export const FONT_SIZE_50 = {
+  xl: '50px',
+  lg: '50px',
+  md: '50px',
+  sm: '38px',
+  xs: '30px',
+};
+export const FONT_SIZE_48 = {
+  xl: '48px',
+  lg: '40px',
+  md: '35px',
+  sm: '25px',
+  xs: '23px',
+};
+export const FONT_SIZE_40 = {
+  xl: '40px',
+  lg: '37px',
+  md: '34px',
+  sm: '32px',
+  xs: '23px',
+};
+export const FONT_SIZE_38 = {
+  xl: '38px',
+  lg: '34px',
+  md: '29px',
+  sm: '23px',
+  xs: '21px',
+};
+export const FONT_SIZE_37 = {
+  xl: '38px',
+  lg: '38px',
+  md: '26px',
+  sm: '23px',
+  xs: '21px',
+};
+export const FONT_SIZE_LISTEN = {
+  xl: '36px',
+  lg: '30px',
+  md: '27px',
+  sm: '19px',
+  xs: '16px',
+};
+export const FONT_SIZE_35 = {
+  xl: '35px',
+  lg: '35px',
+  md: '26px',
+  sm: '20px',
+  xs: '15px',
+};
+export const FONT_SIZE_34 = {
+  xl: '34px',
+  lg: '34px',
+  md: '34px',
+  sm: '28px',
+  xs: '18px',
+};
+export const FONT_SIZE_32 = {
+  xl: '32px',
+  lg: '30px',
+  md: '28px',
+  sm: '22px',
+  xs: '18px',
+};
+export const FONT_SIZE_30 = {
+  xl: '30px',
+  lg: '30px',
+  md: '25px',
+  sm: '23px',
+  xs: '18px',
+};
+export const FONT_SIZE_28 = {
+  xl: '28px',
+  lg: '28px',
+  md: '24px',
+  sm: '20px',
+  xs: '16px',
+};
+export const FONT_SIZE_26 = {
+  xl: '26px',
+  lg: '24px',
+  md: '20px',
+  sm: '15px',
+  xs: '12px',
+};
+export const FONT_SIZE_24 = {
+  xl: '24px',
+  lg: '24px',
+  md: '20px',
+  sm: '18px',
+  xs: '15px',
+};
+
+// fontSize + 2
+export const LINE_H_90 = { md: '90px', sm: '70px', xs: '50px' };
+export const LINE_H_50 = { md: '50px', sm: '32px', xs: '24px' };
+export const LINE_H_38 = { md: '40px', sm: '32px', xs: '24px' };
+export const LINE_H_48 = { md: '50px', sm: '40px', xs: '27px' };
+export const LINE_H_30 = { md: '32px', sm: '35px', xs: '32px' };
+export const LINE_H_28 = { md: '30px', sm: '27px', xs: '19px' };
+export const LINE_H_24 = { md: '26px', sm: '22px', xs: '17px' };
+
+export const PADDING_50 = { lg: '50px', md: '40px', sm: '30px', xs: '20px' };
+export const PADDING_40 = { lg: '40px', md: '30px', sm: '25px', xs: '15px' };
+export const PADDING_30 = { lg: '30px', md: '25px', sm: '20px', xs: '10px' };
+
+export const BOX_S_180 = {
+  xl: '180px',
+  lg: '170px',
+  md: '160px',
+  sm: '140px',
+  xs: '120px',
+};
+export const BOX_S_64 = {
+  xl: '64px',
+  lg: '54px',
+  md: '45px',
+  sm: '35px',
+  xs: '28px',
+};
+
+export const BOX_S_60 = {
+  xl: '60px',
+  lg: '50px',
+  md: '45px',
+  sm: '28px',
+  xs: '24px',
+};
+
+export const BOX_H_180 = {
+  xl: '180px',
+  lg: '160px',
+  md: '140px',
+  sm: '105px',
+  xs: '95px',
+};
+
+export const BOX_H_160 = {
+  xl: '160px',
+  lg: '140px',
+  md: '120px',
+  sm: '90px',
+  xs: '90px',
+};
+
+export const BOX_S_160 = {
+  xl: '160px',
+  lg: '140px',
+  md: '120px',
+  sm: '90px',
+  xs: '90px',
+};
+
+export const BOX_S_120 = {
+  xl: '120px',
+  lg: '100px',
+  md: '95px',
+  sm: '55px',
+  xs: '45px',
+};
+
+export const RADIUS_S_40 = {
+  xl: '40px',
+  lg: '35px',
+  md: '30px',
+  sm: '25px',
+  xs: '20px',
+};
+export const RADIUS_S_30 = {
+  xl: '30px',
+  lg: '25px',
+  md: '20px',
+  sm: '15px',
+  xs: '10px',
+};
+export const RADIUS_S_20 = {
+  xl: '20px',
+  lg: '18px',
+  md: '15px',
+  sm: '13px',
+  xs: '10px',
+};
+export const RADIUS_S_10 = {
+  xl: '10px',
+  lg: '10px',
+  md: '9px',
+  sm: '8px',
+  xs: '7px',
+};
+
+export const NAV_MAIN_S = {
+  xl: '160px',
+  lg: '140px',
+  md: '120px',
+  sm: '100px',
+  xs: '80px',
+};
+
+// 고정
+export const BOX_S_LOGIN = {
+  xl: '40px',
+  lg: '32px',
+  md: '27px',
+  sm: '23px',
+  xs: '20px',
+};
+
+export const BOX_S_PROG = {
+  xl: '60px',
+  lg: '50px',
+  md: '38px',
+  sm: '28px',
+  xs: '24px',
+};
+
+export const BOX_S_TEST_PROG = {
+  xl: '60px',
+  lg: '50px',
+  md: '38px',
+  sm: '28px',
+  xs: '30px',
+};
+
+export const CHOSEONG = [
+  'ㄱ',
+  'ㄲ',
+  'ㄴ',
+  'ㄷ',
+  'ㄸ',
+  'ㄹ',
+  'ㅁ',
+  'ㅂ',
+  'ㅃ',
+  'ㅅ',
+  'ㅆ',
+  'ㅇ',
+  'ㅈ',
+  'ㅉ',
+  'ㅊ',
+  'ㅋ',
+  'ㅌ',
+  'ㅍ',
+  'ㅎ',
+];
+export const JUNGSEONG = [
+  'ㅏ',
+  'ㅐ',
+  'ㅑ',
+  'ㅒ',
+  'ㅓ',
+  'ㅔ',
+  'ㅕ',
+  'ㅖ',
+  'ㅗ',
+  'ㅘ',
+  'ㅙ',
+  'ㅚ',
+  'ㅛ',
+  'ㅜ',
+  'ㅝ',
+  'ㅞ',
+  'ㅟ',
+  'ㅠ',
+  'ㅡ',
+  'ㅢ',
+  'ㅣ',
+];
+export const JONGSEONG = [
+  '',
+  'ㄱ',
+  'ㄲ',
+  'ㄳ',
+  'ㄴ',
+  'ㄵ',
+  'ㄶ',
+  'ㄷ',
+  'ㄹ',
+  'ㄺ',
+  'ㄻ',
+  'ㄼ',
+  'ㄽ',
+  'ㄾ',
+  'ㄿ',
+  'ㅀ',
+  'ㅁ',
+  'ㅂ',
+  'ㅄ',
+  'ㅅ',
+  'ㅆ',
+  'ㅇ',
+  'ㅈ',
+  'ㅊ',
+  'ㅋ',
+  'ㅌ',
+  'ㅍ',
+  'ㅎ',
+];

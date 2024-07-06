@@ -2,8 +2,8 @@
 const API_TIMEOUT = 60000;
 
 module.exports = {
-  API_PRINT_LOG: process.env.REACT_APP_API_PRINT_LOG === 'true',
+  API_PRINT_LOG: process.env.NEXT_PUBLIC_API_PRINT_LOG === 'true',
   API_TIMEOUT,
-  API_VERSION: process.env.REACT_APP_API_VERSION,
-  API_URL: process.env.REACT_APP_API_URL,
+  API_VERSION: process.env.NEXT_PUBLIC_API_VERSION,
+  API_URL: process.env.NEXT_PUBLIC_API_URL,
 };

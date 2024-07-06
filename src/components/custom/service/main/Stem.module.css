@@ -1,0 +1,426 @@
+.stem {
+  position: absolute;
+  object-fit: contain;
+  z-index: 2;
+}
+
+.stem01 {
+  width: 25.9%;
+  bottom: 0;
+  left: 27.8%;
+}
+.stem02 {
+  /* width: 14.0361%; */
+  /* bottom: 0; */
+  /* left: 52.2%; */
+
+  width: 14.5%;
+  bottom: 0;
+  left: 51.9%;
+}
+.stem03 {
+  /* width: 19.8142%; */
+  /* bottom: 5.7243%; */
+  /* left: 33.1%; */
+
+  width: 20.7%;
+  bottom: 5.5%;
+  left: 33%;
+}
+.stem04 {
+  /* width: 13.0353%; */
+  /* bottom: 6.5066%; */
+  /* left: 52.7%; */
+
+  width: 13.6%;
+  bottom: 6.28%;
+  left: 52.025%;
+}
+.stem05 {
+  width: 18%;
+  bottom: 11.5%;
+  left: 36%;
+}
+.stem06 {
+  width: 12.7%;
+  bottom: 11%;
+  left: 52.5%;
+}
+.stem07 {
+  /* width: 14.8%;
+  bottom: 16.6%;
+  left: 38.4%; */
+  width: 15.5%;
+  bottom: 16.4%;
+  left: 38.4%;
+}
+.stem08 {
+  width: 13%;
+  bottom: 16%;
+  left: 51.2%;
+}
+.stem09 {
+  /* width: 12.8854%; */
+  /* bottom: 24.2485%; */
+  /* left: 39.2556%; */
+
+  width: 13.8%;
+  bottom: 23.7%;
+  left: 39.3%;
+}
+
+.stem10 {
+  /* width: 11.537%; */
+  /* bottom: 20.693%; */
+  /* left: 51.7216%; */
+
+  width: 12%;
+  bottom: 20.3%;
+  left: 51.2%;
+}
+.stem11 {
+  width: 11%;
+  bottom: 27.5%;
+  left: 50.2%;
+}
+.stem12 {
+  /*width: 12%;
+  bottom: 34.1%;
+  left: 40%; */
+
+  width: 12.3%;
+  bottom: 34%;
+  left: 39.78%;
+}
+.stem13 {
+  /* width: 19.9754%; */
+  /* bottom: 33.8838%; */
+  /* left: 50.4929%; */
+
+  width: 20.1%;
+  bottom: 33.8%;
+  left: 50.2%;
+}
+.stem14 {
+  /* width: 9.5802%; */
+  /* bottom: 40.5504%; */
+  /* left: 40.9937%; */
+
+  width: 10.2%;
+  bottom: 40.25%;
+  left: 40.8%;
+}
+.stem15 {
+  width: 9.5%;
+  bottom: 41.5%;
+  left: 49.2%;
+}
+.stem16 {
+  /* width: 23.6613%; */
+  /* bottom: 41.9904%; */
+  /* left: 60.3218%; */
+
+  width: 24%;
+  bottom: 41.8%;
+  left: 60.3218%;
+}
+.stem17 {
+  /* width: 22.7952%; */
+  /* bottom: 50.968%; */
+  /* left: 77.1928%; */
+
+  width: 22.7952%;
+  bottom: 50.968%;
+  left: 77.1928%;
+}
+.stem18 {
+  width: 13.4%;
+  bottom: 42.7%;
+  left: 30.3%;
+}
+.stem19 {
+  width: 33.6%;
+  bottom: 51.9%;
+  left: 0%;
+}
+.stem20 {
+  width: 18.2%;
+  bottom: 50%;
+  left: 32.08%;
+}
+.stem21 {
+  width: 19.6%;
+  bottom: 50.5%;
+  left: 48.8%;
+}
+.stem22 {
+  width: 24.6%;
+  bottom: 57.6%;
+  left: 48.6%;
+}
+.stem23 {
+  /* width: 20.6796%; */
+  /* bottom: 62.0611%; */
+  /* left: 61.1309%; */
+
+  width: 20.9%;
+  bottom: 62.05%;
+  left: 61%;
+}
+.stem24 {
+  width: 11.8%;
+  bottom: 67.5%;
+  left: 75.2%;
+}
+.stem25 {
+  /* width: 20.377%; */
+  /* bottom: 70.6654%; */
+  /* left: 78.8109%; */
+
+  width: 20.45%;
+  bottom: 70.6654%;
+  left: 78.8109%;
+}
+.stem26 {
+  width: 10.4%;
+  bottom: 67.55%;
+  left: 62.7%;
+}
+.stem27 {
+  /* width: 7.1349%; */
+  /* bottom: 70.701%; */
+  /* left: 62.6892%; */
+
+  width: 7.35%;
+  bottom: 70.701%;
+  left: 62.6892%;
+}
+.stem28 {
+  /* width: 10.1136%; */
+  /* bottom: 61.9367%; */
+  /* left: 47.4664%; */
+
+  width: 10.3%;
+  bottom: 62%;
+  left: 47.4664%;
+}
+.stem29 {
+  width: 10.2%;
+  bottom: 67.2%;
+  left: 47%;
+}
+.stem30 {
+  width: 9%;
+  bottom: 70.2%;
+  left: 47.8%;
+}
+.stem31 {
+  width: 15.6%;
+  bottom: 76%;
+  left: 47.4%;
+}
+.stem32 {
+  width: 7%;
+  bottom: 84.1%;
+  left: 57.2%;
+}
+.stem33 {
+  width: 5.7%;
+  bottom: 87.4%;
+  left: 60.3%;
+}
+.stem34 {
+  width: 6.8%;
+  bottom: 83.65%;
+  left: 47.4364%;
+}
+.stem35 {
+  /* width: 6.197%; */
+  /* top: 0%; */
+  /* left: 46.4775%; */
+
+  width: 6.5%;
+  top: 1%;
+  left: 46.4775%;
+}
+
+/*
+@media screen and (min-width: 300px) {
+  .stem01 {
+    width: 25.7%;
+    bottom: 0;
+    left: 27.6%;
+  }
+  .stem02 {
+    width: 14.1%;
+    bottom: 0;
+    left: 52.15%;
+  }
+  .stem03 {
+    width: 20.5%;
+    bottom: 5.49%;
+    left: 33%;
+  }
+  .stem04 {
+    width: 13.6%;
+    bottom: 6.28%;
+    left: 52.025%;
+  }
+  .stem05 {
+    width: 17.5%;
+    bottom: 11.7%;
+    left: 36%;
+  }
+  .stem06 {
+    width: 12.5%;
+    bottom: 11.05%;
+    left: 52.5%;
+  }
+  .stem07 {
+    width: 14.5%;
+    bottom: 16.85%;
+    left: 38.4%;
+  }
+  .stem08 {
+    width: 12.25%;
+    bottom: 16.15%;
+    left: 52%;
+  }
+  .stem09 {
+    width: 13.8%;
+    bottom: 23.7%;
+    left: 39.3%;
+  }
+
+  .stem10 {
+    width: 12%;
+    bottom: 20.3%;
+    left: 51.2%;
+  }
+  .stem11 {
+    width: 10%;
+    bottom: 28.14%;
+    left: 50.9%;
+  }
+  .stem12 {
+    width: 11.35%;
+    bottom: 34.4%;
+    left: 40%;
+  }
+  .stem13 {
+    width: 20.1%;
+    bottom: 33.8%;
+    left: 50.2%;
+  }
+  .stem14 {
+    width: 10.2%;
+    bottom: 40.25%;
+    left: 40.8%;
+  }
+  .stem15 {
+    width: 9.5%;
+    bottom: 41.5%;
+    left: 49%;
+  }
+  .stem16 {
+    width: 24%;
+    bottom: 41.8%;
+    left: 60.3218%;
+  }
+  .stem17 {
+    width: 22.7952%;
+    bottom: 50.968%;
+    left: 77.1928%;
+  }
+  .stem18 {
+    width: 13.4%;
+    bottom: 42.7%;
+    left: 30.3%;
+  }
+  .stem19 {
+    width: 33%;
+    bottom: 52.15%;
+    left: 0.5%;
+  }
+  .stem20 {
+    width: 17%;
+    bottom: 51.5%;
+    left: 33.3%;
+  }
+  .stem21 {
+    width: 19.25%;
+    bottom: 50.5235%;
+    left: 48.9647%;
+  }
+  .stem22 {
+    width: 23.99%;
+    bottom: 57.5101%;
+    left: 48.7249%;
+  }
+  .stem23 {
+    width: 20.9%;
+    bottom: 62.05%;
+    left: 61%;
+  }
+  .stem24 {
+    width: 11.65%;
+    bottom: 67.6%;
+    left: 75.3%;
+  }
+  .stem25 {
+    width: 20.45%;
+    bottom: 70.6654%;
+    left: 78.8109%;
+  }
+  .stem26 {
+    width: 9.9%;
+    bottom: 67.6144%;
+    left: 63.0787%;
+  }
+  .stem27 {
+    width: 7.35%;
+    bottom: 70.701%;
+    left: 62.6892%;
+  }
+  .stem28 {
+    width: 10.3%;
+    bottom: 62%;
+    left: 47.4664%;
+  }
+  .stem29 {
+    width: 9.45%;
+    bottom: 67.2%;
+    left: 47.55%;
+  }
+  .stem30 {
+    width: 8.6%;
+    bottom: 70.2%;
+    left: 48.0657%;
+  }
+  .stem31 {
+    width: 15%;
+    bottom: 75.7098%;
+    left: 47.8559%;
+  }
+  .stem32 {
+    width: 6.7%;
+    bottom: 84.1%;
+    left: 57.5%;
+  }
+  .stem33 {
+    width: 5.45%;
+    bottom: 87.4%;
+    left: 60.6%;
+  }
+  .stem34 {
+    width: 6.75%;
+    bottom: 83.9%;
+    left: 47.4364%;
+  }
+  .stem35 {
+    width: 6.35%;
+    top: 0%;
+    left: 46.4775%;
+  }
+}
+*/

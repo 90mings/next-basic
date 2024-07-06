@@ -1,14 +1,14 @@
 import '../styles/globals.css';
-import { fonts } from '@/styles/g/fonts';
 import Providers from './providers';
 import WarpPage from './warpPage';
-import { Inter } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+const isDev = process.env.NEXT_PUBLIC_NODE_ENV === 'development';
+const title = '작업';
+const tmepTitle = `${isDev ? `(개발) ${title}` : title}`;
 
 export const metadata = {
-  title: '이음',
-  description: '이음 프로그램',
+  title: tmepTitle,
+  description: '작업 프로그램',
   icons: {
     icon: '/images/favicon.png',
   },
@@ -16,8 +16,14 @@ export const metadata = {
 
 const RootLayout = ({ children }) => {
   return (
-    <html lang="en" className={fonts.notoSansKR.variable}>
-      <body className={inter.className}>
+    <html lang="en">
+      <head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        ></meta>
+      </head>
+      <body>
         <Providers>
           <WarpPage>{children}</WarpPage>
         </Providers>
