@@ -2,8 +2,28 @@ import {
   STROAGE_AUTO_LOGIN_KEY,
   STROAGE_INIT_POP_FLAG,
   STROAGE_SNS_INFO,
-} from 'src/constants/common';
+} from '@/constants/common';
 import { isClient } from './commonUtils';
+
+export const initBridge = () => {
+  if (!isClient()) return;
+  const scriptBridge = document.createElement('script');
+  scriptBridge.src = '/bridgeReturn.js';
+  scriptBridge.onload = () => {
+    if (isDev) {
+      console.log('bridgeReturn');
+    }
+  };
+  document.body.appendChild(scriptBridge);
+  const scriptMinterface = document.createElement('script');
+  scriptMinterface.src = '/minterface.js';
+  scriptMinterface.onload = () => {
+    if (isDev) {
+      console.log('minterface');
+    }
+  };
+  document.body.appendChild(scriptMinterface);
+};
 
 export const execute = (action, param, option = null) => {
   if (!isClient()) return;

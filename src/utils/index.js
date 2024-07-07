@@ -1,13 +1,5 @@
 import {
   removeAppStorage,
-  getUserInfo,
-  setUserInfo,
-  getAdminUserInfo,
-  setAdminUserInfo,
-  getAutoLogin,
-  setAutoLogin,
-  getAdminAutoLogin,
-  setAdminAutoLogin,
   getActiveLoading,
   activeLoading,
   inActiveLoading,
@@ -28,6 +20,27 @@ import {
   handleOnClickAllCheckItem,
   checkPassword,
   copyToClipboard,
+  removeLocalItem,
+  removeSessionItem,
+  makeDaysOptionComp,
+  getNumberStr,
+  copyObject,
+  changeObject,
+  getBreakpoint,
+  getFontSize,
+  getHeight,
+} from './commonUtils';
+import {
+  setFcmToken,
+  getFcmToken,
+  getUserInfo,
+  setUserInfo,
+  getAdminUserInfo,
+  setAdminUserInfo,
+  getAutoLogin,
+  setAutoLogin,
+  getAdminAutoLogin,
+  setAdminAutoLogin,
   getAccessToken,
   setAccessToken,
   getRefreshToken,
@@ -40,20 +53,9 @@ import {
   setAdminRefreshToken,
   removeAdminAccessToken,
   removeAdminRefreshToken,
-  removeLocalItem,
-  removeSessionItem,
-  makeDaysOptionComp,
-  getNumberStr,
-  copyObject,
-  changeObject,
-  getBreakpoint,
-  getFontSize,
-  getHeight,
-  setBridge,
-  setFcmToken,
-  getFcmToken,
-} from './commonUtils';
+} from './userUtils';
 import {
+  initBridge,
   execute,
   exLogin,
   exLogout,
@@ -87,7 +89,7 @@ import { handleConsonantsTitle } from './customUtils';
 import { exportNum, exportRandomItem } from './exportUtil';
 
 const utils = {
-  setBridge,
+  initBridge,
   OSInfo,
   getBreakpoint,
   //

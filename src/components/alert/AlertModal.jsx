@@ -1,7 +1,5 @@
 'use client';
 
-import useModal from '@/hooks/useModal';
-import utils from '@/utils/index';
 import { GText, DefaultButton } from '@/components';
 import {
   Box,
@@ -16,6 +14,8 @@ import {
 import { RADIUS_S_10 } from '@/constants/common';
 import { deviceInfoState } from '@/stores/commonRecoil';
 import { useRecoilValue } from 'recoil';
+import useModal from '@/hooks/useModal';
+import utils from '@/utils';
 
 const AlertModal = () => {
   const deviceInfo = useRecoilValue(deviceInfoState);
