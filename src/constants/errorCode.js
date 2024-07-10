@@ -1,5 +1,3 @@
-// API
-
 // 성공(SUCCESS)
 export const SUCCESS = 0;
 

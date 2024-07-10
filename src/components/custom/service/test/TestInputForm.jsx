@@ -1,3 +1,6 @@
+import { Box, WrapItem } from '@chakra-ui/react';
+import { TestInput } from 'src/components';
+
 const TestInputForm = (props) => {
   const { w = '24%', maxW = '160px' } = props;
   const { fontWeight = 700, fontSize = { md: '80px' } } = props;

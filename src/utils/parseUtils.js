@@ -261,16 +261,16 @@ const doConvert = (isReverse = false) => {
 };
 
 const engTypeToKor = (src) => {
-  var res = '';
+  let res = '';
   if (src.length == 0) return res;
 
-  var nCho = -1,
+  let nCho = -1,
     nJung = -1,
     nJong = -1; // 초성, 중성, 종성
 
-  for (var i = 0; i < src.length; i++) {
-    var ch = src.charAt(i);
-    var p = ENG_KEY.indexOf(ch);
+  for (let i = 0; i < src.length; i++) {
+    let ch = src.charAt(i);
+    let p = ENG_KEY.indexOf(ch);
     if (p == -1) {
       // 영자판이 아님
       // 남아있는 한글이 있으면 처리
@@ -417,7 +417,7 @@ const engTypeToKor = (src) => {
       if (nJong != -1) {
         // (앞글자 종성), 초성+중성
         // 복자음 다시 분해
-        var newCho; // (임시용) 초성
+        let newCho; // (임시용) 초성
         if (nJong == 2) {
           // ㄱ, ㅅ
           nJong = 0;
@@ -540,16 +540,16 @@ const makeHangul = (nCho, nJung, nJong) => {
 };
 
 const korTypeToEng = (src) => {
-  var res = '';
+  let res = '';
   if (src.length == 0) return res;
 
-  for (var i = 0; i < src.length; i++) {
-    var ch = src.charAt(i);
-    var nCode = ch.charCodeAt(0);
-    var nCho = CHO_DATA.indexOf(ch),
+  for (let i = 0; i < src.length; i++) {
+    let ch = src.charAt(i);
+    let nCode = ch.charCodeAt(0);
+    let nCho = CHO_DATA.indexOf(ch),
       nJung = JUNG_DATA.indexOf(ch),
       nJong = JONG_DATA.indexOf(ch);
-    var arrKeyIndex = [-1, -1, -1, -1, -1];
+    let arrKeyIndex = [-1, -1, -1, -1, -1];
 
     if (0xac00 <= nCode && nCode <= 0xd7a3) {
       nCode -= 0xac00;
@@ -654,7 +654,7 @@ const korTypeToEng = (src) => {
       }
     }
 
-    for (var j = 0; j < 5; j++) {
+    for (let j = 0; j < 5; j++) {
       if (arrKeyIndex[j] != -1) res += ENG_KEY.charAt(arrKeyIndex[j]);
     }
   }
