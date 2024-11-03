@@ -9,19 +9,11 @@ import {
   ModalBody,
   ModalContent,
   ModalOverlay,
-  Image,
 } from '@chakra-ui/react';
 import { GText, DefaultButton } from '@/components';
 import useModal from '@/hooks/useModal';
 
-import Ok from '@/svgs/alert-ok.svg';
-import No from '@/svgs/alert-no.svg';
-import Check from '@/svgs/alert-check.svg';
-import Re from '@/svgs/alert-re.svg';
-import Good from '@/svgs/alert-good.svg';
-import utils from '@/utils/index';
-import { RADIUS_S_10 } from '@/constants/common';
-import { RADIUS_S_40 } from 'src/constants/common';
+import utils from '@/utils';
 
 const CustomModal = () => {
   const { modal, closeModal } = useModal();
@@ -52,48 +44,6 @@ const CustomModal = () => {
     handleFinaly();
   };
 
-  const setImage = () => {
-    if (status === 0) {
-      return null;
-    }
-    if (status === 1) {
-      return Ok.src;
-    }
-    if (status === 2) {
-      return No.src;
-    }
-    if (status === 3) {
-      return Check.src;
-    }
-    if (status === 4) {
-      return Re.src;
-    }
-    if (status === 5) {
-      return Good.src;
-    }
-  };
-
-  const setText = () => {
-    if (status === 0) {
-      return '';
-    }
-    if (status === 1) {
-      return '정답';
-    }
-    if (status === 2) {
-      return '오답';
-    }
-    if (status === 3) {
-      return `${step}단계 완료`;
-    }
-    if (status === 4) {
-      return `${step}점 이상 통과`;
-    }
-    if (status === 5) {
-      return `테스트 통과`;
-    }
-  };
-
   return (
     <Modal
       isOpen={isOpen}
@@ -103,7 +53,6 @@ const CustomModal = () => {
       <ModalOverlay />
       <ModalContent
         alignSelf="center"
-        borderRadius={RADIUS_S_40}
         w={'100%'}
         maxW={'87.5%'}
         h={'100%'}
@@ -129,9 +78,7 @@ const CustomModal = () => {
                   xs: '60px',
                 }}
                 w={'28.57%'}
-              >
-                <Image src={setImage()} />
-              </Box>
+              ></Box>
             </Center>
 
             <Box>
@@ -161,7 +108,6 @@ const CustomModal = () => {
                     <DefaultButton
                       onClick={handleOnClick}
                       theme="info"
-                      borderRadius={RADIUS_S_10}
                       size="sm"
                       text={onAgreeText}
                       fontSize={30}
@@ -174,7 +120,6 @@ const CustomModal = () => {
                         theme="info"
                         outline
                         fontColor={'#75B125'}
-                        borderRadius={RADIUS_S_10}
                         size="sm"
                         text={'넘어가기'}
                         fontSize={30}

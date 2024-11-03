@@ -2,7 +2,7 @@
 
 import { Box } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import utils from '@/utils/index';
+import utils from '@/utils';
 
 const ResizeBox = (props) => {
   const { children } = props;

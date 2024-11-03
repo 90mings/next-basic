@@ -2,10 +2,11 @@
 
 import useModal from '@/hooks/useModal';
 import { deviceInfoState } from '@/stores/commonRecoil';
-import utils from '@/utils';
 import { Box } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { useRecoilState, useResetRecoilState } from 'recoil';
+import { Interceptor } from './Interceptor';
+import utils from 'src/utils';
 
 const WarpPage = ({ children }) => {
   const { closeModal } = useModal();

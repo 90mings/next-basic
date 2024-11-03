@@ -3,7 +3,7 @@
 import { Button, Input, InputGroup, InputRightAddon } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { GText } from '@/components';
-import utils from '@/utils/index';
+import utils from '@/utils';
 import { RADIUS_S_20 } from '@/constants/common';
 
 const JoinInput = (props) => {

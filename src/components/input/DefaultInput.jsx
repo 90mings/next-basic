@@ -1,53 +1,47 @@
 'use client';
 
-import { useCallback, useEffect } from 'react';
 import { Input } from '@chakra-ui/react';
 
 const DefaultInput = (props) => {
+  // 기본
   const {
     value,
-    defaultValue = '',
     placeholder = '',
-    color = 'rgba(0, 9, 32, 1)',
+    color,
     type = 'text',
-    auto = false,
     max = 999999,
-    borderRadius = '4px',
+    borderRadius,
     borderColor,
-    fontWeight = 400,
-    fontSize = '18px',
+    fontWeight,
+    fontSize,
+    _placeholder,
+    _hover,
   } = props;
+  // 권한
   const { isDisabled = false, readOnly = false } = props;
+  // 이벤트
   const { onChange, onKeyDown, onBlur } = props;
   // chakra ui prop
-  const { size = 'lg', textAlign = 'left', bg = '#FFF' } = props;
-
-  const handleAutoCompleteByType = useCallback(() => {
-    /*
-    if (type === 'password') {
-      return 'new-password';
-    }
-    */
-    // return 'off';
-    return 'one-time-code';
-  });
+  const { textAlign = 'left' } = props;
 
   const handleOnChange = (event) => {
+    const tempValue = event.target.value;
+    if (type === 'number' && Number.isNaN(Number(tempValue))) return;
+    if (max) {
+      if (event.target.value.length > max) {
+        event.preventDefault();
+        return;
+      }
+    }
     if (onChange) {
-      return onChange(event);
+      return onChange(tempValue);
     }
   };
 
   const handleOnKeyDown = (event) => {
-    /*
-    if (event.keyCode === 13) {
-      if (onKeyDown) {
-        return onKeyDown(event);
-      }
-    }
-    */
     const { keyCode } = event;
-    if (keyCode === 38 || keyCode === 40) {
+    // 13 enter, 38 방향키 위, 40 방향키 아래
+    if (keyCode === 13 || keyCode === 38 || keyCode === 40) {
       event.preventDefault();
       return;
     }
@@ -64,29 +58,29 @@ const DefaultInput = (props) => {
 
   return (
     <Input
-      w="100%"
-      h="100%"
+      // w="100%"
+      // h="100%"
+      value={value || ''}
       borderColor={borderColor}
       borderRadius={borderRadius}
-      maxLength={max}
-      className={type === 'password' && !auto ? 'input-password' : null}
-      autoComplete={handleAutoCompleteByType(type)}
-      placeholder={placeholder}
-      readOnly={readOnly}
-      isDisabled={isDisabled}
-      type={type === 'password' && !auto ? 'text' : type}
-      value={value || ''}
-      onChange={handleOnChange}
-      onKeyDown={handleOnKeyDown}
-      onBlur={handleOnBlur}
+      autoComplete={'one-time-code'}
+      type={type}
       color={color}
       fontWeight={fontWeight}
       fontSize={fontSize}
-      bg={bg}
       textAlign={textAlign}
-      _placeholder={{
-        color: '#BABABA',
-      }}
+      maxLength={max}
+      //
+      readOnly={readOnly}
+      isDisabled={isDisabled}
+      //
+      onChange={handleOnChange}
+      onKeyDown={handleOnKeyDown}
+      onBlur={handleOnBlur}
+      //
+      placeholder={placeholder}
+      _placeholder={_placeholder}
+      _hover={_hover}
     />
   );
 };

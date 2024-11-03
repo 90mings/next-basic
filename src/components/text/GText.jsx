@@ -1,7 +1,7 @@
 'use client';
 
 import { Text, useBreakpointValue, useTheme } from '@chakra-ui/react';
-import utils from '@/utils/index';
+import utils from '@/utils';
 import { useEffect, useState } from 'react';
 
 const GText = ({
@@ -29,7 +29,7 @@ const GText = ({
     <Text
       textShadow={textShadow}
       fontWeight={fontWeight}
-      fontSize={tempFontSize}
+      fontSize={themeFontSize}
       color={color || '#000'}
       lineHeight={lineHeight}
       textAlign={textAlign}

@@ -2,7 +2,7 @@
 
 import { Box, Input, InputGroup, VStack } from '@chakra-ui/react';
 import { GText } from '@/components';
-import utils from '@/utils/index';
+import utils from '@/utils';
 import { useEffect, useState } from 'react';
 import { RADIUS_S_20 } from '@/constants/common';
 

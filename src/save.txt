@@ -1,0 +1,8 @@
+#device 참고
+> https://viewportsizer.com/devices/
+
+#dependencies 
+1. 이음
+"@tosspayments/tosspayments-sdk"
+"uuid": "^10.0.0"
+"chart.js": "^4.4.3"

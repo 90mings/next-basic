@@ -1,8 +1,17 @@
 {
   "compilerOptions": {
-    // "baseUrl": ".",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      // "@/*": ["./src/*"],
+      "@/images/*": ["/public/images/*"],
+      "@/svgs/*": ["/public/svgs/*"],
+      "@/styles/g/*": ["/src/styles/*"],
+      "@/services/*": ["/src/services/*"],
+      "@/components": ["/src/components/index"],
+      "@/hooks/*": ["/src/hooks/*"],
+      "@/stores/*": ["/src/stores/*"],
+      "@/utils": ["/src/utils/index"],
+      "@/constants/*": ["/src/constants/*"]
     }
   },
   "include": ["src/**/*", "**/*.jsx", "**/*.js"],

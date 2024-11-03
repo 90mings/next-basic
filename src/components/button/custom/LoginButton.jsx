@@ -3,24 +3,22 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Button, HStack, Image } from '@chakra-ui/react';
 import { GText } from '@/components';
-import AppleLogo from '@/svgs/apple.svg';
-import GoogleLogo from '@/svgs/google.svg';
-import KakaoLogo from '@/svgs/kakao.svg';
-import NaverLogo from '@/svgs/naver.svg';
+import AppleLogo from '@/svgs/simbol/apple.svg';
+import GoogleLogo from '@/svgs/simbol/google.svg';
+import KakaoLogo from '@/svgs/simbol/kakao.svg';
+import NaverLogo from '@/svgs/simbol/naver.svg';
 import {
   SNS_TYPE_KAKAO,
   SNS_TYPE_NAVER,
   SNS_TYPE_GOOGLE,
   SNS_TYPE_APPLE,
-  BOX_S_LOGIN,
 } from '@/constants/common';
-import { RADIUS_S_10 } from '@/constants/common';
 
 const LoginButton = (props) => {
-  const { id, type = 'Button', onClick } = props;
+  const { type = 'ETC', onClick } = props;
 
   const [iconImage, setIconImage] = useState(null);
-  const [text, setText] = useState('button');
+  const [text, setText] = useState('버튼');
   const [bgColor, setBgColor] = useState('#FFF');
   const [fontColor, setFontColor] = useState('#FFF');
 
@@ -61,19 +59,14 @@ const LoginButton = (props) => {
 
   return (
     <Button
-      id={id}
-      border="1px solid #D7D7D7"
-      w={'100%'}
-      h={'25%'}
       bg={bgColor}
-      borderRadius={RADIUS_S_10}
-      _active={{}}
-      _focus={{}}
-      _hover={{}}
+      // _active={{}}
+      // _focus={{}}
+      // _hover={{}}
       onClick={handleSnsLogin}
-      size="xl"
       px={'5%'}
     >
+      {/*
       <HStack
         w="100%"
         h="100%"
@@ -81,16 +74,17 @@ const LoginButton = (props) => {
         alignItems="center"
         spacing={0}
       >
-        <Box w={BOX_S_LOGIN} minW={BOX_S_LOGIN}>
-          <Image w="100%" h="100%" src={iconImage?.src} />
+        <Box>
+          <Image w="80%" h="80%" src={iconImage?.src} alt="이미지" />
         </Box>
         <Box>
           <GText fontWeight={600} fontSize={30} color={fontColor}>
             {text}
           </GText>
         </Box>
-        <Box w={BOX_S_LOGIN} minW={BOX_S_LOGIN} />
+        <Box />
       </HStack>
+       */}
     </Button>
   );
 };

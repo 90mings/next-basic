@@ -11,11 +11,10 @@ import {
   STROAGE_ADMIN_TOKEN_ID,
   STROAGE_ADMIN_USER_INFO,
 } from '@/constants/common';
-import utils from '@/utils/index';
+import utils from '@/utils';
 import { tempAutoLoginState } from '@/stores/commonRecoil';
-import { adminUserState } from '@/stores/userRecoil';
-import { normalUserState } from 'src/stores/userRecoil';
-import { STROAGE_FCM_TOKEN_ID } from 'src/constants/common';
+import { adminUserState, normalUserState } from '@/stores/userRecoil';
+import { STROAGE_FCM_TOKEN_ID } from '@/constants/common';
 
 const useSession = () => {
   const resetAdminUser = useResetRecoilState(adminUserState);

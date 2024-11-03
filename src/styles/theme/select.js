@@ -14,12 +14,25 @@ const baseStyle = definePartsStyle({
     borderColor: '#000920',
   },
   field: {
+    w: '100%',
+    minW: '100px',
+    h: '100%',
+    minH: '30px',
+    color: '#000',
+    border: '1px solid',
+    borderColor: '#E3E8F1',
     background: '#FFF',
     // borderColor: 'red !important',
     // color: 'red',
   },
   icon: {
     // color: 'blue.400',
+    // fontSize: '13px',
+  },
+  _disabled: {
+    opacity: 1,
+    bg: 'rgba(245, 247, 251, 1)',
+    borderColor: 'rgba(245, 247, 251, 1)',
   },
 });
 
@@ -76,5 +89,9 @@ const outlineDark = defineStyle({
 // export const selectTheme = defineMultiStyleConfig({ baseStyle });
 
 export const selectTheme = defineStyleConfig({
+  baseStyle,
+  defaultProps: {
+    variant: null, // null here
+  },
   variants: { outline, outlineDark },
 });

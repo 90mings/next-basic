@@ -1,6 +1,6 @@
-import { API_VERSION } from '@/constants/enviroment';
 import apiInstance from 'src/app/Interceptor';
 
+const API_VERSION = process.env.CUSTOM_API_VERSION;
 const apiFunction = (method) => {
   return async (
     url,
@@ -13,6 +13,7 @@ const apiFunction = (method) => {
       noShade = true,
       customLoading = false,
       customLoadingText = '',
+      isCommonError = true,
       timeout,
     } = {},
   ) => {
@@ -25,6 +26,7 @@ const apiFunction = (method) => {
         noShade,
         customLoading,
         customLoadingText,
+        isCommonError,
         timeout,
       });
       return result;
@@ -37,8 +39,10 @@ const apiFunction = (method) => {
         params: body,
         loadding,
         noShade,
+        customHeaders,
         customLoading,
         customLoadingText,
+        isCommonError,
         timeout,
       });
       return result;
@@ -53,6 +57,7 @@ const apiFunction = (method) => {
         noShade,
         customLoading,
         customLoadingText,
+        isCommonError,
         timeout,
       });
       return result;
@@ -67,6 +72,7 @@ const apiFunction = (method) => {
         noShade,
         customLoading,
         customLoadingText,
+        isCommonError,
         timeout,
       });
       return result;

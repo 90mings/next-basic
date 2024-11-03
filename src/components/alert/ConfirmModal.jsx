@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/modal';
 import { GText, DefaultButton } from '@/components';
 import useModal from '@/hooks/useModal';
-import utils from '@/utils/index';
+import utils from '@/utils';
 import { deviceInfoState } from '@/stores/commonRecoil';
 import { useRecoilValue } from 'recoil';
 

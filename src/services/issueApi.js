@@ -1,10 +1,9 @@
 import axios from 'axios';
-import { API_TIMEOUT, API_URL, API_VERSION } from 'src/constants/enviroment';
-// import { API_TIMEOUT, API_URL, API_VERSION } from '@/constant/enviroment';
+const API_VERSION = process.env.CUSTOM_API_VERSION;
 
 const issueApiInstance = axios.create({
-  baseURL: API_URL,
-  timeout: API_TIMEOUT,
+  baseURL: process.env.CUSTOM_API_URL,
+  timeout: process.env.CUSTOM_API_TIMEOUT,
 });
 
 const apiFunction = async (url, { body = {} }) => {
