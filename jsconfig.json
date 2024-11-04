@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
-      // "@/*": ["./src/*"],
+      "@/*": ["./src/*"],
+      "@/images/*": ["/public/images/*"],
+      "@/svgs/*": ["/public/svgs/*"]
+      /*
       "@/images/*": ["/public/images/*"],
       "@/svgs/*": ["/public/svgs/*"],
       "@/styles/g/*": ["/src/styles/*"],
@@ -12,8 +14,9 @@
       "@/stores/*": ["/src/stores/*"],
       "@/utils": ["/src/utils/index"],
       "@/constants/*": ["/src/constants/*"]
+      */
     }
   },
-  "include": ["src/**/*", "**/*.jsx", "**/*.js"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }

@@ -10,9 +10,12 @@ export const checkEmail = (email) => {
     return;
   }
   if (!email) {
-    // 없음
-    return;
+    return null;
   }
+  if (!regexEmail(email)) {
+    return false;
+  }
+  return true;
 };
 
 const regexEmail = (value) => {

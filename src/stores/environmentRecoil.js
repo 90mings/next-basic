@@ -4,7 +4,7 @@ import { persistAtom } from './recoil-config';
 // 언어
 export const langState = atom({
   key: 'langState',
-  default: 'KOR',
+  default: null,
   effects_UNSTABLE: [persistAtom],
 });
 

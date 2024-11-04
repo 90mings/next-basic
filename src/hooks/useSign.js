@@ -8,7 +8,7 @@ import { ADMIN } from '@/constants/pageURL';
 import { adminUserState } from '@/stores/userRecoil';
 import useSession from '@/hooks/useSession';
 import adminUserApi from '@/services/adminUserApi';
-import { SUCCESS } from '@/constants/errorCode';
+import { REQUIRE_SIGNUP_ERROR, SUCCESS } from '@/constants/errorCode';
 import {
   STROAGE_ADMIN_AUTO_LOGIN_KEY,
   STROAGE_ADMIN_USER_INFO,
@@ -16,7 +16,6 @@ import {
 import normalUserApi from '@/services/normalUserApi';
 import { normalUserState, tempSnsInfoState } from '@/stores/userRecoil';
 import { MAIN } from '@/constants/pageURL';
-import { REQUIRE_SIGNUP_ERROR } from 'src/constants/errorCode';
 
 const useSign = () => {
   const [isWithDraw, setIsWithDraw] = useState(false);

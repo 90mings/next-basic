@@ -9,11 +9,11 @@ import { ADMIN } from '@/constants/pageURL';
 import useSign from '@/hooks/useSign';
 import useModal from '@/hooks/useModal';
 import { useRecoilState, useSetRecoilState } from 'recoil';
-import { adminUserModalState } from '@/stores/userRecoil';
 import {
   adminSearchByState,
   adminSearchFlagState,
-} from 'src/stores/userRecoil';
+  adminUserModalState,
+} from '@/stores/userRecoil';
 
 const AdminNavbar = () => {
   const [adminUserModal, setAdminUserModal] =

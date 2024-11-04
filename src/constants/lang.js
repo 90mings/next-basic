@@ -1,13 +1,28 @@
 const LANGUAGES = {
-  KOR: {
-    NOT_FOUND_EMAIL: '이메일을 입력해주세요.',
-    NOT_MATCH_EMAIL: '이메일 형태를 확인해주세요.',
+  A: {
+    KR: '에이',
+    EN: 'A',
   },
-  ENG: {
-    greeting: 'Hello',
-    farewell: 'Goodbye',
-    welcome: 'Welcome',
+  NOT_FOUND_EMAIL: {
+    KR: '이메일을 입력해주세요.',
+    EN: 'NOT_FOUND_EMAIL',
+  },
+  NOT_MATCH_EMAIL: {
+    KR: '이메일 형태를 확인해주세요.',
+    EN: 'NOT_MATCH_EMAIL',
+  },
+  INFO: {
+    KR: '안내',
+    EN: 'Info',
+  },
+  AGREE: {
+    KR: '확인',
+    EN: 'Agree',
+  },
+  CANCEL: {
+    KR: '취소',
+    EN: 'Cancel',
   },
 };
 
-export const DEFAULT_LANGUAGE = LANGUAGES.KOR;
+export default LANGUAGES;

@@ -9,7 +9,7 @@ const DefaultButton = (props) => {
   const { size = 'md', fontSize, fontWeight, lineHeight, fontColor } = props;
 
   const { borderRadius, borderColor, bg } = props;
-  const { id, text = '버튼' } = props;
+  const { id, text } = props;
 
   const { onClick, active, isDisabled = false } = props;
 

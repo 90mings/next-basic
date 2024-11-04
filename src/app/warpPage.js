@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { useRecoilState, useResetRecoilState } from 'recoil';
 import { Interceptor } from './Interceptor';
 import utils from '@/utils';
+import { ModalAgent } from '@/components';
 
 const WarpPage = ({ children }) => {
   const { closeModal } = useModal();
@@ -56,7 +57,7 @@ const WarpPage = ({ children }) => {
       />
       */}
       <Interceptor />
-      {/* <ModalAgent /> */}
+      <ModalAgent />
       {/* {loading && <Loading />} */}
       {/* {customLoading && <CustomLoading />} */}
       {initPage && children}

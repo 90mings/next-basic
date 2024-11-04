@@ -3,8 +3,12 @@
 import { useCallback } from 'react';
 import { useRecoilState } from 'recoil';
 import { modalState } from '@/stores/modalRecoil';
+import utils from '@/utils';
+import useLocale from './useLocale';
+import LANGUAGES from '@/constants/lang';
 
 const useModal = () => {
+  const { localeText } = useLocale();
   const [modal, setModal] = useRecoilState(modalState);
   const openModal = useCallback(
     ({ ...props }) => {
@@ -12,8 +16,8 @@ const useModal = () => {
         type: props.type || 'alert',
         isOpen: true,
         isClose: utils.isEmpty(props.isClose) ? modal.isClose : props.isClose,
-        title: props.title || '안내',
-        text: props.text || '내용',
+        title: props.title || localeText('info'),
+        text: props.text || localeText('content'),
         textOptions: props.textOptions || [],
         onAgree: utils.isEmpty(props.onAgree)
           ? closeModal
@@ -21,14 +25,14 @@ const useModal = () => {
               props.onAgree();
               closeModal();
             },
-        onAgreeText: props.onAgreeText || '확인',
+        onAgreeText: props.onAgreeText || localeText('agree'),
         onCancel: utils.isEmpty(props.onCancel)
           ? closeModal
           : () => {
               props.onCancel();
               closeModal();
             },
-        onCancelText: props.onCancelText || '취소',
+        onCancelText: props.onCancelText || localeText('cancel'),
         // custom options
         status: props.status || 0,
         step: props.step || 1,

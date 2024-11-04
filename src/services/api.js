@@ -1,4 +1,4 @@
-import apiInstance from 'src/app/Interceptor';
+import apiInstance from '@/app/Interceptor';
 
 const API_VERSION = process.env.CUSTOM_API_VERSION;
 const apiFunction = (method) => {

@@ -9,7 +9,7 @@ const LinkButton = (props) => {
     fontWeight = 400,
     lineHeight,
   } = props;
-  const { id, text = '버튼' } = props;
+  const { id, text } = props;
 
   const { onClick, isDisabled = false } = props;
 
