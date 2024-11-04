@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 import { Box, Button, HStack, Image } from '@chakra-ui/react';
-import { GText } from '@/components';
 import AppleLogo from '@/svgs/simbol/apple.svg';
 import GoogleLogo from '@/svgs/simbol/google.svg';
 import KakaoLogo from '@/svgs/simbol/kakao.svg';

@@ -154,7 +154,9 @@ const Interceptor = ({ children }) => {
           errorCode === TOKEN_INVALIDE_ERROR &&
           response?.config?.isCommonError === true
         ) {
-          try {
+          if (!refreshing) {
+            refreshing = true;
+            requestsQueue.push(response.config);
             const result = await getIssueToken(response);
             if (result.data.errorCode === SUCCESS) {
               const accessToken = result.data.data.accessToken;
@@ -163,17 +165,17 @@ const Interceptor = ({ children }) => {
               } else {
                 utils.setAccessToken(accessToken);
               }
-              const errorRequest = response.config;
-              errorRequest.headers.Authorization = `Bearer ${accessToken}`;
-              return apiInstance(errorRequest);
+              setTimeout(async () => {
+                const promises = requestsQueue.map(async (queueConfig) => {
+                  apiInstance(queueConfig);
+                });
+                await Promise.all(promises);
+                refreshing = false;
+                requestsQueue = [];
+              }, 200);
             }
-            return errorHandler(response);
-          } catch (catchError) {
-            return errorHandler(response);
-          } finally {
-            setGlobalLoading(false);
-            setGlobalCustomLoading(false);
-            setGlobalLoadingNoShade(false);
+          } else {
+            requestsQueue.push(response.config);
           }
         }
         // 상단 에러코드가 포함되면 에러 처리
@@ -192,9 +194,6 @@ const Interceptor = ({ children }) => {
   };
 
   const errorHandler = (error) => {
-    setGlobalLoading(false);
-    setGlobalCustomLoading(false);
-    setGlobalLoadingNoShade(false);
     if (utils.isNotEmpty(error?.data)) {
       return apiErrorHandle(error);
     }

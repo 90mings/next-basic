@@ -2,12 +2,23 @@
 
 import { DefaultInput } from '@/components';
 import { Box, Center, Select } from '@chakra-ui/react';
-import { useState } from 'react';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { LoginButton, SearchInput } from 'src/components';
 import { SNS_TYPE_NAVER } from 'src/constants/common';
 
 const App = ({ Component, pageProps }) => {
   const [a, setA] = useState('');
+  useEffect(() => {
+    // 지역정보 취득
+    const fetchLocation = async () => {
+      const response = await axios.get('/api/location');
+      const data = response;
+      console.log(data);
+      // setLocation(data.location);
+    };
+    fetchLocation();
+  }, []);
   return (
     <main>
       <Center>

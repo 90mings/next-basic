@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import utils from 'src/utils';
+import utils from '@/utils';
 import { Box, Text } from '@chakra-ui/react';
-import { RADIUS_S_40 } from 'src/constants/common';
+import { RADIUS_S_40 } from '@/constants/common';
 
 const TypingText = (props) => {
   const {

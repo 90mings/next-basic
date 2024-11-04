@@ -11,8 +11,7 @@ import {
   ModalContent,
   ModalOverlay,
 } from '@chakra-ui/react';
-import { RADIUS_S_10 } from '@/constants/common';
-import { deviceInfoState } from '@/stores/commonRecoil';
+import { deviceInfoState } from '@/stores/environmentRecoil';
 import { useRecoilValue } from 'recoil';
 import useModal from '@/hooks/useModal';
 import utils from '@/utils';
@@ -99,7 +98,6 @@ const AlertModal = () => {
                   onClick={modal.onAgree}
                   theme="info"
                   size="sm"
-                  borderRadius={RADIUS_S_10}
                   fontSize={30}
                   text={modal.onAgreeText}
                 />

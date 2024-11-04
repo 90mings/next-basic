@@ -5,7 +5,6 @@ import { default as Loading } from './common/loading/Loading';
 import { default as CustomLoading } from './common/loading/CustomLoading';
 import { default as DefaultPaginate } from './common/pagination/DefaultPaginate';
 // layout
-import { default as Navbar } from './layout/Navbar';
 import { default as Sidebar } from './layout/Sidebar';
 import { default as NavLink } from './layout/NavLink';
 import { default as ContentBox } from './layout/ContentBox';
@@ -33,7 +32,6 @@ export {
   // common
   Loading,
   CustomLoading,
-  Navbar,
   ContentBox,
   Sidebar,
   AdminNavbar,

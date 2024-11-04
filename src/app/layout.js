@@ -2,9 +2,8 @@ import '../styles/globals.css';
 import Providers from './providers';
 import WarpPage from './warpPage';
 
-const isDev = process.env.NEXT_PUBLIC_NODE_ENV === 'development';
 const title = '작업';
-const tmepTitle = `${isDev ? `(개발) ${title}` : title}`;
+const tmepTitle = `${process.env.NEXT_PUBLIC_NODE_ENV === 'development' ? `(개발) ${title}` : title}`;
 
 export const metadata = {
   title: tmepTitle,

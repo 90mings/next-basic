@@ -1,7 +1,7 @@
 import { useRecoilState, useResetRecoilState } from 'recoil';
 import { useCallback, useState } from 'react';
 import utils from '@/utils';
-import { tempAutoLoginState } from '@/stores/commonRecoil';
+import { tempAutoLoginState } from '@/stores/dataRecoil';
 import useModal from '@/hooks/useModal';
 import { useRouter } from 'next/navigation';
 import { ADMIN } from '@/constants/pageURL';

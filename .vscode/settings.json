@@ -23,6 +23,7 @@
     "_utils": "Utils",
     "(route)": "Routes"
   }
+  // "typescript.preferences.importModuleSpecifier": "non-relative"
 
   /* 설정 가능한 항목들
   prettier.arrowParens

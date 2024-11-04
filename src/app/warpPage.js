@@ -1,17 +1,15 @@
 'use client';
 
 import useModal from '@/hooks/useModal';
-import { deviceInfoState } from '@/stores/commonRecoil';
+import { deviceInfoState } from '@/stores/environmentRecoil';
 import { Box } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { useRecoilState, useResetRecoilState } from 'recoil';
 import { Interceptor } from './Interceptor';
-import utils from 'src/utils';
+import utils from '@/utils';
 
 const WarpPage = ({ children }) => {
   const { closeModal } = useModal();
-  // const setLoading = useSetRecoilState(loadingState);
-  // const setCustomLoading = useSetRecoilState(customLoadingState);
   const resetDeviceInfo = useResetRecoilState(deviceInfoState);
   const [deviceInfo, setDeviceInfo] = useRecoilState(deviceInfoState);
 
@@ -31,7 +29,6 @@ const WarpPage = ({ children }) => {
         isMobile: isMobile,
         osType: osType,
       };
-      console.log(temp);
       setDeviceInfo(temp);
     };
     handleResize();

@@ -11,7 +11,7 @@ import {
 import { GText, DefaultButton } from '@/components';
 import useModal from '@/hooks/useModal';
 import utils from '@/utils';
-import { deviceInfoState } from '@/stores/commonRecoil';
+import { deviceInfoState } from '@/stores/environmentRecoil';
 import { useRecoilValue } from 'recoil';
 
 const ConfirmModal = () => {

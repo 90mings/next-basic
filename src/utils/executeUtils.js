@@ -1,26 +1,27 @@
+'use client';
+
 import {
-  isDev,
   STROAGE_AUTO_LOGIN_KEY,
   STROAGE_INIT_POP_FLAG,
   STROAGE_SNS_INFO,
 } from '@/constants/common';
-import { isClient } from './commonUtils';
+import { isClient, isDev } from './deviceUtils';
 
 export const initBridge = () => {
   if (!isClient()) return;
   const scriptBridge = document.createElement('script');
   scriptBridge.src = '/bridgeReturn.js';
   scriptBridge.onload = () => {
-    if (isDev) {
-      console.log('bridgeReturn');
+    if (isDev()) {
+      console.log('loaded bridgeReturn');
     }
   };
   document.body.appendChild(scriptBridge);
   const scriptMinterface = document.createElement('script');
   scriptMinterface.src = '/minterface.js';
   scriptMinterface.onload = () => {
-    if (isDev) {
-      console.log('minterface');
+    if (isDev()) {
+      console.log('loaded minterface');
     }
   };
   document.body.appendChild(scriptMinterface);

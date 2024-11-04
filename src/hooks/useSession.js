@@ -12,7 +12,7 @@ import {
   STROAGE_ADMIN_USER_INFO,
 } from '@/constants/common';
 import utils from '@/utils';
-import { tempAutoLoginState } from '@/stores/commonRecoil';
+import { tempAutoLoginState } from '@/stores/dataRecoil';
 import { adminUserState, normalUserState } from '@/stores/userRecoil';
 import { STROAGE_FCM_TOKEN_ID } from '@/constants/common';
 
