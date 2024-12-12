@@ -10,8 +10,6 @@ import { tabsTheme } from './tabs';
 import { selectTheme } from './select';
 import { menuTheme } from './menu';
 
-const onlyMobile = true;
-
 export const theme = extendTheme(
   withDefaultProps({
     defaultProps: {
@@ -35,7 +33,7 @@ export const theme = extendTheme(
       body: 'var(--font-noto-sans_KR)',
     },
     fontSizes: {
-      base: '38px',
+      base: 10,
       xs: 34,
       sm: 36,
       md: 38,
@@ -61,12 +59,13 @@ export const theme = extendTheme(
     },
     breakpoints: {
       base: '0em',
-      xs: '300px',
-      sm: onlyMobile ? '400px' : '480px', // 30em
-      md: onlyMobile ? '500px' : '768px', // 48em
-      lg: onlyMobile ? '700px' : '992px', // 62em
-      xl: onlyMobile ? '800px' : '1280px', // 80em
-      '2xl': '1536px', // 96em
+      xs: '360px',
+      sm: '480px',
+      md: '768px',
+      lg: '992px',
+      xl: '1280px',
+      '2xl': '1536px',
+      '3xl': '1900px',
     },
     colors: {
       transparent: 'transparent',

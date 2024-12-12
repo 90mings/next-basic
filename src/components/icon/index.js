@@ -65,7 +65,10 @@ import {
   RiVerifiedBadgeFill as verifiedFill,
 } from 'react-icons/ri';
 
-import { PiPaperPlaneTilt as plane } from 'react-icons/pi';
+import {
+  PiPaperPlaneTilt as plane,
+  PiArrowRight as arrowRight,
+} from 'react-icons/pi';
 
 import { VscArrowSwap as swap } from 'react-icons/vsc';
 
@@ -97,6 +100,7 @@ export default {
   downArrow,
   left,
   right,
+  arrowRight,
   edit,
   copy,
   excel,

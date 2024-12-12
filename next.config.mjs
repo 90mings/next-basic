@@ -9,6 +9,9 @@ const nextConfig = {
     CUSTOM_API_VERSION: process.env.NEXT_PUBLIC_API_VERSION,
     CUSTOM_API_URL: process.env.NEXT_PUBLIC_API_URL,
   },
+  experimental: {
+    optimizePackageImports: ['@chakra-ui/react'],
+  },
   webpack: (config, { isServer }) => {
     if (!isServer) {
       if (config.mode === 'development') {

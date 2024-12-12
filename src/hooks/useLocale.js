@@ -3,7 +3,7 @@
 import { useCallback } from 'react';
 import { useRecoilState } from 'recoil';
 import { langState } from '@/stores/environmentRecoil';
-import LANGUAGES from '@/constants/lang';
+import { BANNERS, LANGUAGES } from '@/constants/lang';
 
 const useLocale = () => {
   const [lang, setLang] = useRecoilState(langState);
@@ -28,10 +28,22 @@ const useLocale = () => {
     [lang],
   );
 
+  const localeBannerText = useCallback(
+    (targetBanner) => {
+      if (targetBanner) {
+        return targetBanner[lang];
+      } else {
+        console.log('# useLocale > Key is required');
+      }
+    },
+    [lang],
+  );
+
   return {
     lang,
     setLang,
     localeText,
+    localeBannerText,
   };
 };
 
