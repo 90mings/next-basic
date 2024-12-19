@@ -122,26 +122,28 @@ g {
   border-top: 1px solid #73829d;
   border-bottom: 1px solid #eaeaea;
   thead {
+    height: 1.75rem;
     tr {
-      padding: 1rem 1.5rem;
+      th {
+        padding: 1rem 1.5rem;
+        p {
+          color: #2a333c;
+          text-align: center;
+
+          font-family: Poppins;
+          text-transform: none;
+          font-size: 1rem;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 1.75rem;
+        }
+      }
+      th:first-child {
+        width: auto;
+      }
     }
   }
-  th {
-    color: #2a333c;
-    text-align: center;
-    font-feature-settings:
-      'liga' off,
-      'clig' off;
-    font-family: Poppins;
-    text-transform: none;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.75rem;
-  }
-  th:first-child {
-    width: auto;
-  }
+
   /*
   td {
     height: 35px;

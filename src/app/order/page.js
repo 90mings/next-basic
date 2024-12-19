@@ -4,8 +4,12 @@ import {
   Box,
   Center,
   Checkbox,
+  Divider,
   HStack,
   Img,
+  Input,
+  Radio,
+  RadioGroup,
   Table,
   TableCaption,
   TableContainer,
@@ -20,8 +24,155 @@ import {
 } from '@chakra-ui/react';
 import MainTopHeader from '@/components/custom/header/MainTopHeader';
 import ContentBR from '@/components/custom/ContentBR';
+import OrderTextInput from '@/components/input/custom/OrderTextInput';
+import Footer from '@/components/common/custom/Footer';
+import { useCallback, useState } from 'react';
 
 const OrderPage = () => {
+  const [selectedCouponId, setSelectedCouponId] = useState('');
+
+  const listOrder = [
+    {
+      name: 'Rampal Latour1',
+      content: 'Marseille Blanc 300g',
+      option: '[Color]Cappuccino (+$2.00)',
+      quantity: 2,
+      price: 54,
+      cost: 3,
+      image: 'https://via.placeholder.com/100x100',
+    },
+    {
+      name: 'Rampal Latour2',
+      content: 'Marseille Blanc 300g',
+      option: '[Color]Cappuccino (+$2.00)',
+      quantity: 2,
+      price: 54,
+      cost: 3,
+      image: 'https://via.placeholder.com/100x100',
+    },
+    /*
+    {
+      name: 'Rampal Latour3',
+      content: 'Marseille Blanc 300g',
+      option: '[Color]Cappuccino (+$2.00)',
+      quantity: 2,
+      price: 54,
+      cost: 3,
+      image: 'https://via.placeholder.com/100x100',
+    },
+    */
+  ];
+
+  const listCoupon = [
+    {
+      couponId: 1,
+      name: '[Gold Member June Coupon] $10 할인',
+      redemption: '$50 minimum purchase',
+      discount: 10,
+    },
+    {
+      couponId: 2,
+      name: '[Gold Member June Coupon] $20 할인',
+      redemption: '$50 minimum purchase',
+      discount: 0,
+    },
+  ];
+
+  const orderCard = useCallback((item, index) => {
+    return (
+      <Box
+        key={index}
+        w={'100%'}
+        borderBottom="1px solid #73829D"
+        p={'1.25rem'}
+      >
+        <HStack spacing={'0.75rem'}>
+          <Box width={'1.75rem'}>
+            <Checkbox />
+          </Box>
+          <Box width={'26.25rem'}>
+            <HStack>
+              <Box>
+                <Img width="6.25rem" height="6.25rem" src={item.image} />
+              </Box>
+              <Box>
+                <VStack align="flex-start" spacing={'0.75rem'}>
+                  <Box>
+                    <VStack spacing={0}>
+                      <Box w={'100%'}>
+                        <Text
+                          color={'#66809C'}
+                          fontSize={'0.9375rem'}
+                          fontWeight={400}
+                          lineHeight={'1.5rem'}
+                        >
+                          {item.name}
+                        </Text>
+                      </Box>
+                      <Box w={'100%'}>
+                        <Text
+                          color={'#485766'}
+                          fontSize={'1rem'}
+                          fontWeight={500}
+                          lineHeight={'1.75rem'}
+                        >
+                          {item.content}
+                        </Text>
+                      </Box>
+                    </VStack>
+                  </Box>
+                  <Box>
+                    <Text
+                      color={'#66809C'}
+                      fontSize={'0.9375rem'}
+                      fontWeight={400}
+                      lineHeight={'1.5rem'}
+                    >
+                      Option : {item.option}
+                    </Text>
+                  </Box>
+                </VStack>
+              </Box>
+            </HStack>
+          </Box>
+          <Box width={'8.8333rem'}>
+            <Text
+              textAlign="center"
+              color="#485766"
+              fontSize="1rem"
+              fontWeight="500"
+              lineHeight="1.75rem"
+            >
+              {item.quantity}
+            </Text>
+          </Box>
+          <Box width={'8.8333rem'}>
+            <Text
+              textAlign="center"
+              color="#485766"
+              fontSize="1rem"
+              fontWeight="500"
+              lineHeight="1.75rem"
+            >
+              ${item.price}
+            </Text>
+          </Box>
+          <Box width={'8.8333rem'}>
+            <Text
+              textAlign="center"
+              color="#485766"
+              fontSize="1rem"
+              fontWeight="500"
+              lineHeight="1.75rem"
+            >
+              ${item.cost}
+            </Text>
+          </Box>
+        </HStack>
+      </Box>
+    );
+  });
+
   return (
     <main>
       <Center w={'100%'}>
@@ -43,370 +194,819 @@ const OrderPage = () => {
               Order
             </Text>
           </Box>
+
           <ContentBR h={'2.5rem'} />
+
           <Box w={'100%'} px={'10rem'}>
-            <HStack spacing={'2.5rem'} justifyContent={'space-between'}>
-              <Box width="60rem">
-                {/* Product Information */}
-                <VStack spacing={'2rem'}>
+            <HStack
+              spacing={'2.5rem'}
+              justifyContent={'space-between'}
+              alignItems={'flex-start'}
+            >
+              <Box w="60rem">
+                <VStack spacing={'5rem'}>
+                  {/* Product Information */}
                   <Box w={'100%'}>
-                    <HStack
-                      justify={'space-between'}
-                      align={'flex-end'}
-                      width={'100%'}
-                    >
-                      <Text
-                        color={'#485766'}
-                        fontSize={'1.5rem'}
-                        fontWeight={500}
-                        lineHeight={'2.475rem'}
-                      >
-                        Product information
-                      </Text>
-                      <Box>
-                        <Text
-                          color={'#B20000'}
-                          fontSize={'1rem'}
-                          fontWeight={500}
-                          lineHeight={'1.75rem'}
-                        >
-                          Delete 1 selected product
-                        </Text>
-                      </Box>
-                    </HStack>
-                  </Box>
-                  <Box w={'100%'}>
-                    <TableContainer className="order-table">
-                      <Table>
-                        <Thead>
-                          <Tr>
-                            <Th>
-                              <Checkbox />
-                            </Th>
-                            <Th w={'26.25rem'}>Product</Th>
-                            <Th w={'8.8333rem'}>Quantity</Th>
-                            <Th w={'8.8333rem'}>Total order price</Th>
-                            <Th w={'8.8333rem'}>Shipping cost</Th>
-                          </Tr>
-                        </Thead>
-                        <Tbody>
-                          <Tr>
-                            <Td>inches</Td>
-                            <Td>millimetres (mm)</Td>
-                            <Td isNumeric>25.4</Td>
-                          </Tr>
-                          <Tr>
-                            <Td>feet</Td>
-                            <Td>centimetres (cm)</Td>
-                            <Td isNumeric>30.48</Td>
-                          </Tr>
-                          <Tr>
-                            <Td>yards</Td>
-                            <Td>metres (m)</Td>
-                            <Td isNumeric>0.91444</Td>
-                          </Tr>
-                        </Tbody>
-                      </Table>
-                    </TableContainer>
-                    {/* Product Rows */}
-                    <VStack align="stretch" spacing="0" height="21.25rem">
-                      {/*
+                    <VStack spacing={'2rem'}>
                       <Box w={'100%'}>
                         <HStack
-                          borderTop="1px solid #73829D"
-                          padding="1rem"
-                          justify="space-between"
-                          align="center"
-                          spacing="0.75rem"
+                          justify={'space-between'}
+                          align={'flex-end'}
+                          width={'100%'}
                         >
-                          <Box
-                            width="1.75rem"
-                            height="1.75rem"
-                            background="white"
-                            borderRadius="4px"
-                            border="1px solid #9CADBE"
-                          />
                           <Text
-                            width="26.25rem"
-                            textAlign="center"
-                            color="#2A333C"
-                            fontSize="1rem"
-                            fontWeight="500"
-                            lineHeight="1.75rem"
+                            color={'#485766'}
+                            fontSize={'1.5rem'}
+                            fontWeight={500}
+                            lineHeight={'2.475rem'}
                           >
-                            Product
+                            Product information
                           </Text>
-                          <Text
-                            flex="1 1 0"
-                            textAlign="center"
-                            color="#2A333C"
-                            fontSize="1rem"
-                            fontWeight="500"
-                            lineHeight="1.75rem"
-                          >
-                            Quantity
-                          </Text>
-                          <Text
-                            flex="1 1 0"
-                            textAlign="center"
-                            color="#2A333C"
-                            fontSize="1rem"
-                            fontWeight="500"
-                            lineHeight="1.75rem"
-                          >
-                            Total order price
-                          </Text>
-                          <Text
-                            flex="1 1 0"
-                            textAlign="center"
-                            color="#2A333C"
-                            fontSize="1rem"
-                            fontWeight="500"
-                            lineHeight="1.75rem"
-                          >
-                            Shipping cost
-                          </Text>
+                          <Box>
+                            <Text
+                              color={'#B20000'}
+                              fontSize={'1rem'}
+                              fontWeight={500}
+                              lineHeight={'1.75rem'}
+                            >
+                              Delete 1 selected product
+                            </Text>
+                          </Box>
                         </HStack>
                       </Box>
-                      */}
-                      <Box w={'100%'} padding={'1.25rem'}>
-                        <HStack
-                          borderTop="1px solid #AEBDCA"
-                          align="center"
-                          spacing="0.75rem"
-                        >
+                      <Box w={'100%'}>
+                        {/* Product Rows */}
+                        <VStack>
+                          {/* header */}
                           <Box
-                            width="1.75rem"
-                            height="1.75rem"
-                            background="white"
-                            borderRadius="4px"
-                            border="1px solid #9CADBE"
-                          />
-                          <Box w={'100%'}>
-                            <HStack>
-                              <Box>
-                                <Img
-                                  width="6.25rem"
-                                  height="6.25rem"
-                                  src="https://via.placeholder.com/100x100"
-                                />
+                            w={'100%'}
+                            borderTop="1px solid #73829D"
+                            borderBottom="1px solid #73829D"
+                            px={'1.25rem'}
+                            py={'1rem'}
+                          >
+                            <HStack spacing={'0.75rem'}>
+                              <Box width={'1.75rem'}>
+                                <Checkbox />
                               </Box>
-                              <Box>
-                                <VStack align="flex-start" spacing={'0.75rem'}>
-                                  <Box>
-                                    <VStack spacing={0}>
-                                      <Box w={'100%'}>
-                                        <Text
-                                          color="#66809C"
-                                          fontSize="0.9375rem"
-                                          fontWeight="400"
-                                          lineHeight="1.5rem"
-                                        >
-                                          Rampal Latour
-                                        </Text>
-                                      </Box>
-                                      <Box w={'100%'}>
-                                        <Text
-                                          color="#485766"
-                                          fontSize="1rem"
-                                          fontWeight="500"
-                                          lineHeight="1.75rem"
-                                        >
-                                          Marseille Blanc 300g
-                                        </Text>
-                                      </Box>
-                                    </VStack>
-                                  </Box>
-                                  <Box>
-                                    <Text
-                                      color="#66809C"
-                                      fontSize="0.9375rem"
-                                      fontWeight="400"
-                                      lineHeight="1.5rem"
-                                    >
-                                      Option : [Color]Cappuccino (+$2.00)
-                                    </Text>
-                                  </Box>
-                                </VStack>
+                              <Box width={'26.25rem'}>
+                                <Text
+                                  textAlign="center"
+                                  color="#2A333C"
+                                  fontSize="1rem"
+                                  fontWeight="500"
+                                  lineHeight="1.75rem"
+                                >
+                                  Product
+                                </Text>
+                              </Box>
+                              <Box width={'8.8333rem'}>
+                                <Text
+                                  textAlign="center"
+                                  color="#2A333C"
+                                  fontSize="1rem"
+                                  fontWeight="500"
+                                  lineHeight="1.75rem"
+                                >
+                                  Quantity
+                                </Text>
+                              </Box>
+                              <Box width={'8.8333rem'}>
+                                <Text
+                                  textAlign="center"
+                                  color="#2A333C"
+                                  fontSize="1rem"
+                                  fontWeight="500"
+                                  lineHeight="1.75rem"
+                                >
+                                  Total order price
+                                </Text>
+                              </Box>
+                              <Box width={'8.8333rem'}>
+                                <Text
+                                  textAlign="center"
+                                  color="#2A333C"
+                                  fontSize="1rem"
+                                  fontWeight="500"
+                                  lineHeight="1.75rem"
+                                >
+                                  Shipping cost
+                                </Text>
                               </Box>
                             </HStack>
                           </Box>
-                          <Box>
+                          {/* body */}
+                          <Box w={'100%'}>
+                            <VStack spacing={0}>
+                              {listOrder.map((item, index) => {
+                                return orderCard(item, index);
+                              })}
+                            </VStack>
+                          </Box>
+                        </VStack>
+                      </Box>
+                    </VStack>
+                  </Box>
+
+                  {/* Orderer Information */}
+                  <Box w={'100%'}>
+                    <VStack spacing={'2rem'}>
+                      <Box w={'100%'}>
+                        <Text
+                          color={'#485766'}
+                          fontSize={'1.5rem'}
+                          fontWeight={500}
+                          lineHeight={'2.475rem'}
+                        >
+                          Orderer information
+                        </Text>
+                      </Box>
+                      <Box w={'100%'}>
+                        <VStack align="stretch" spacing="1.25rem">
+                          <HStack spacing="2rem" justify="flex-start">
                             <Text
-                              textAlign="center"
-                              color="#485766"
+                              width="10rem"
+                              color="#7895B2"
+                              fontSize="1rem"
+                              fontWeight="400"
+                              lineHeight="1.75rem"
+                            >
+                              Orderer name
+                            </Text>
+                            <Text
+                              color="#556A7E"
                               fontSize="1rem"
                               fontWeight="500"
                               lineHeight="1.75rem"
                             >
-                              2
+                              Gildong Hong
                             </Text>
-                          </Box>
-                          <Box>
+                          </HStack>
+                          <HStack spacing="2rem" justify="flex-start">
                             <Text
-                              textAlign="center"
-                              color="#485766"
+                              width="10rem"
+                              color="#7895B2"
+                              fontSize="1rem"
+                              fontWeight="400"
+                              lineHeight="1.75rem"
+                            >
+                              Phone number
+                            </Text>
+                            <Text
+                              color="#556A7E"
                               fontSize="1rem"
                               fontWeight="500"
                               lineHeight="1.75rem"
                             >
-                              $54.00
+                              +82 10 1234 5678
                             </Text>
-                          </Box>
-                          <Box>
+                          </HStack>
+                          <HStack spacing="2rem" justify="flex-start">
                             <Text
-                              textAlign="center"
-                              color="#485766"
+                              width="10rem"
+                              color="#7895B2"
+                              fontSize="1rem"
+                              fontWeight="400"
+                              lineHeight="1.75rem"
+                            >
+                              Email
+                            </Text>
+                            <Text
+                              color="#556A7E"
                               fontSize="1rem"
                               fontWeight="500"
                               lineHeight="1.75rem"
                             >
-                              $3.00
+                              gildonghong@piboogo.com
                             </Text>
-                          </Box>
+                          </HStack>
+                        </VStack>
+                      </Box>
+                    </VStack>
+                  </Box>
+
+                  {/* Shipping Information */}
+                  <Box w={'100%'}>
+                    <VStack spacing={'2rem'}>
+                      <Box w={'100%'}>
+                        <HStack
+                          justify="space-between"
+                          align="flex-end"
+                          width="100%"
+                        >
+                          <Text
+                            textAlign="center"
+                            color="#485766"
+                            fontSize="1.5rem"
+                            fontWeight="500"
+                            lineHeight="2.475rem"
+                          >
+                            Shipping information
+                          </Text>
+                          <HStack
+                            spacing="0.5rem"
+                            justify="start"
+                            align="center"
+                          >
+                            <Box
+                              width="1.75rem"
+                              height="1.75rem"
+                              background="white"
+                              borderRadius="4px"
+                              border="1px solid #9CADBE"
+                            />
+                            <Text
+                              color="#556A7E"
+                              fontSize="1rem"
+                              fontWeight="500"
+                              lineHeight="1.75rem"
+                            >
+                              Same as orderer information
+                            </Text>
+                          </HStack>
                         </HStack>
                       </Box>
-                      {/* Additional product rows can be added here similarly */}
+                      <Box w={'100%'}>
+                        <VStack spacing={'1.25rem'}>
+                          {/* First Row: Last name and First name */}
+                          <Box w={'100%'}>
+                            <HStack w={'100%'} spacing={'1.25rem'}>
+                              <Box w={'50%'}>
+                                <OrderTextInput title={'Last name'} />
+                              </Box>
+                              <Box w={'50%'}>
+                                <OrderTextInput title={'First name'} />
+                              </Box>
+                            </HStack>
+                          </Box>
+
+                          {/* Second Row: Address 1 */}
+                          <Box w={'100%'}>
+                            <OrderTextInput
+                              title={'Address 1'}
+                              maxW={'50rem'}
+                            />
+                          </Box>
+
+                          {/* Third Row: Address 2 */}
+                          <Box w={'100%'}>
+                            <OrderTextInput
+                              title={'Address 2'}
+                              maxW={'50rem'}
+                            />
+                          </Box>
+
+                          {/* Fourth Row: Street address */}
+                          <Box w={'100%'}>
+                            <OrderTextInput
+                              title={'Street address'}
+                              maxW={'50rem'}
+                            />
+                          </Box>
+
+                          {/* Fifth Row: Apartment, suite, etc. and Postal code */}
+                          <Box w={'100%'}>
+                            <HStack w={'100%'} spacing={'1.25rem'}>
+                              <Box w={'50%'}>
+                                <OrderTextInput
+                                  title={'Apartment, suite, etc.'}
+                                />
+                              </Box>
+                              <Box w={'50%'}>
+                                <OrderTextInput title={'Postal code'} />
+                              </Box>
+                            </HStack>
+                          </Box>
+                        </VStack>
+                      </Box>
+                    </VStack>
+                  </Box>
+
+                  <Box w={'100%'}>
+                    <VStack spacing={'2rem'}>
+                      <Box w={'100%'}>
+                        <Text
+                          color={'#485766'}
+                          fontSize={'1.5rem'}
+                          fontWeight={500}
+                          lineHeight={'2.475rem'}
+                        >
+                          Orderer information
+                        </Text>
+                      </Box>
+                      <Box w={'100%'}>
+                        <VStack align="stretch" spacing="1.25rem">
+                          <HStack spacing="2rem" justify="flex-start">
+                            <Text
+                              width="10rem"
+                              color="#7895B2"
+                              fontSize="1rem"
+                              fontWeight="400"
+                              lineHeight="1.75rem"
+                            >
+                              Orderer name
+                            </Text>
+                            <Text
+                              color="#556A7E"
+                              fontSize="1rem"
+                              fontWeight="500"
+                              lineHeight="1.75rem"
+                            >
+                              Gildong Hong
+                            </Text>
+                          </HStack>
+                          <HStack spacing="2rem" justify="flex-start">
+                            <Text
+                              width="10rem"
+                              color="#7895B2"
+                              fontSize="1rem"
+                              fontWeight="400"
+                              lineHeight="1.75rem"
+                            >
+                              Phone number
+                            </Text>
+                            <Text
+                              color="#556A7E"
+                              fontSize="1rem"
+                              fontWeight="500"
+                              lineHeight="1.75rem"
+                            >
+                              +82 10 1234 5678
+                            </Text>
+                          </HStack>
+                          <HStack spacing="2rem" justify="flex-start">
+                            <Text
+                              width="10rem"
+                              color="#7895B2"
+                              fontSize="1rem"
+                              fontWeight="400"
+                              lineHeight="1.75rem"
+                            >
+                              Email
+                            </Text>
+                            <Text
+                              color="#556A7E"
+                              fontSize="1rem"
+                              fontWeight="500"
+                              lineHeight="1.75rem"
+                            >
+                              gildonghong@piboogo.com
+                            </Text>
+                          </HStack>
+                        </VStack>
+                      </Box>
                     </VStack>
                   </Box>
                 </VStack>
+              </Box>
+              <Box w={'37.5rem'}>
+                <VStack spacing={'2.5rem'}>
+                  <Box w={'100%'} p={'2.5rem'} border={'1px solid #9CADBE'}>
+                    <VStack spacing={'3.25rem'}>
+                      {/* Order Summary Section */}
+                      <Box w={'100%'}>
+                        <VStack spacing={'1.5rem'}>
+                          <Box w={'100%'}>
+                            <Text
+                              color="#485766"
+                              fontSize="1.25rem"
+                              fontFamily="Poppins"
+                              fontWeight="500"
+                              lineHeight="2.25rem"
+                              wordBreak="break-word"
+                            >
+                              Order summary
+                            </Text>
+                          </Box>
 
-                {/* Orderer Information */}
-                <VStack align="stretch" spacing="2rem" height="12.25rem">
-                  <Text
-                    textAlign="center"
-                    color="#485766"
-                    fontSize="1.5rem"
-                    fontWeight="500"
-                    lineHeight="2.475rem"
-                  >
-                    Orderer information
-                  </Text>
-                  <VStack align="stretch" spacing="1.25rem">
-                    <HStack spacing="2rem" justify="flex-start">
-                      <Text
-                        width="10rem"
-                        color="#7895B2"
-                        fontSize="1rem"
-                        fontWeight="400"
-                        lineHeight="1.75rem"
-                      >
-                        Orderer name
-                      </Text>
-                      <Text
-                        color="#556A7E"
-                        fontSize="1rem"
-                        fontWeight="500"
-                        lineHeight="1.75rem"
-                      >
-                        Gildong Hong
-                      </Text>
-                    </HStack>
-                    <HStack spacing="2rem" justify="flex-start">
-                      <Text
-                        width="10rem"
-                        color="#7895B2"
-                        fontSize="1rem"
-                        fontWeight="400"
-                        lineHeight="1.75rem"
-                      >
-                        Phone number
-                      </Text>
-                      <Text
-                        color="#556A7E"
-                        fontSize="1rem"
-                        fontWeight="500"
-                        lineHeight="1.75rem"
-                      >
-                        +82 10 1234 5678
-                      </Text>
-                    </HStack>
-                    <HStack spacing="2rem" justify="flex-start">
-                      <Text
-                        width="10rem"
-                        color="#7895B2"
-                        fontSize="1rem"
-                        fontWeight="400"
-                        lineHeight="1.75rem"
-                      >
-                        Email
-                      </Text>
-                      <Text
-                        color="#556A7E"
-                        fontSize="1rem"
-                        fontWeight="500"
-                        lineHeight="1.75rem"
-                      >
-                        gildonghong@piboogo.com
-                      </Text>
-                    </HStack>
-                  </VStack>
-                </VStack>
+                          <Divider
+                            border={'1px solid #73829D'}
+                            boxSizing="border-box"
+                          />
 
-                {/* Shipping Information */}
-                <VStack align="stretch" spacing="2rem" height="35.5rem">
-                  <HStack justify="space-between" align="flex-end" width="100%">
-                    <Text
-                      textAlign="center"
-                      color="#485766"
-                      fontSize="1.5rem"
-                      fontWeight="500"
-                      lineHeight="2.475rem"
-                    >
-                      Shipping information
-                    </Text>
-                    <HStack spacing="0.5rem" justify="start" align="center">
-                      <Box
-                        width="1.75rem"
-                        height="1.75rem"
-                        background="white"
-                        borderRadius="4px"
-                        border="1px solid #9CADBE"
-                      />
-                      <Text
-                        color="#556A7E"
-                        fontSize="1rem"
-                        fontWeight="500"
-                        lineHeight="1.75rem"
-                      >
-                        Same as orderer information
-                      </Text>
-                    </HStack>
-                  </HStack>
-                  {/* Shipping Address Fields */}
-                  <VStack align="stretch" spacing="1.25rem">
-                    {/* Address 1 */}
-                    <HStack
-                      spacing="1.25rem"
-                      justify="flex-start"
-                      align="center"
-                    >
-                      <Text
-                        width="10rem"
-                        color="#7895B2"
-                        fontSize="1rem"
-                        fontWeight="400"
-                        lineHeight="1.75rem"
-                      >
-                        Last name
-                      </Text>
-                      <Box
-                        width="100%"
-                        padding="0.75rem"
-                        background="white"
-                        borderRadius="4px"
-                        border="1px solid #9CADBE"
-                      />
-                    </HStack>
-                    {/* Additional Address Fields */}
-                  </VStack>
+                          <Box w={'100%'}>
+                            {/* Total Product Price */}
+                            <VStack spacing={'1.25rem'}>
+                              <Box w={'100%'}>
+                                <HStack
+                                  w="full"
+                                  justifyContent="space-between"
+                                  alignItems="flex-start"
+                                  gap="2rem"
+                                >
+                                  <Text
+                                    w="10rem"
+                                    color="#7895B2"
+                                    fontSize="1rem"
+                                    fontFamily="Poppins"
+                                    fontWeight="400"
+                                    lineHeight="1.75rem"
+                                    wordBreak="break-word"
+                                  >
+                                    Total product price
+                                  </Text>
+                                  <Text
+                                    color="#556A7E"
+                                    fontSize="1rem"
+                                    fontFamily="Poppins"
+                                    fontWeight="500"
+                                    lineHeight="1.75rem"
+                                    wordBreak="break-word"
+                                  >
+                                    $81.00
+                                  </Text>
+                                </HStack>
+                              </Box>
+                              <Box w={'100%'}>
+                                <HStack
+                                  w="full"
+                                  justifyContent="space-between"
+                                  alignItems="flex-start"
+                                  gap="2rem"
+                                >
+                                  <Text
+                                    w="10rem"
+                                    color="#7895B2"
+                                    fontSize="1rem"
+                                    fontFamily="Poppins"
+                                    fontWeight="400"
+                                    lineHeight="1.75rem"
+                                    wordBreak="break-word"
+                                  >
+                                    Total shipping cost
+                                  </Text>
+                                  <Text
+                                    color="#556A7E"
+                                    fontSize="1rem"
+                                    fontFamily="Poppins"
+                                    fontWeight="500"
+                                    lineHeight="1.75rem"
+                                    wordBreak="break-word"
+                                  >
+                                    $3.00
+                                  </Text>
+                                </HStack>
+                              </Box>
+                              <Box w={'100%'}>
+                                <HStack
+                                  w="full"
+                                  justifyContent="space-between"
+                                  alignItems="flex-start"
+                                  gap="2rem"
+                                >
+                                  <Text
+                                    w="10rem"
+                                    color="#66809C"
+                                    fontSize="1.125rem"
+                                    fontFamily="Poppins"
+                                    fontWeight="500"
+                                    lineHeight="1.96875rem"
+                                    wordBreak="break-word"
+                                  >
+                                    Total
+                                  </Text>
+                                  <Text
+                                    color="#485766"
+                                    fontSize="1.125rem"
+                                    fontFamily="Poppins"
+                                    fontWeight="600"
+                                    lineHeight="1.96875rem"
+                                    wordBreak="break-word"
+                                  >
+                                    $84.00
+                                  </Text>
+                                </HStack>
+                              </Box>
+                            </VStack>
+                          </Box>
+                        </VStack>
+                      </Box>
+
+                      {/* Coupon Discounts Section */}
+                      <Box w={'100%'}>
+                        <VStack spacing={'1.5rem'}>
+                          <Box w={'100%'}>
+                            <Text
+                              color="#485766"
+                              fontSize="1.25rem"
+                              fontFamily="Poppins"
+                              fontWeight="500"
+                              lineHeight="2.25rem"
+                              wordBreak="break-word"
+                            >
+                              Coupon discounts
+                            </Text>
+                          </Box>
+
+                          <Divider
+                            border={'1px solid #73829D'}
+                            boxSizing="border-box"
+                          />
+
+                          <Box w={'100%'}>
+                            <RadioGroup
+                              value={selectedCouponId}
+                              onChange={(couponId) => {
+                                console.log('couponId', couponId);
+                                setSelectedCouponId(Number(couponId));
+                              }}
+                            >
+                              <VStack spacing={'1.5rem'}>
+                                {listCoupon.map((item, index) => (
+                                  <CouponCard key={index} item={item} />
+                                ))}
+                              </VStack>
+                            </RadioGroup>
+                          </Box>
+                        </VStack>
+                      </Box>
+
+                      {/* Loyalty Points Section */}
+                      <Box w={'100%'}>
+                        <VStack spacing={'1.5rem'}>
+                          <Box w={'100%'}>
+                            <Text
+                              color="#485766"
+                              fontSize="1.25rem"
+                              fontFamily="Poppins"
+                              fontWeight="500"
+                              lineHeight="2.25rem"
+                              wordBreak="break-word"
+                            >
+                              적립금
+                            </Text>
+                          </Box>
+
+                          <Divider
+                            border={'1px solid #73829D'}
+                            boxSizing="border-box"
+                          />
+
+                          <Box w={'100%'}>
+                            {/* Total Product Price */}
+                            <VStack spacing={'1.25rem'}>
+                              <Box w={'100%'}>
+                                <HStack
+                                  w="full"
+                                  justifyContent="space-between"
+                                  alignItems="flex-start"
+                                  gap="2rem"
+                                >
+                                  <Text
+                                    w="10rem"
+                                    color="#7895B2"
+                                    fontSize="1rem"
+                                    fontFamily="Poppins"
+                                    fontWeight="400"
+                                    lineHeight="1.75rem"
+                                    wordBreak="break-word"
+                                  >
+                                    Total product price
+                                  </Text>
+                                  <Text
+                                    color="#556A7E"
+                                    fontSize="1rem"
+                                    fontFamily="Poppins"
+                                    fontWeight="500"
+                                    lineHeight="1.75rem"
+                                    wordBreak="break-word"
+                                  >
+                                    $81.00
+                                  </Text>
+                                </HStack>
+                              </Box>
+                              <Box w={'100%'}>
+                                <HStack
+                                  w="full"
+                                  justifyContent="space-between"
+                                  alignItems="flex-start"
+                                  gap="2rem"
+                                >
+                                  <Text
+                                    w="10rem"
+                                    color="#7895B2"
+                                    fontSize="1rem"
+                                    fontFamily="Poppins"
+                                    fontWeight="400"
+                                    lineHeight="1.75rem"
+                                    wordBreak="break-word"
+                                  >
+                                    Total shipping cost
+                                  </Text>
+                                  <Text
+                                    color="#556A7E"
+                                    fontSize="1rem"
+                                    fontFamily="Poppins"
+                                    fontWeight="500"
+                                    lineHeight="1.75rem"
+                                    wordBreak="break-word"
+                                  >
+                                    $3.00
+                                  </Text>
+                                </HStack>
+                              </Box>
+                              <Box w={'100%'}>
+                                <HStack
+                                  w="full"
+                                  justifyContent="space-between"
+                                  alignItems="flex-start"
+                                  gap="2rem"
+                                >
+                                  <Text
+                                    w="10rem"
+                                    color="#66809C"
+                                    fontSize="1.125rem"
+                                    fontFamily="Poppins"
+                                    fontWeight="500"
+                                    lineHeight="1.96875rem"
+                                    wordBreak="break-word"
+                                  >
+                                    Total
+                                  </Text>
+                                  <Text
+                                    color="#485766"
+                                    fontSize="1.125rem"
+                                    fontFamily="Poppins"
+                                    fontWeight="600"
+                                    lineHeight="1.96875rem"
+                                    wordBreak="break-word"
+                                  >
+                                    $84.00
+                                  </Text>
+                                </HStack>
+                              </Box>
+                            </VStack>
+                          </Box>
+                        </VStack>
+                      </Box>
+                    </VStack>
+                  </Box>
+
+                  <Box w={'100%'} p={'2.5rem'} border={'1px solid #9CADBE'}>
+                    {/* Total Product Price */}
+                    <VStack spacing={'1.25rem'}>
+                      <Box w={'100%'}>
+                        <HStack
+                          w="full"
+                          justifyContent="space-between"
+                          alignItems="flex-start"
+                          gap="2rem"
+                        >
+                          <Text
+                            w="10rem"
+                            color="#7895B2"
+                            fontSize="1rem"
+                            fontFamily="Poppins"
+                            fontWeight="400"
+                            lineHeight="1.75rem"
+                            wordBreak="break-word"
+                          >
+                            Total product price
+                          </Text>
+                          <Text
+                            color="#556A7E"
+                            fontSize="1rem"
+                            fontFamily="Poppins"
+                            fontWeight="500"
+                            lineHeight="1.75rem"
+                            wordBreak="break-word"
+                          >
+                            $81.00
+                          </Text>
+                        </HStack>
+                      </Box>
+                      <Box w={'100%'}>
+                        <HStack
+                          w="full"
+                          justifyContent="space-between"
+                          alignItems="flex-start"
+                          gap="2rem"
+                        >
+                          <Text
+                            w="10rem"
+                            color="#7895B2"
+                            fontSize="1rem"
+                            fontFamily="Poppins"
+                            fontWeight="400"
+                            lineHeight="1.75rem"
+                            wordBreak="break-word"
+                          >
+                            Total shipping cost
+                          </Text>
+                          <Text
+                            color="#556A7E"
+                            fontSize="1rem"
+                            fontFamily="Poppins"
+                            fontWeight="500"
+                            lineHeight="1.75rem"
+                            wordBreak="break-word"
+                          >
+                            $3.00
+                          </Text>
+                        </HStack>
+                      </Box>
+                      <Box w={'100%'}>
+                        <HStack
+                          w="full"
+                          justifyContent="space-between"
+                          alignItems="flex-start"
+                          gap="2rem"
+                        >
+                          <Text
+                            w="10rem"
+                            color="#66809C"
+                            fontSize="1.125rem"
+                            fontFamily="Poppins"
+                            fontWeight="500"
+                            lineHeight="1.96875rem"
+                            wordBreak="break-word"
+                          >
+                            Total
+                          </Text>
+                          <Text
+                            color="#485766"
+                            fontSize="1.125rem"
+                            fontFamily="Poppins"
+                            fontWeight="600"
+                            lineHeight="1.96875rem"
+                            wordBreak="break-word"
+                          >
+                            $84.00
+                          </Text>
+                        </HStack>
+                      </Box>
+                    </VStack>
+                  </Box>
                 </VStack>
               </Box>
             </HStack>
           </Box>
+
+          <ContentBR h={'10rem'} />
+
+          <Footer />
         </VStack>
       </Center>
     </main>
+  );
+};
+
+const CouponCard = ({ item }) => {
+  return (
+    <Box w={'100%'}>
+      <VStack spacing={'0.25rem'} alignItems="flex-start">
+        <Box w={'100%'}>
+          <HStack justifyContent={'space-between'}>
+            <Box>
+              <HStack spacing={'0.75rem'} alignItems={'center'}>
+                <Box>
+                  <Radio value={item.couponId} />
+                </Box>
+                <Box>
+                  <Text
+                    color="#485766"
+                    fontSize="1rem"
+                    fontFamily="Poppins"
+                    fontWeight="400"
+                    lineHeight="1.75rem"
+                    wordBreak="break-word"
+                  >
+                    {item.name}
+                  </Text>
+                </Box>
+              </HStack>
+            </Box>
+            <Box>
+              {item.discount && (
+                <Text
+                  color="#556A7E"
+                  fontSize="1rem"
+                  fontFamily="Poppins"
+                  fontWeight="500"
+                  lineHeight="1.75rem"
+                  wordBreak="break-word"
+                >
+                  - $10.00
+                </Text>
+              )}
+            </Box>
+          </HStack>
+        </Box>
+        <Box w={'100%'} px={'2.25rem'}>
+          <Text
+            flex="1"
+            color="#7895B2"
+            fontSize="1rem"
+            fontFamily="Poppins"
+            fontWeight="400"
+            lineHeight="1.75rem"
+            wordBreak="break-word"
+          >
+            Redemption Terms: {item.redemption}
+          </Text>
+        </Box>
+      </VStack>
+    </Box>
   );
 };
 
