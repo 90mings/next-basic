@@ -243,6 +243,31 @@ const customSizes = {
   xl: definePartsStyle(xl),
 };
 
+const customStyle = definePartsStyle({
+  label: {
+    // fontFamily: 'mono', // change the font family of the label
+  },
+  control: {
+    width: '1.75rem',
+    height: '1.75rem',
+    // marginTop: '2px',
+    borderColor: '#E3E8F1 !important',
+    borderRadius: '4px',
+    backgroundColor: '#FFF',
+
+    _checked: {
+      border: '1px solid',
+      borderColor: '#9CADBE !important',
+      color: '#000000',
+      background: '#FFF',
+      '.chakra-checkbox__check': {
+        fontSize: '24px', // 체크 마크 크기 더 키우기
+        color: 'yellow.400', // 체크 마크 색상 변경
+      },
+    },
+  },
+});
+
 export const checkboxTheme = defineMultiStyleConfig({
   baseStyle,
   sizes: customSizes,
@@ -271,5 +296,5 @@ export const checkboxTheme = defineMultiStyleConfig({
     },
   },
   */
-  // variants: { boxy },
+  variants: { customStyle },
 });

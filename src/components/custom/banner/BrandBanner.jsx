@@ -1,7 +1,7 @@
 'use client';
 
 import { Box, Button, Flex, HStack, Img, Text } from '@chakra-ui/react';
-import RightArrow from '@/svgs/simbol/right-arrow.svg';
+import RightArrow from '@public/svgs/simbol/right-arrow.svg';
 import BrandBannerItem from './item/BrandBannerItem';
 import useLocale from '@/hooks/useLocale';
 import { LANG_KEY } from '@/constants/lang';

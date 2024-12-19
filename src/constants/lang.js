@@ -1,5 +1,7 @@
 import { ERROR_NOT_FOUND_EMAIL, ERROR_NOT_MATCH_EMAIL } from './error';
 
+// localeText(LANG_KEY.SKIN_CARE)
+
 const LANG_KEY = {
   LANGUAGE: 'LANGUAGE',
   HEADER_SIGN_MSG: 'HEADER_SIGN_MSG',
@@ -104,6 +106,10 @@ const LANGUAGES = {
   CANCEL: {
     KR: '취소',
     EN: 'Cancel',
+  },
+  PAGE_NOT_FOUND: {
+    KR: '페이지를 찾을수 없습니다.',
+    EN: 'Page Not Found',
   },
 };
 

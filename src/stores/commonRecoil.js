@@ -7,6 +7,7 @@ export const loadingState = atom({
   default: false,
   effects_UNSTABLE: [persistAtom],
 });
+
 export const customLoadingState = atom({
   key: 'customLoadingState',
   default: false,

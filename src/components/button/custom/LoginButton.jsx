@@ -2,10 +2,10 @@
 
 import React, { useEffect, useState } from 'react';
 import { Box, Button, HStack, Image } from '@chakra-ui/react';
-import AppleLogo from '@/svgs/simbol/apple.svg';
-import GoogleLogo from '@/svgs/simbol/google.svg';
-import KakaoLogo from '@/svgs/simbol/kakao.svg';
-import NaverLogo from '@/svgs/simbol/naver.svg';
+import AppleLogo from '@public/svgs/simbol/apple.svg';
+import GoogleLogo from '@public/svgs/simbol/google.svg';
+import KakaoLogo from '@public/svgs/simbol/kakao.svg';
+import NaverLogo from '@public/svgs/simbol/naver.svg';
 import {
   SNS_TYPE_KAKAO,
   SNS_TYPE_NAVER,

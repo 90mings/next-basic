@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+
+import path from 'path';
+
 const nextConfig = {
   //productionSourceMaps: process.env.NEXT_PUBLIC_ENABLE_SOURCE_MAPS === 'true',
   reactStrictMode: false,
@@ -26,6 +29,11 @@ const nextConfig = {
         child_process: false,
       };
     }
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': path.resolve('src'), // @을 src 폴더로 매핑
+      '@public': path.resolve('public'),
+    };
     config.module.rules.push({
       test: /\.(ogg|mp3|wav|m4a)$/i,
       type: 'asset/resource',

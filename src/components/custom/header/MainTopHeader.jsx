@@ -15,66 +15,30 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react';
-import LogoGlobalLinear from '@/svgs/simbol/global-linear.svg';
-import HeaderSearchIcon from '@/svgs/simbol/header-search-icon.svg';
+import LogoGlobalLinear from '@public/svgs/simbol/global-linear.svg';
+import HeaderSearchIcon from '@public/svgs/simbol/header-search-icon.svg';
 import useLocale from '@/hooks/useLocale';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { LANG_KEY } from '@/constants/lang';
 import useMenu from '@/hooks/useMenu';
+import { useRouter } from 'next/navigation';
+import axios from 'axios';
 
-const MainTopHeader = () => {
+const MainTopHeader = (props) => {
+  const { bg = '#FAF7F2' } = props;
+  const router = useRouter();
   const { lang, setLang, localeText } = useLocale();
 
   const [searchBy, setSearchBy] = useState('');
-  const { headerMenu, setHeaderMenu } = useMenu();
+  const { listMenu, currentMenu, setCurrentMenu } = useMenu();
 
-  const listMenu = [
-    {
-      title: localeText(LANG_KEY.PROMOTION),
-      key: 'PROMOTION',
-      href: '123',
-    },
-    {
-      title: localeText(LANG_KEY.SKIN_CARE),
-      key: 'SKIN_CARE',
-      href: '123',
-    },
-    {
-      title: localeText(LANG_KEY.MAKE_UP),
-      key: 'MAKE_UP',
-      href: '123',
-    },
-    {
-      title: localeText(LANG_KEY.HAIR_CARE),
-      key: 'HAIR_CARE',
-      href: '123',
-    },
-    {
-      title: localeText(LANG_KEY.BODY_CARE),
-      key: 'BODY_CARE',
-      href: '123',
-    },
-    {
-      title: localeText(LANG_KEY.MENS_GROOMING),
-      key: 'MENS_GROOMING',
-      href: '123',
-    },
-  ];
-
-  useEffect(() => {
-    // 지역정보 취득
-    if (!lang) {
-      const fetchLocation = async () => {
-        const ret = await axios.get('/api/location');
-        console.log('response', ret.data);
-        setLang(ret.data.location);
-      };
-      fetchLocation();
-    }
-  }, []);
+  const handleTopMenu = useCallback((item) => {
+    setCurrentMenu(item);
+    router.push(item.href);
+  });
 
   return (
-    <Box w={'100%'} h={'100%'} maxH={720} maxW={1920}>
+    <Box w={'100%'} h={'100%'} maxH={720} maxW={1920} bg={bg}>
       <Box py={'1.5rem'} px={'1.25rem'} w={'100%'}>
         <VStack w={'100%'} spacing={'2rem'}>
           <HStack
@@ -224,13 +188,13 @@ const MainTopHeader = () => {
                     cursor: 'pointer',
                   }}
                   onClick={() => {
-                    setHeaderMenu(item.key);
+                    handleTopMenu(item);
                   }}
                 >
                   <Text
                     fontSize={'1.25rem'}
-                    fontWeight={headerMenu === item.key ? 500 : 400}
-                    color={headerMenu === item.key ? '#66809C' : '#495060'}
+                    fontWeight={currentMenu.key === item.key ? 500 : 400}
+                    color={currentMenu.key === item.key ? '#66809C' : '#495060'}
                   >
                     {item.title}
                   </Text>

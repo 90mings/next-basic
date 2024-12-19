@@ -1,7 +1,7 @@
 'use client';
 
-import { Box, Center, Flex, HStack, Img } from '@chakra-ui/react';
-import MainFirst from '@/svgs/main/main-first.svg';
+import { Box, Flex, Img } from '@chakra-ui/react';
+import MainFirst from '@public/svgs/main/main-first.svg';
 
 const MainFirstBanner = () => {
   return (

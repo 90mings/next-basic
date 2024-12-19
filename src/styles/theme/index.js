@@ -9,6 +9,7 @@ import { inputTheme } from './input';
 import { tabsTheme } from './tabs';
 import { selectTheme } from './select';
 import { menuTheme } from './menu';
+import { tableTheme } from './table';
 
 export const theme = extendTheme(
   withDefaultProps({
@@ -27,6 +28,7 @@ export const theme = extendTheme(
       Tabs: tabsTheme,
       Select: selectTheme,
       Menu: menuTheme,
+      table: tableTheme,
     },
     fonts: {
       heading: 'var(--font-noto-sans_KR)',

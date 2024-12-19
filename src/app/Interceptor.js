@@ -23,7 +23,10 @@ import { loadingState } from '@/stores/commonRecoil';
 import { customLoadingState } from '@/stores/commonRecoil';
 import issueApi from '@/services/issueApi';
 import useSession from '@/hooks/useSession';
-import { ADMIN, MAIN } from '@/constants/pageURL';
+import {
+  // ADMIN,
+  MAIN,
+} from '@/constants/pageURL';
 import { loadingNoShadeState } from '@/stores/commonRecoil';
 
 const API_PRINT_LOG = process.env.CUSTOM_API_PRINT_LOG;
@@ -234,7 +237,7 @@ const Interceptor = ({ children }) => {
         onAgree: () => {
           if (error.config.url.indexOf('/admin') > -1) {
             removeAdminUserInfo(false);
-            window.location.href = ADMIN.login;
+            // window.location.href = ADMIN.login;
           } else {
             removeUserInfo();
             window.location.href = MAIN.login;

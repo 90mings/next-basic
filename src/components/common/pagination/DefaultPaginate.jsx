@@ -46,23 +46,28 @@ const DefaultPaginate = (props) => {
             <Button
               p={0}
               className={`${CSS.paginationButton}`}
+              borderColor={'transparent !important'}
+              bg={'transparent !important'}
+              /*
               _hover={{
-                borderColor: '#50555C',
+                borderColor: 'transparent',
               }}
               borderColor={
                 currentPage === firstNum + index
-                  ? '#50555C !important'
+                  ? 'transparent !important'
                   : '#DDDDDD'
               }
+              */
               key={pageIndex}
               onClick={() => {
                 return setCurrentPage(firstNum + index);
               }}
             >
               <Text
-                fontWeight={500}
-                fontSize="12px"
-                color={currentPage === firstNum + index ? '#000920' : '#B5B5B5'}
+                fontWeight={currentPage === firstNum + index ? 500 : 400}
+                fontSize={'1.125rem'}
+                color={currentPage === firstNum + index ? '#485766' : '#A7C3D2'}
+                lineHeight={'1.96875rem'}
               >
                 {firstNum + index}
               </Text>
@@ -76,23 +81,27 @@ const DefaultPaginate = (props) => {
     <Box>
       <HStack justifyContent="space-around" alignItems="center" spacing={1}>
         <IconButton
+          color={'#7895B2'}
           _hover={{
-            borderColor: '#50555C',
+            // borderColor: '#50555C',
+            borderColor: 'transparent !important',
           }}
           onClick={toPrevPage}
           className={`${CSS.paginationBbutton}`}
         >
-          <ChevronLeftIcon />
+          <ChevronLeftIcon w={'1.5rem'} h={'1.5rem'} />
         </IconButton>
         {renderPages()}
         <IconButton
+          color={'#7895B2'}
           _hover={{
-            borderColor: '#50555C',
+            // borderColor: '#50555C',
+            borderColor: 'transparent !important',
           }}
           onClick={toNextPage}
           className={`${CSS.paginationBbutton}`}
         >
-          <ChevronRightIcon />
+          <ChevronRightIcon w={'1.5rem'} h={'1.5rem'} />
         </IconButton>
       </HStack>
     </Box>

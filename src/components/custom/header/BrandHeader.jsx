@@ -1,8 +1,10 @@
 'use client';
 
 import { Box, HStack, Text, VStack } from '@chakra-ui/react';
+import { useRouter } from 'next/navigation';
 
 const BrandHeader = (props) => {
+  const router = useRouter();
   const {
     headerTitle = 'header',
     listMenu = [],
@@ -34,7 +36,9 @@ const BrandHeader = (props) => {
                     cursor: 'pointer',
                   }}
                   onClick={() => {
+                    console.log('item', item);
                     setTargetMenu(item.key);
+                    router.push(item.href);
                   }}
                 >
                   <Text

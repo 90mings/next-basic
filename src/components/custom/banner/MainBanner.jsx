@@ -3,7 +3,7 @@
 import { Box, Center, Flex, HStack, Img } from '@chakra-ui/react';
 
 const MainBanner = (props) => {
-  const { right, left } = props;
+  const { right, left, isHeight = false } = props;
   return (
     <Box
       w={'100%'}
@@ -13,6 +13,7 @@ const MainBanner = (props) => {
     >
       <Flex
         direction="row"
+        h={isHeight ? '100%' : null}
         // justify="center"
         // align="center"
         // bg="gray.100"
