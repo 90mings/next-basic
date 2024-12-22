@@ -9,34 +9,42 @@ height : 1340
 */
 
 @font-face {
-  font-family: 'Pretendard';
-  src: url('/fonts/Pretendard-Regular.woff') format('woff');
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Light.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Regular.ttf') format('truetype');
   font-display: swap;
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Pretendard-M';
-  src: url('/fonts/Pretendard-Medium.woff') format('woff');
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Medium.ttf') format('truetype');
   font-display: swap;
-  font-weight: 300;
+  font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Pretendard-L';
-  src: url('/fonts/Pretendard-Light.woff') format('woff');
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-SemiBold.ttf') format('truetype');
   font-display: swap;
-  font-weight: 300;
+  font-weight: 600;
   font-style: normal;
 }
 
 * {
-  font-family: 'Poppins', 'sans-serif';
+  font-family: 'Poppins', sans-serif;
   /* font-family: 'Apple SD Gothic Neo'; */
   /* 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', 'sans-serif';  */
-  line-height: 110%;
+  // line-height: 110%;
 
   -webkit-touch-callout: none;
   -webkit-user-select: none; /* Safari */

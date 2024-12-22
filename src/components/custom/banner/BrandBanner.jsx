@@ -4,7 +4,7 @@ import { Box, Button, Flex, HStack, Img, Text } from '@chakra-ui/react';
 import RightArrow from '@public/svgs/simbol/right-arrow.svg';
 import BrandBannerItem from './item/BrandBannerItem';
 import useLocale from '@/hooks/useLocale';
-import { LANG_KEY } from '@/constants/lang';
+import { LANGUAGES } from '@/constants/lang';
 
 const BrandBanner = (props) => {
   const { listBrand = [], onClickAllView } = props;
@@ -40,7 +40,7 @@ const BrandBanner = (props) => {
             >
               <HStack spacing={'0.75rem'}>
                 <Text fontSize={'1.25rem'} fontWeight={400} color={'#FFF'}>
-                  {localeText(LANG_KEY.VIEW_ALL)}
+                  {localeText(LANGUAGES.VIEW_ALL)}
                 </Text>
                 <Img w={'1.5rem'} h={'1.5rem'} src={RightArrow.src} />
               </HStack>

@@ -7,7 +7,7 @@ import {
   currentMenuState,
 } from '@/stores/menuRecoil';
 import useLocale from './useLocale';
-import { LANG_KEY } from '@/constants/lang';
+import { LANGUAGES } from '@/constants/lang';
 import { CATEGORY, MAIN } from '@/constants/pageURL';
 
 const useMenu = () => {
@@ -19,41 +19,41 @@ const useMenu = () => {
   const listMenu = [
     {
       index: 0,
-      title: localeText(LANG_KEY.PROMOTION),
+      title: localeText(LANGUAGES.PROMOTION),
       key: 'PROMOTION',
       href: MAIN.main,
     },
     {
       index: 1,
-      title: localeText(LANG_KEY.SKIN_CARE),
+      title: localeText(LANGUAGES.SKIN_CARE),
       key: 'SKIN_CARE',
       name: 'Skincare',
       href: `${CATEGORY.root}/01`,
     },
     {
       index: 2,
-      title: localeText(LANG_KEY.MAKE_UP),
+      title: localeText(LANGUAGES.MAKE_UP),
       key: 'MAKE_UP',
       name: 'Makeup',
       href: `${CATEGORY.root}/02`,
     },
     {
       index: 3,
-      title: localeText(LANG_KEY.HAIR_CARE),
+      title: localeText(LANGUAGES.HAIR_CARE),
       key: 'HAIR_CARE',
       name: 'Haircare',
       href: `${CATEGORY.root}/03`,
     },
     {
       index: 4,
-      title: localeText(LANG_KEY.BODY_CARE),
+      title: localeText(LANGUAGES.BODY_CARE),
       key: 'BODY_CARE',
       name: 'Bodycare',
       href: `${CATEGORY.root}/04`,
     },
     {
       index: 5,
-      title: localeText(LANG_KEY.MENS_GROOMING),
+      title: localeText(LANGUAGES.MENS_GROOMING),
       key: 'MENS_GROOMING',
       name: "Men's grooming",
       href: `${CATEGORY.root}/05`,

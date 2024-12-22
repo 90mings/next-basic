@@ -73,28 +73,27 @@ export const theme = extendTheme(
       transparent: 'transparent',
       black: '#000',
       white: '#fff',
-      gray: {
-        200: 'rgba(246, 246, 246, 1)', // 바탕
-        300: '#E5E6E9', // 버튼
-        400: '#727784', // 버튼 텍스트
-        900: '#1C1F37', // 타이틀
-      },
-      green: {
-        500: '#BFFF00',
-      },
-      navy: {
-        900: '#000920', // 사이드바
-      },
-      red: {
-        500: '#FF2E00',
-      },
-      border: 'rgba(0, 9, 32, 0.25)',
       // TOBE
-      positive: {
+      primary: {
         default: 'rgba(2, 205, 128, 1)',
         hover: '#0B850B',
         fontColor: '#FFF',
         borderColor: 'rgba(2, 205, 128, 1)',
+        activeColor: 'rgba(2, 205, 128, 0.5)',
+        outline: {
+          default: '#FFF',
+          hover: '#0B850B',
+          hoverColor: '#FFF',
+          fontColor: 'rgba(2, 205, 128, 1)',
+          borderColor: 'rgba(2, 205, 128, 1)',
+          activeColor: 'rgba(2, 205, 128, 0.5)',
+        },
+      },
+      primary: {
+        default: '#7895B2',
+        hover: '#0B850B',
+        fontColor: '#FFF',
+        borderColor: '#7895B2',
         activeColor: 'rgba(2, 205, 128, 0.5)',
         outline: {
           default: '#FFF',

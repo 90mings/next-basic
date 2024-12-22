@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import useModal from '@/hooks/useModal';
 import useLocale from '@/hooks/useLocale';
-import { LANG_KEY } from '@/constants/lang';
+import { LANGUAGES } from '@/constants/lang';
 
 const Custom404 = () => {
   const router = useRouter();
@@ -13,7 +13,7 @@ const Custom404 = () => {
   //
   useEffect(() => {
     openModal({
-      text: localeText(LANG_KEY.PAGE_NOT_FOUND),
+      text: localeText(LANGUAGES.PAGE_NOT_FOUND),
       onAgree: () => {
         router.back();
       },

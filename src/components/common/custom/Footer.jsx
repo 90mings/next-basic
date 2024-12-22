@@ -4,15 +4,12 @@ import { Box, Center, Flex, HStack, Text, VStack } from '@chakra-ui/react';
 
 const Footer = () => {
   return (
-    <Center
-      py={'3.75rem'}
-      px={'10rem'}
-      w={'100%'}
-      h={'18.875rem'}
-      bg={'#F2EEE2'}
-    >
+    <Center w={'100%'} h={'18.875rem'} bg={'#F2EEE2'}>
       <Flex
+        py={'3.75rem'}
+        px={'10rem'}
         w={'100%'}
+        maxW={1920}
         h={'100%'}
         direction="row"
         // justify="center"

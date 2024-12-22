@@ -18,11 +18,10 @@ import {
 import LogoGlobalLinear from '@public/svgs/simbol/global-linear.svg';
 import HeaderSearchIcon from '@public/svgs/simbol/header-search-icon.svg';
 import useLocale from '@/hooks/useLocale';
-import { useCallback, useEffect, useState } from 'react';
-import { LANG_KEY } from '@/constants/lang';
+import { useCallback, useState } from 'react';
+import { LANGUAGES } from '@/constants/lang';
 import useMenu from '@/hooks/useMenu';
 import { useRouter } from 'next/navigation';
-import axios from 'axios';
 
 const MainTopHeader = (props) => {
   const { bg = '#FAF7F2' } = props;
@@ -38,8 +37,14 @@ const MainTopHeader = (props) => {
   });
 
   return (
-    <Box w={'100%'} h={'100%'} maxH={720} maxW={1920} bg={bg}>
-      <Box py={'1.5rem'} px={'1.25rem'} w={'100%'}>
+    <Center w={'100%'} h={'100%'} maxH={720} bg={bg}>
+      <Box
+        py={'1.5rem'}
+        px={'1.25rem'}
+        w={'100%'}
+        maxW={1920}
+        borderBottom={'1px solid #AEBDCA'}
+      >
         <VStack w={'100%'} spacing={'2rem'}>
           <HStack
             justifyContent={'space-between'}
@@ -67,7 +72,7 @@ const MainTopHeader = (props) => {
                   h={'3.5rem'}
                   borderRadius={'4.13rem'}
                   border={'1px solid #7895B2'}
-                  placeholder={localeText(LANG_KEY.HEADER_INPUT_PLACEHOLDER)}
+                  placeholder={localeText(LANGUAGES.HEADER_INPUT_PLACEHOLDER)}
                   _placeholder={{
                     fontWeight: 400,
                     fontSize: '1rem',
@@ -162,12 +167,12 @@ const MainTopHeader = (props) => {
                   </Box>
                   <Box>
                     <Text fontSize={'1rem'} fontWeight={500} color={'#2A333C'}>
-                      {localeText(LANG_KEY.MY_PAGE)}
+                      {localeText(LANGUAGES.MY_PAGE)}
                     </Text>
                   </Box>
                   <Box>
                     <Text fontSize={'1rem'} fontWeight={500} color={'#2A333C'}>
-                      {localeText(LANG_KEY.SIGN_UP_TO_SELLER)}
+                      {localeText(LANGUAGES.SIGN_UP_TO_SELLER)}
                     </Text>
                   </Box>
                 </HStack>
@@ -180,10 +185,10 @@ const MainTopHeader = (props) => {
             w={'100%'}
             spacing={'3.75rem'}
           >
-            {listMenu.map((item) => {
+            {listMenu.map((item, index) => {
               return (
                 <Box
-                  key={item.title}
+                  key={index}
                   _hover={{
                     cursor: 'pointer',
                   }}
@@ -204,7 +209,7 @@ const MainTopHeader = (props) => {
           </HStack>
         </VStack>
       </Box>
-    </Box>
+    </Center>
   );
 };
 

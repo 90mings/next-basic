@@ -1,31 +1,16 @@
 'use client';
 
-import useLocale from '@/hooks/useLocale';
 import { deviceInfoState } from '@/stores/environmentRecoil';
-import axios from 'axios';
 import { useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
 
 import { useRouter } from 'next/navigation';
 import { MAIN } from '@/constants/pageURL';
+import { Center, Text } from '@chakra-ui/react';
 
 const App = () => {
   const router = useRouter();
-  const { lang, setLang } = useLocale();
   const deviceInfo = useRecoilValue(deviceInfoState);
-
-  useEffect(() => {
-    // 지역정보 취득
-    console.log('fetchLocation lang: ', lang);
-    if (!lang) {
-      const fetchLocation = async () => {
-        const ret = await axios.get('/api/location');
-        console.log('response', ret.data);
-        setLang(ret.data.location);
-      };
-      fetchLocation();
-    }
-  }, []);
 
   /* 웹 체크 */
   useEffect(() => {
@@ -42,7 +27,13 @@ const App = () => {
     setPage();
   }, [deviceInfo]);
 
-  return <main>Loading..</main>;
+  return (
+    <main>
+      <Center h={'100%'}>
+        <Text>Loading..</Text>
+      </Center>
+    </main>
+  );
 };
 
 export default App;

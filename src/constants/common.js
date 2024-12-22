@@ -13,6 +13,7 @@ export const MODAL_CLOSE_ON_OVERLAY_CLICK = false;
 
 // Storage Key
 export const STROAGE_KEY = `${PROJECT_NAME}-persist`;
+export const STROAGE_LANG = `${PROJECT_NAME}-lang`;
 export const STROAGE_LOADING = `${PROJECT_NAME}-loading`;
 export const STROAGE_FCM_TOKEN_ID = `${PROJECT_NAME}-fcm-token`;
 export const STROAGE_TOKEN_ID = `${PROJECT_NAME}-token`;

@@ -178,12 +178,7 @@ const OrderPage = () => {
       <Center w={'100%'}>
         <VStack w={'100%'} maxW={1920} spacing={0}>
           <MainTopHeader />
-          <Box
-            w={'100%'}
-            px={'10rem'}
-            py={'2.5rem'}
-            borderTop={'1px solid #AEBDCA'}
-          >
+          <Box w={'100%'} px={'10rem'} py={'2.5rem'}>
             <Text
               color={'#485766'}
               fontSize={'3rem'}

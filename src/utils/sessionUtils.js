@@ -36,7 +36,7 @@ export const setLocalItemJson = (key, value) => {
   setLocalItem(key, JSON.stringify(value));
 };
 export const getLocalItem = (key) => {
-  return localStorage.getItem(key);
+  return localStorage.getItem(key) || null;
 };
 export const getLocalItemJson = (key) => {
   return JSON.parse(getLocalItem(key));
@@ -122,6 +122,7 @@ export const removeAppStorage = () => {
   removeSessionItem(STROAGE_LOADING);
   removeSessionItem(STROAGE_TOKEN_ID);
   removeSessionItem(STROAGE_REF_TOKEN_ID);
+  removeSessionItem(STROAGE_LANG);
 };
 
 export const removeUserStorage = () => {
@@ -133,4 +134,5 @@ export const removeUserStorage = () => {
   removeSessionItem(STROAGE_AUTO_LOGIN_KEY);
   removeSessionItem(STROAGE_TOKEN_ID);
   removeSessionItem(STROAGE_REF_TOKEN_ID);
+  removeSessionItem(STROAGE_LANG);
 };

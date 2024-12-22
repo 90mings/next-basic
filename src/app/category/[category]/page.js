@@ -194,10 +194,11 @@ const CategoryPage = () => {
   return (
     <main>
       <Center w={'100%'}>
-        <VStack w={'100%'} maxW={1920} spacing={0}>
+        <VStack w={'100%'} spacing={0}>
           <MainTopHeader />
+
           {/* content */}
-          <Box w={'100%'}>
+          <Box w={'100%'} maxW={1920}>
             <VStack spacing={'1.25rem'} justifyContent={'flex-start'}>
               <Box p={'2.5rem'} w={'100%'}>
                 <Text

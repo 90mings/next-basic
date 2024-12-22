@@ -22,6 +22,7 @@ import { useParams } from 'next/navigation';
 import { DefaultPaginate } from '@/components';
 
 import BrandMain from '@public/svgs/brand/brand-main.svg';
+import BrandMainLogo from '@public/svgs/brand/brand-main-logo.svg';
 import BrandSub from '@public/svgs/brand/brand-sub.svg';
 import BestBanner1 from '@public/svgs/banner/best-brand1.svg';
 
@@ -114,7 +115,8 @@ const CategoryPage = () => {
       <WrapItem w={1 / 5}>
         <Center w={'100%'} h={'100%'}>
           <VStack spacing={0} w={'100%'}>
-            <Box w={'100%'}>
+            <Box w={'100%'} position={'relative'}>
+              <Img w={'100%'} src={BestBanner1.src} />
               <Img w={'100%'} src={BestBanner1.src} />
             </Box>
             <Box w={'100%'} p={'1rem'}>
@@ -208,12 +210,16 @@ const CategoryPage = () => {
   return (
     <main>
       <Center w={'100%'}>
-        <VStack w={'100%'} maxW={1920} spacing={0}>
+        <VStack w={'100%'} spacing={0}>
           <MainTopHeader />
+
           {/* content */}
-          <Box w={'100%'}>
+          <Box w={'100%'} maxW={1920}>
             <Box w={'100%'} mb={'3.75rem'}>
-              <Img src={BrandMain.src} />
+              <Center w={'100%'} h={'100%'} position={'relative'}>
+                <Img src={BrandMain.src} />
+                <Img src={BrandMainLogo.src} position={'absolute'} />
+              </Center>
             </Box>
             <Box px={'10rem'}>
               <VStack spacing={'5rem'} justifyContent={'flex-start'}>

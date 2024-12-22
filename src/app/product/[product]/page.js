@@ -189,7 +189,6 @@ const ProductPage = () => {
           <MainTopHeader />
           {/* content */}
           <Box
-            borderTop={'1px solid #AEBDCA'}
             w={'100%'}
             py={'5rem'}
             // h={'71.25rem'}

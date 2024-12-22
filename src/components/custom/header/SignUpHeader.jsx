@@ -1,17 +1,17 @@
 'use client';
 
-import { Box, Center, HStack, Text } from '@chakra-ui/react';
+import { Center, HStack, Text } from '@chakra-ui/react';
 import useLocale from '@/hooks/useLocale';
-import { LANG_KEY } from '@/constants/lang';
+import { LANGUAGES } from '@/constants/lang';
 
 const SignUpHeader = () => {
   const { localeText } = useLocale();
   return (
-    <Box w={'100%'} h={'100%'} maxH={56} maxW={1920} bg={'#D9E7EC'}>
-      <Center h={'100%'} py={'1rem'}>
+    <Center w={'100%'} h={'100%'} maxH={56} bg={'#D9E7EC'}>
+      <Center h={'100%'} py={'1rem'} maxW={1920}>
         <HStack>
           <Text fontSize={'1rem'} fontWeight={400} color={'#556A7E'}>
-            {localeText(LANG_KEY.HEADER_SIGN_MSG)}
+            {localeText(LANGUAGES.HEADER_SIGN_MSG)}
           </Text>
           <Text
             textDecoration={'underline'}
@@ -19,11 +19,11 @@ const SignUpHeader = () => {
             fontWeight={500}
             color={'#556A7E'}
           >
-            {localeText(LANG_KEY.HEADER_SIGN_UP)}
+            {localeText(LANGUAGES.HEADER_SIGN_UP)}
           </Text>
         </HStack>
       </Center>
-    </Box>
+    </Center>
   );
 };
 

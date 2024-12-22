@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Center, Flex, HStack, Img, Text, VStack } from '@chakra-ui/react';
+import { Box, Center, HStack, Img, Text, VStack } from '@chakra-ui/react';
 
 import ContentBR from '@/components/custom/ContentBR';
 import MainTopHeader from '@/components/custom/header/MainTopHeader';
@@ -31,7 +31,7 @@ import Brand6 from '@public/svgs/brand/brand6.svg';
 import MainFirst from '@public/svgs/main/main-first.svg';
 import MainSecond from '@public/svgs/main/main-second.svg';
 import MainThird from '@public/svgs/main/main-third.svg';
-import { BANNERS, LANG_KEY } from '@/constants/lang';
+import { BANNERS, LANGUAGES } from '@/constants/lang';
 import useMenu from '@/hooks/useMenu';
 import RightIconButton from '@/components/button/custom/RightIconButton';
 import Footer from '@/components/common/custom/Footer';
@@ -43,7 +43,11 @@ const MainPage = () => {
   return (
     <main>
       <Center w={'100%'}>
-        <VStack w={'100%'} maxW={1920} spacing={0}>
+        <VStack
+          w={'100%'}
+          // maxW={1920}
+          spacing={0}
+        >
           <SignUpHeader />
           <MainTopHeader />
           <MainBanner
@@ -92,7 +96,7 @@ const MainPage = () => {
                       color={'#66809C'}
                       // iconName={'arrowRight'}
                       // onClick
-                      textKey={LANG_KEY.GO_TO_BRAND_HOME}
+                      textTarget={LANGUAGES.GO_TO_BRAND_HOME}
                     />
                   </Box>
                 </VStack>
@@ -111,27 +115,27 @@ const MainPage = () => {
             setTargetMenu={setBrandMenu}
             listMenu={[
               {
-                title: localeText(LANG_KEY.SKIN_CARE),
+                title: localeText(LANGUAGES.SKIN_CARE),
                 key: 'SKIN_CARE',
                 href: '/main/category/skincare',
               },
               {
-                title: localeText(LANG_KEY.MAKE_UP),
+                title: localeText(LANGUAGES.MAKE_UP),
                 key: 'MAKE_UP',
                 href: '/main/category/make-up',
               },
               {
-                title: localeText(LANG_KEY.HAIR_CARE),
+                title: localeText(LANGUAGES.HAIR_CARE),
                 key: 'HAIR_CARE',
                 href: '123',
               },
               {
-                title: localeText(LANG_KEY.BODY_CARE),
+                title: localeText(LANGUAGES.BODY_CARE),
                 key: 'BODY_CARE',
                 href: '123',
               },
               {
-                title: localeText(LANG_KEY.MENS_GROOMING),
+                title: localeText(LANGUAGES.MENS_GROOMING),
                 key: 'MENS_GROOMING',
                 href: '123',
               },
@@ -243,27 +247,27 @@ const MainPage = () => {
             setTargetMenu={setBrandMenu}
             listMenu={[
               {
-                title: localeText(LANG_KEY.SKIN_CARE),
+                title: localeText(LANGUAGES.SKIN_CARE),
                 key: 'SKIN_CARE',
                 href: '123',
               },
               {
-                title: localeText(LANG_KEY.MAKE_UP),
+                title: localeText(LANGUAGES.MAKE_UP),
                 key: 'MAKE_UP',
                 href: '123',
               },
               {
-                title: localeText(LANG_KEY.HAIR_CARE),
+                title: localeText(LANGUAGES.HAIR_CARE),
                 key: 'HAIR_CARE',
                 href: '123',
               },
               {
-                title: localeText(LANG_KEY.BODY_CARE),
+                title: localeText(LANGUAGES.BODY_CARE),
                 key: 'BODY_CARE',
                 href: '123',
               },
               {
-                title: localeText(LANG_KEY.MENS_GROOMING),
+                title: localeText(LANGUAGES.MENS_GROOMING),
                 key: 'MENS_GROOMING',
                 href: '123',
               },
@@ -342,7 +346,7 @@ const MainPage = () => {
                       bg={'#FFF'}
                       color={'#576076'}
                       // onClick
-                      textKey={LANG_KEY.GO_TO_BRAND_HOME}
+                      textTarget={LANGUAGES.GO_TO_BRAND_HOME}
                     />
                   </Box>
                 </VStack>
@@ -507,7 +511,7 @@ const MainPage = () => {
                       color={'#485766'}
                       iconName={'arrowRight'}
                       // onClick
-                      // textKey = 'VIEW_ALL',
+                      textTarget={LANGUAGES.VIEW_ALL}
                     />
                   </Box>
                 </VStack>

@@ -1,33 +1,39 @@
 import { ERROR_NOT_FOUND_EMAIL, ERROR_NOT_MATCH_EMAIL } from './error';
 
-// localeText(LANG_KEY.SKIN_CARE)
-
-const LANG_KEY = {
-  LANGUAGE: 'LANGUAGE',
-  HEADER_SIGN_MSG: 'HEADER_SIGN_MSG',
-  HEADER_SIGN_UP: 'HEADER_SIGN_UP',
-  HEADER_INPUT_PLACEHOLDER: 'HEADER_INPUT_PLACEHOLDER',
-  MY_PAGE: 'MY_PAGE',
-  SIGN_UP_TO_SELLER: 'SIGN_UP_TO_SELLER',
-  NOT_FOUND_EMAIL: 'NOT_FOUND_EMAIL',
-  NOT_MATCH_EMAIL: 'NOT_MATCH_EMAIL',
-
-  PROMOTION: 'PROMOTION',
-  SKIN_CARE: 'SKIN_CARE',
-  MAKE_UP: 'MAKE_UP',
-  HAIR_CARE: 'HAIR_CARE',
-  BODY_CARE: 'BODY_CARE',
-  FRAGRANCE: 'FRAGRANCE',
-  MENS_GROOMING: 'MENS_GROOMING',
-
-  VIEW_ALL: 'VIEW_ALL',
-  GO_TO_BRAND_HOME: 'GO_TO_BRAND_HOME',
-};
+// localeText({...})
 
 const LANGUAGES = {
   A: {
     KR: '에이',
     EN: 'A',
+  },
+  LOGIN: {
+    KR: '로그인',
+    EN: 'Login',
+  },
+  EMAIL: {
+    KR: '이메일',
+    EN: 'Email',
+  },
+  PASSWORD: {
+    KR: '비밀번호',
+    EN: 'Password',
+  },
+  KEEP_ME_LOGGED_IN: {
+    KR: '로그인 유지',
+    EN: 'Keep me logged in',
+  },
+  FORGOT_ACCOUNT: {
+    KR: '이메일 · 비밀번호 찾기',
+    EN: 'Forgot account?',
+  },
+  DONTS_HAVE_AN_ACCOUNT: {
+    KR: '회원이 아니신가요?',
+    EN: 'Dont’s have an account?',
+  },
+  CREATE_AN_ACCOUNT: {
+    KR: '회원가입',
+    EN: 'Create an account',
   },
   HEADER_SIGN_MSG: {
     KR: '10만 개 이상의 브랜드에서 온라인으로 도매 쇼핑하기',
@@ -138,4 +144,4 @@ const BANNERS = {
   },
 };
 
-export { LANG_KEY, LANGUAGES, BANNERS };
+export { LANGUAGES, BANNERS };
