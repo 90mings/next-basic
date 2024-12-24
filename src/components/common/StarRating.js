@@ -1,6 +1,7 @@
 // components/StarRating.js
 import { Box, Icon, HStack, Tooltip } from '@chakra-ui/react';
-import { FaStar } from 'react-icons/fa';
+// import { FaStar } from 'react-icons/fa';
+import { RiStarSFill } from 'react-icons/ri';
 import { useState } from 'react';
 
 const StarRating = ({
@@ -64,7 +65,7 @@ const StarRating = ({
               // cursor="pointer"
             >
               <Icon
-                as={FaStar}
+                as={RiStarSFill}
                 color={isFilled ? '#FFBF00' : '#D9E7EC'}
                 w={'100%'}
                 h={'100%'}

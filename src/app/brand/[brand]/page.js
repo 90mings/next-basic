@@ -1,34 +1,20 @@
 'use client';
 
-import MainTopHeader from '@/components/custom/header/MainTopHeader';
-import {
-  Box,
-  Center,
-  Flex,
-  HStack,
-  Img,
-  Stat,
-  StatHelpText,
-  StatLabel,
-  StatNumber,
-  Text,
-  VStack,
-  Wrap,
-  WrapItem,
-} from '@chakra-ui/react';
-
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
+
+import { Box, Center, HStack, Img, Text, VStack, Wrap } from '@chakra-ui/react';
+
 import { DefaultPaginate } from '@/components';
 
+import MainTopHeader from '@/components/custom/header/MainTopHeader';
 import BrandMain from '@public/svgs/brand/brand-main.svg';
 import BrandMainLogo from '@public/svgs/brand/brand-main-logo.svg';
 import BrandSub from '@public/svgs/brand/brand-sub.svg';
-import BestBanner1 from '@public/svgs/banner/best-brand1.svg';
 
-import StarRating from '@/components/common/StarRating';
 import ContentBR from '@/components/custom/ContentBR';
 import Footer from '@/components/common/custom/Footer';
+import ProductItemCard from '@/components/custom/product/ProductItemCard';
 
 const CategoryPage = () => {
   const { brand } = useParams();
@@ -103,107 +89,6 @@ const CategoryPage = () => {
           </Text>
         </HStack>
       </Box>
-    );
-  };
-
-  const ItemCard = () => {
-    const handleRatingChange = (newRating) => {
-      console.log('New rating:', newRating);
-    };
-
-    return (
-      <WrapItem w={1 / 5}>
-        <Center w={'100%'} h={'100%'}>
-          <VStack spacing={0} w={'100%'}>
-            <Box w={'100%'} position={'relative'}>
-              <Img w={'100%'} src={BestBanner1.src} />
-              <Img w={'100%'} src={BestBanner1.src} />
-            </Box>
-            <Box w={'100%'} p={'1rem'}>
-              <VStack spacing={'0.75rem'}>
-                <Box w={'100%'}>
-                  <Text
-                    color={'#66809C'}
-                    fontSize={'0.9375rem'}
-                    lineHeight={'1.5rem'}
-                    fontWeight={400}
-                  >
-                    Rampal Latour
-                  </Text>
-                  <Text
-                    color={'#485766'}
-                    fontSize={'1.125rem'}
-                    lineHeight={'1.5rem'}
-                    fontWeight={500}
-                  >
-                    Marseille Blanc 300g
-                  </Text>
-                </Box>
-                <Box w={'100%'}>
-                  <Stat>
-                    <StatLabel>
-                      <Text
-                        color={'#66809C'}
-                        fontSize={'1rem'}
-                        lineHeight={'1.75rem'}
-                        fontWeight={400}
-                      >
-                        Collected Fees
-                      </Text>
-                    </StatLabel>
-                    <StatNumber>
-                      <Text
-                        color={'#485766'}
-                        fontSize={'1.5rem'}
-                        lineHeight={'2.475rem'}
-                        fontWeight={600}
-                      >
-                        $27.00
-                      </Text>
-                    </StatNumber>
-                    <StatHelpText>
-                      <HStack>
-                        <Text
-                          color={'#B20000'}
-                          fontSize={'0.9375rem'}
-                          lineHeight={'1.5rem'}
-                          fontWeight={400}
-                        >
-                          Purchase minimum
-                        </Text>
-                        <Text
-                          color={'#B20000'}
-                          fontSize={'0.9375rem'}
-                          lineHeight={'1.5rem'}
-                          fontWeight={500}
-                        >
-                          $500
-                        </Text>
-                      </HStack>
-                    </StatHelpText>
-                  </Stat>
-                </Box>
-                <Box w={'100%'}>
-                  <HStack alignContent={'center'}>
-                    <StarRating
-                      initialRating={3}
-                      onChange={handleRatingChange}
-                    />
-                    <Text
-                      color={'#7895B2'}
-                      fontSize={'0.9375rem'}
-                      fontWeight={400}
-                      lineHeight={'1.5rem'}
-                    >
-                      (3)
-                    </Text>
-                  </HStack>
-                </Box>
-              </VStack>
-            </Box>
-          </VStack>
-        </Center>
-      </WrapItem>
     );
   };
 
@@ -297,20 +182,11 @@ const CategoryPage = () => {
                       <VStack spacing={'5rem'} h={'100%'}>
                         <Box borderRadius={'0.06rem'} w={'100%'}>
                           <Wrap spacingX={0} spacingY={'5rem'}>
-                            {ItemCard()}
-                            {ItemCard()}
-                            {ItemCard()}
-                            {ItemCard()}
-                            {ItemCard()}
-                            {ItemCard()}
-                            {ItemCard()}
-                            {ItemCard()}
-                            {ItemCard()}
-                            {ItemCard()}
-                            {ItemCard()}
-                            {ItemCard()}
-                            {ItemCard()}
-                            {ItemCard()}
+                            <ProductItemCard />
+                            <ProductItemCard />
+                            <ProductItemCard />
+                            <ProductItemCard />
+                            <ProductItemCard />
                           </Wrap>
                         </Box>
                         <Center w={'100%'}>

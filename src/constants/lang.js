@@ -7,6 +7,15 @@ const LANGUAGES = {
     KR: '에이',
     EN: 'A',
   },
+  // 로그인 페이지
+  NOT_FOUND_EMAIL: {
+    KR: ERROR_NOT_FOUND_EMAIL.KR,
+    EN: ERROR_NOT_FOUND_EMAIL.EN,
+  },
+  NOT_MATCH_EMAIL: {
+    KR: ERROR_NOT_MATCH_EMAIL.KR,
+    EN: ERROR_NOT_MATCH_EMAIL.EN,
+  },
   LOGIN: {
     KR: '로그인',
     EN: 'Login',
@@ -43,6 +52,7 @@ const LANGUAGES = {
     KR: '회원가입',
     EN: 'Sign up',
   },
+  // 헤더
   HEADER_INPUT_PLACEHOLDER: {
     KR: '제품명 또는 브랜드 검색',
     EN: 'Search for a product name or brand',
@@ -54,14 +64,6 @@ const LANGUAGES = {
   SIGN_UP_TO_SELLER: {
     KR: '판매자 가입',
     EN: 'Sign up to Seller',
-  },
-  NOT_FOUND_EMAIL: {
-    KR: ERROR_NOT_FOUND_EMAIL.KR,
-    EN: ERROR_NOT_FOUND_EMAIL.EN,
-  },
-  NOT_MATCH_EMAIL: {
-    KR: ERROR_NOT_MATCH_EMAIL.KR,
-    EN: ERROR_NOT_MATCH_EMAIL.EN,
   },
   PROMOTION: {
     KR: '프로모션',
@@ -100,7 +102,152 @@ const LANGUAGES = {
     KR: '브랜드 보기',
     EN: 'Go to Brand Home',
   },
-  //
+  // 주문 페이지
+  PRODUCT_INFORMATION: {
+    KR: '상품 정보',
+    EN: 'Product information',
+  },
+  ORDERER_INFORMATION: {
+    KR: '주문자 정보',
+    EN: 'Orderer information',
+  },
+  ORDERER_NAME: {
+    KR: '주문자명',
+    EN: 'Orderer name',
+  },
+  PHONE_NUMBER: {
+    KR: '전화번호',
+    EN: 'Phone number',
+  },
+  SHIPPING_INFORMATION: {
+    KR: '배송정보',
+    EN: 'Shipping information',
+  },
+  SAME_AS_ORDERER_INFORMATION: {
+    KR: '주문자 정보와 동일',
+    EN: 'Same as orderer information',
+  },
+  ORDER_SUMMARY: {
+    KR: '주문요약',
+    EN: 'Order summary',
+  },
+  ORDER_TOTAL: {
+    KR: '총 결제비',
+    EN: 'Total',
+  },
+  ORDER_PRODUCT: {
+    KR: '상품명',
+    EN: 'Product',
+  },
+  ORDER_QUANTITY: {
+    KR: '수량',
+    EN: 'Quantity',
+  },
+  ORDER_TOTAL_PRICE: {
+    KR: '총 주문금액',
+    EN: 'Total order price',
+  },
+  ORDER_SHIPPING_COST: {
+    KR: '배송비',
+    EN: 'Shipping cost',
+  },
+  ORDER_TOTAL_PRODUCT: {
+    KR: '총 상품가격',
+    EN: 'Total product price',
+  },
+  ORDER_TOTAL_SHIPPING: {
+    KR: '총 배송비',
+    EN: 'Total shipping cost',
+  },
+  ORDER_COUPON_DISCOUNT: {
+    KR: '쿠폰 할인',
+    EN: 'Coupon Discount Amount',
+  },
+  ORDER_REDEEMING_MILES: {
+    KR: '적립금 사용',
+    EN: 'Redeeming Miles',
+  },
+  ORDER_CHECK_OUT: {
+    KR: '결제하기',
+    EN: 'Check Out',
+  },
+  CARD: {
+    KR: '카드',
+    EN: 'Card',
+  },
+  INSTALLMENT_PERIOD: {
+    KR: '할부기간',
+    EN: 'Installment period',
+  },
+  PAYPAL: {
+    KR: 'Paypal',
+    EN: 'Paypal',
+  },
+  PAYMENT_METHOD: {
+    KR: '결제방법',
+    EN: 'Payment method',
+  },
+  COUPON_DISCOUNTS: {
+    KR: '쿠폰할인',
+    EN: 'Coupon discounts',
+  },
+  REWARD_COINS: {
+    KR: '적립금 사용',
+    EN: 'Reward coins',
+  },
+  COIN: {
+    KR: '코인',
+    EN: 'coin',
+  },
+  FULL_USE: {
+    KR: '전체사용',
+    EN: 'Full use',
+  },
+  PAYPAL: {
+    KR: 'Paypal',
+    EN: 'Paypal',
+  },
+  AUTHORIZE_DOT_NET: {
+    KR: 'authorize.net',
+    EN: 'authorize.net',
+  },
+  FIRST_NAME: {
+    KR: '성',
+    EN: 'First name',
+  },
+  LAST_NAME: {
+    KR: '이름',
+    EN: 'Last name',
+  },
+  LAST_NAME: {
+    KR: '이름',
+    EN: 'Last name',
+  },
+  ORDER_ADDR_1: {
+    KR: '주소 1',
+    EN: 'Address 1',
+  },
+  ORDER_ADDR_2: {
+    KR: '주소 2',
+    EN: 'Address 2',
+  },
+  ORDER_STREET_ADDRESS: {
+    KR: '도로명 주소',
+    EN: 'Street address',
+  },
+  ORDER_ETC_ADDRESS: {
+    KR: '상세주소',
+    EN: 'Apartment, suite, etc.',
+  },
+  ORDER_ZIP_CODE: {
+    KR: '우편번호',
+    EN: 'Zip code',
+  },
+  // 기본
+  ORDER: {
+    KR: '주문',
+    EN: 'Order',
+  },
   INFO: {
     KR: '안내',
     EN: 'Info',

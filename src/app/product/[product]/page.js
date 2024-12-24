@@ -6,18 +6,10 @@ import {
   Flex,
   HStack,
   Img,
-  Stat,
-  StatHelpText,
-  StatLabel,
-  StatNumber,
   Text,
   VStack,
-  Wrap,
-  WrapItem,
-  Image,
   Divider,
   Button,
-  IconButton,
   Select,
   Icon,
   Accordion,
@@ -32,9 +24,6 @@ import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
 import { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { CustomIcon, DefaultPaginate } from '@/components';
-
-import Product01 from '@public/svgs/product/product01.svg';
-import BestBanner1 from '@public/svgs/banner/best-brand1.svg';
 
 import MainTopHeader from '@/components/custom/header/MainTopHeader';
 import ContentBR from '@/components/custom/ContentBR';
@@ -261,14 +250,27 @@ const ProductPage = () => {
                   <Box w={'100%'}>
                     <VStack spacing={'0.5rem'}>
                       <Box w={'100%'}>
-                        <Text
-                          color="#485766"
-                          fontSize="2.25rem"
-                          fontWeight="400"
-                          lineHeight="3.2625rem"
+                        <HStack
+                          justifyContent={'space-between'}
+                          alignItems={'center'}
                         >
-                          Marseille Blanc 300g
-                        </Text>
+                          <Box>
+                            <Text
+                              color="#485766"
+                              fontSize="2.25rem"
+                              fontWeight="400"
+                              lineHeight="3.2625rem"
+                            >
+                              Marseille Blanc 300g
+                            </Text>
+                          </Box>
+                          <CustomIcon
+                            name={'heart'}
+                            w={'2rem'}
+                            h={'2rem'}
+                            color={'#556A7E'}
+                          />
+                        </HStack>
                       </Box>
                       <Box w={'100%'}>
                         <HStack spacing={'0.5rem'}>
@@ -758,12 +760,11 @@ const ProductPage = () => {
                       <Box alignSelf={'flex-end'}>
                         <HStack>
                           <Box w="1.5rem" h="1.5rem" position="relative">
-                            <Icon
-                              as={FaStar}
-                              color={'#556A7E'}
+                            <CustomIcon
+                              name={'star'}
                               w={'1.5rem'}
                               h={'1.5rem'}
-                              // boxSize={6}
+                              color={'#556A7E'}
                             />
                           </Box>
                           <Text

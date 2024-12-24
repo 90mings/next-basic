@@ -136,6 +136,7 @@ const MainTopHeader = (props) => {
                         </MenuButton>
                         <MenuList>
                           <MenuItem
+                            bg={lang === 'KR' ? '#7895B2' : null}
                             onClick={() => {
                               setLang('KR');
                             }}
@@ -143,12 +144,13 @@ const MainTopHeader = (props) => {
                             <Text
                               fontSize={'1rem'}
                               fontWeight={500}
-                              color={'#2A333C'}
+                              color={lang === 'KR' ? '#FFF' : '#2A333C'}
                             >
                               {lang === 'KR' ? '한글' : 'Kor'}
                             </Text>
                           </MenuItem>
                           <MenuItem
+                            bg={lang === 'EN' ? '#7895B2' : null}
                             onClick={() => {
                               setLang('EN');
                             }}
@@ -156,7 +158,7 @@ const MainTopHeader = (props) => {
                             <Text
                               fontSize={'1rem'}
                               fontWeight={500}
-                              color={'#2A333C'}
+                              color={lang === 'EN' ? '#FFF' : '#2A333C'}
                             >
                               {lang === 'KR' ? '영문' : 'Eng'}
                             </Text>

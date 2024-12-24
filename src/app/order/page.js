@@ -2,14 +2,17 @@
 
 import {
   Box,
+  Button,
   Center,
   Checkbox,
   Divider,
   HStack,
   Img,
   Input,
+  NumberInput,
   Radio,
   RadioGroup,
+  Select,
   Table,
   TableCaption,
   TableContainer,
@@ -27,8 +30,12 @@ import ContentBR from '@/components/custom/ContentBR';
 import OrderTextInput from '@/components/input/custom/OrderTextInput';
 import Footer from '@/components/common/custom/Footer';
 import { useCallback, useState } from 'react';
+import { DefaultInput } from '@/components';
+import useLocale from '@/hooks/useLocale';
+import { LANGUAGES } from '@/constants/lang';
 
 const OrderPage = () => {
+  const { localeText } = useLocale();
   const [selectedCouponId, setSelectedCouponId] = useState('');
 
   const listOrder = [
@@ -87,9 +94,6 @@ const OrderPage = () => {
         p={'1.25rem'}
       >
         <HStack spacing={'0.75rem'}>
-          <Box width={'1.75rem'}>
-            <Checkbox />
-          </Box>
           <Box width={'26.25rem'}>
             <HStack>
               <Box>
@@ -186,7 +190,7 @@ const OrderPage = () => {
               fontWeight={400}
               lineHeight={'4.5rem'}
             >
-              Order
+              {localeText(LANGUAGES.ORDER)}
             </Text>
           </Box>
 
@@ -204,30 +208,14 @@ const OrderPage = () => {
                   <Box w={'100%'}>
                     <VStack spacing={'2rem'}>
                       <Box w={'100%'}>
-                        <HStack
-                          justify={'space-between'}
-                          align={'flex-end'}
-                          width={'100%'}
+                        <Text
+                          color={'#485766'}
+                          fontSize={'1.5rem'}
+                          fontWeight={500}
+                          lineHeight={'2.475rem'}
                         >
-                          <Text
-                            color={'#485766'}
-                            fontSize={'1.5rem'}
-                            fontWeight={500}
-                            lineHeight={'2.475rem'}
-                          >
-                            Product information
-                          </Text>
-                          <Box>
-                            <Text
-                              color={'#B20000'}
-                              fontSize={'1rem'}
-                              fontWeight={500}
-                              lineHeight={'1.75rem'}
-                            >
-                              Delete 1 selected product
-                            </Text>
-                          </Box>
-                        </HStack>
+                          {localeText(LANGUAGES.PRODUCT_INFORMATION)}
+                        </Text>
                       </Box>
                       <Box w={'100%'}>
                         {/* Product Rows */}
@@ -241,51 +229,48 @@ const OrderPage = () => {
                             py={'1rem'}
                           >
                             <HStack spacing={'0.75rem'}>
-                              <Box width={'1.75rem'}>
-                                <Checkbox />
-                              </Box>
                               <Box width={'26.25rem'}>
                                 <Text
-                                  textAlign="center"
-                                  color="#2A333C"
-                                  fontSize="1rem"
-                                  fontWeight="500"
-                                  lineHeight="1.75rem"
+                                  textAlign={'left'}
+                                  color={'#2A333C'}
+                                  fontSize={'1rem'}
+                                  fontWeight={500}
+                                  lineHeight={'1.75rem'}
                                 >
-                                  Product
+                                  {localeText(LANGUAGES.ORDER_PRODUCT)}
                                 </Text>
                               </Box>
                               <Box width={'8.8333rem'}>
                                 <Text
-                                  textAlign="center"
-                                  color="#2A333C"
-                                  fontSize="1rem"
-                                  fontWeight="500"
-                                  lineHeight="1.75rem"
+                                  textAlign={'center'}
+                                  color={'#2A333C'}
+                                  fontSize={'1rem'}
+                                  fontWeight={500}
+                                  lineHeight={'1.75rem'}
                                 >
-                                  Quantity
+                                  {localeText(LANGUAGES.ORDER_QUANTITY)}
                                 </Text>
                               </Box>
                               <Box width={'8.8333rem'}>
                                 <Text
-                                  textAlign="center"
-                                  color="#2A333C"
-                                  fontSize="1rem"
-                                  fontWeight="500"
-                                  lineHeight="1.75rem"
+                                  textAlign={'center'}
+                                  color={'#2A333C'}
+                                  fontSize={'1rem'}
+                                  fontWeight={500}
+                                  lineHeight={'1.75rem'}
                                 >
-                                  Total order price
+                                  {localeText(LANGUAGES.ORDER_TOTAL_PRICE)}
                                 </Text>
                               </Box>
                               <Box width={'8.8333rem'}>
                                 <Text
-                                  textAlign="center"
-                                  color="#2A333C"
-                                  fontSize="1rem"
-                                  fontWeight="500"
-                                  lineHeight="1.75rem"
+                                  textAlign={'center'}
+                                  color={'#2A333C'}
+                                  fontSize={'1rem'}
+                                  fontWeight={500}
+                                  lineHeight={'1.75rem'}
                                 >
-                                  Shipping cost
+                                  {localeText(LANGUAGES.ORDER_SHIPPING_COST)}
                                 </Text>
                               </Box>
                             </HStack>
@@ -313,7 +298,7 @@ const OrderPage = () => {
                           fontWeight={500}
                           lineHeight={'2.475rem'}
                         >
-                          Orderer information
+                          {localeText(LANGUAGES.ORDERER_INFORMATION)}
                         </Text>
                       </Box>
                       <Box w={'100%'}>
@@ -326,7 +311,7 @@ const OrderPage = () => {
                               fontWeight="400"
                               lineHeight="1.75rem"
                             >
-                              Orderer name
+                              {localeText(LANGUAGES.ORDERER_NAME)}
                             </Text>
                             <Text
                               color="#556A7E"
@@ -345,7 +330,7 @@ const OrderPage = () => {
                               fontWeight="400"
                               lineHeight="1.75rem"
                             >
-                              Phone number
+                              {localeText(LANGUAGES.PHONE_NUMBER)}
                             </Text>
                             <Text
                               color="#556A7E"
@@ -364,7 +349,7 @@ const OrderPage = () => {
                               fontWeight="400"
                               lineHeight="1.75rem"
                             >
-                              Email
+                              {localeText(LANGUAGES.EMAIL)}
                             </Text>
                             <Text
                               color="#556A7E"
@@ -396,7 +381,7 @@ const OrderPage = () => {
                             fontWeight="500"
                             lineHeight="2.475rem"
                           >
-                            Shipping information
+                            {localeText(LANGUAGES.SHIPPING_INFORMATION)}
                           </Text>
                           <HStack
                             spacing="0.5rem"
@@ -416,7 +401,9 @@ const OrderPage = () => {
                               fontWeight="500"
                               lineHeight="1.75rem"
                             >
-                              Same as orderer information
+                              {localeText(
+                                LANGUAGES.SAME_AS_ORDERER_INFORMATION,
+                              )}
                             </Text>
                           </HStack>
                         </HStack>
@@ -427,10 +414,14 @@ const OrderPage = () => {
                           <Box w={'100%'}>
                             <HStack w={'100%'} spacing={'1.25rem'}>
                               <Box w={'50%'}>
-                                <OrderTextInput title={'Last name'} />
+                                <OrderTextInput
+                                  title={localeText(LANGUAGES.LAST_NAME)}
+                                />
                               </Box>
                               <Box w={'50%'}>
-                                <OrderTextInput title={'First name'} />
+                                <OrderTextInput
+                                  title={localeText(LANGUAGES.FIRST_NAME)}
+                                />
                               </Box>
                             </HStack>
                           </Box>
@@ -438,24 +429,21 @@ const OrderPage = () => {
                           {/* Second Row: Address 1 */}
                           <Box w={'100%'}>
                             <OrderTextInput
-                              title={'Address 1'}
-                              maxW={'50rem'}
+                              title={localeText(LANGUAGES.ORDER_ADDR_1)}
                             />
                           </Box>
 
                           {/* Third Row: Address 2 */}
                           <Box w={'100%'}>
                             <OrderTextInput
-                              title={'Address 2'}
-                              maxW={'50rem'}
+                              title={localeText(LANGUAGES.ORDER_ADDR_2)}
                             />
                           </Box>
 
                           {/* Fourth Row: Street address */}
                           <Box w={'100%'}>
                             <OrderTextInput
-                              title={'Street address'}
-                              maxW={'50rem'}
+                              title={localeText(LANGUAGES.ORDER_STREET_ADDRESS)}
                             />
                           </Box>
 
@@ -464,11 +452,15 @@ const OrderPage = () => {
                             <HStack w={'100%'} spacing={'1.25rem'}>
                               <Box w={'50%'}>
                                 <OrderTextInput
-                                  title={'Apartment, suite, etc.'}
+                                  title={localeText(
+                                    LANGUAGES.ORDER_ETC_ADDRESS,
+                                  )}
                                 />
                               </Box>
                               <Box w={'50%'}>
-                                <OrderTextInput title={'Postal code'} />
+                                <OrderTextInput
+                                  title={localeText(LANGUAGES.ORDER_ZIP_CODE)}
+                                />
                               </Box>
                             </HStack>
                           </Box>
@@ -477,8 +469,9 @@ const OrderPage = () => {
                     </VStack>
                   </Box>
 
+                  {/* Coupon Discounts Section */}
                   <Box w={'100%'}>
-                    <VStack spacing={'2rem'}>
+                    <VStack spacing={'1.5rem'}>
                       <Box w={'100%'}>
                         <Text
                           color={'#485766'}
@@ -486,218 +479,167 @@ const OrderPage = () => {
                           fontWeight={500}
                           lineHeight={'2.475rem'}
                         >
-                          Orderer information
+                          {localeText(LANGUAGES.COUPON_DISCOUNTS)}
                         </Text>
                       </Box>
+
+                      <Divider
+                        border={'1px solid #73829D'}
+                        boxSizing="border-box"
+                      />
+
                       <Box w={'100%'}>
-                        <VStack align="stretch" spacing="1.25rem">
-                          <HStack spacing="2rem" justify="flex-start">
-                            <Text
-                              width="10rem"
-                              color="#7895B2"
-                              fontSize="1rem"
-                              fontWeight="400"
-                              lineHeight="1.75rem"
-                            >
-                              Orderer name
-                            </Text>
-                            <Text
-                              color="#556A7E"
-                              fontSize="1rem"
-                              fontWeight="500"
-                              lineHeight="1.75rem"
-                            >
-                              Gildong Hong
-                            </Text>
-                          </HStack>
-                          <HStack spacing="2rem" justify="flex-start">
-                            <Text
-                              width="10rem"
-                              color="#7895B2"
-                              fontSize="1rem"
-                              fontWeight="400"
-                              lineHeight="1.75rem"
-                            >
-                              Phone number
-                            </Text>
-                            <Text
-                              color="#556A7E"
-                              fontSize="1rem"
-                              fontWeight="500"
-                              lineHeight="1.75rem"
-                            >
-                              +82 10 1234 5678
-                            </Text>
-                          </HStack>
-                          <HStack spacing="2rem" justify="flex-start">
-                            <Text
-                              width="10rem"
-                              color="#7895B2"
-                              fontSize="1rem"
-                              fontWeight="400"
-                              lineHeight="1.75rem"
-                            >
-                              Email
-                            </Text>
-                            <Text
-                              color="#556A7E"
-                              fontSize="1rem"
-                              fontWeight="500"
-                              lineHeight="1.75rem"
-                            >
-                              gildonghong@piboogo.com
-                            </Text>
-                          </HStack>
-                        </VStack>
+                        <RadioGroup
+                          value={selectedCouponId}
+                          onChange={(couponId) => {
+                            console.log('couponId', couponId);
+                            setSelectedCouponId(Number(couponId));
+                          }}
+                        >
+                          <VStack spacing={'1.5rem'}>
+                            {listCoupon.map((item, index) => (
+                              <CouponCard key={index} item={item} />
+                            ))}
+                          </VStack>
+                        </RadioGroup>
                       </Box>
                     </VStack>
                   </Box>
-                </VStack>
-              </Box>
-              <Box w={'37.5rem'}>
-                <VStack spacing={'2.5rem'}>
-                  <Box w={'100%'} p={'2.5rem'} border={'1px solid #9CADBE'}>
-                    <VStack spacing={'3.25rem'}>
-                      {/* Order Summary Section */}
+
+                  {/* Reward Coin Section */}
+                  <Box w={'100%'}>
+                    <VStack spacing={'1.5rem'}>
                       <Box w={'100%'}>
-                        <VStack spacing={'1.5rem'}>
-                          <Box w={'100%'}>
-                            <Text
-                              color="#485766"
-                              fontSize="1.25rem"
-                              fontFamily="Poppins"
-                              fontWeight="500"
-                              lineHeight="2.25rem"
-                              wordBreak="break-word"
-                            >
-                              Order summary
-                            </Text>
-                          </Box>
-
-                          <Divider
-                            border={'1px solid #73829D'}
-                            boxSizing="border-box"
-                          />
-
-                          <Box w={'100%'}>
-                            {/* Total Product Price */}
-                            <VStack spacing={'1.25rem'}>
-                              <Box w={'100%'}>
-                                <HStack
-                                  w="full"
-                                  justifyContent="space-between"
-                                  alignItems="flex-start"
-                                  gap="2rem"
-                                >
-                                  <Text
-                                    w="10rem"
-                                    color="#7895B2"
-                                    fontSize="1rem"
-                                    fontFamily="Poppins"
-                                    fontWeight="400"
-                                    lineHeight="1.75rem"
-                                    wordBreak="break-word"
-                                  >
-                                    Total product price
-                                  </Text>
-                                  <Text
-                                    color="#556A7E"
-                                    fontSize="1rem"
-                                    fontFamily="Poppins"
-                                    fontWeight="500"
-                                    lineHeight="1.75rem"
-                                    wordBreak="break-word"
-                                  >
-                                    $81.00
-                                  </Text>
-                                </HStack>
-                              </Box>
-                              <Box w={'100%'}>
-                                <HStack
-                                  w="full"
-                                  justifyContent="space-between"
-                                  alignItems="flex-start"
-                                  gap="2rem"
-                                >
-                                  <Text
-                                    w="10rem"
-                                    color="#7895B2"
-                                    fontSize="1rem"
-                                    fontFamily="Poppins"
-                                    fontWeight="400"
-                                    lineHeight="1.75rem"
-                                    wordBreak="break-word"
-                                  >
-                                    Total shipping cost
-                                  </Text>
-                                  <Text
-                                    color="#556A7E"
-                                    fontSize="1rem"
-                                    fontFamily="Poppins"
-                                    fontWeight="500"
-                                    lineHeight="1.75rem"
-                                    wordBreak="break-word"
-                                  >
-                                    $3.00
-                                  </Text>
-                                </HStack>
-                              </Box>
-                              <Box w={'100%'}>
-                                <HStack
-                                  w="full"
-                                  justifyContent="space-between"
-                                  alignItems="flex-start"
-                                  gap="2rem"
-                                >
-                                  <Text
-                                    w="10rem"
-                                    color="#66809C"
-                                    fontSize="1.125rem"
-                                    fontFamily="Poppins"
-                                    fontWeight="500"
-                                    lineHeight="1.96875rem"
-                                    wordBreak="break-word"
-                                  >
-                                    Total
-                                  </Text>
-                                  <Text
-                                    color="#485766"
-                                    fontSize="1.125rem"
-                                    fontFamily="Poppins"
-                                    fontWeight="600"
-                                    lineHeight="1.96875rem"
-                                    wordBreak="break-word"
-                                  >
-                                    $84.00
-                                  </Text>
-                                </HStack>
-                              </Box>
-                            </VStack>
-                          </Box>
-                        </VStack>
+                        <Text
+                          color={'#485766'}
+                          fontSize={'1.5rem'}
+                          fontWeight={500}
+                          lineHeight={'2.475rem'}
+                        >
+                          {localeText(LANGUAGES.REWARD_COINS)}
+                        </Text>
                       </Box>
 
-                      {/* Coupon Discounts Section */}
+                      <Divider
+                        border={'1px solid #73829D'}
+                        boxSizing="border-box"
+                      />
+
                       <Box w={'100%'}>
-                        <VStack spacing={'1.5rem'}>
-                          <Box w={'100%'}>
-                            <Text
-                              color="#485766"
-                              fontSize="1.25rem"
-                              fontFamily="Poppins"
-                              fontWeight="500"
-                              lineHeight="2.25rem"
-                              wordBreak="break-word"
-                            >
-                              Coupon discounts
-                            </Text>
+                        <HStack spacing={'1.5rem'}>
+                          <Box>
+                            <HStack spacing={'0.75rem'}>
+                              <Box>
+                                <Input
+                                  w={'9.5rem'}
+                                  h={'3.25rem'}
+                                  type={'number'}
+                                  orderRadius={'0.25rem'}
+                                  border={'1px solid #9CADBE'}
+                                  py={'0.75rem'}
+                                  px={'1.5rem'}
+                                  bg={'#FFF'}
+                                  fontSize={'1rem'}
+                                  onChange={(e) => {
+                                    let inputValue = e.target.value;
+                                    const maxLength = 1;
+                                    if (
+                                      (inputValue.length > maxLength + 1 &&
+                                        inputValue.endsWith('ㆍ')) ||
+                                      (inputValue.length > maxLength &&
+                                        !inputValue.endsWith('ㆍ'))
+                                    ) {
+                                      inputValue = inputValue.slice(
+                                        0,
+                                        maxLength,
+                                      );
+                                    }
+                                    console.log(inputValue);
+                                    // setText1(inputValue);
+                                  }}
+                                />
+                                {/* 
+                                <DefaultInput
+                                  w={'9.5rem'}
+                                  h={'3.25rem'}
+                                  type={'number'}
+                                  value={''}
+                                  onChange={(e) => {
+                                    console.log(e.target.value);
+                                  }}
+                                  borderRadius={'0.25rem'}
+                                  border={'1px solid #9CADBE'}
+                                  py={'0.75rem'}
+                                  px={'1.5rem'}
+                                  bg={'#FFF'}
+                                />
+                                 */}
+                              </Box>
+                              <Box>
+                                <Text
+                                  color={'#66809C'}
+                                  fontSize={'1rem'}
+                                  fontWeight={500}
+                                  lineHeight={'1.75rem'}
+                                >
+                                  coin of
+                                </Text>
+                              </Box>
+                              <Box>
+                                <Text
+                                  color={'#FF5454'}
+                                  fontSize={'1rem'}
+                                  fontWeight={500}
+                                  lineHeight={'1.75rem'}
+                                >
+                                  20 {localeText(LANGUAGES.COIN)}
+                                </Text>
+                              </Box>
+                            </HStack>
                           </Box>
+                          <Box>
+                            <Button
+                              minW={'7rem'}
+                              h={'3.25rem'}
+                              borderRadius={'0.25rem'}
+                              border={'1px solid #73829D'}
+                            >
+                              <Text
+                                color={'#556A7E'}
+                                fontSize={'1rem'}
+                                fontWeight={400}
+                                lineHeight={'1.75rem'}
+                              >
+                                {localeText(LANGUAGES.FULL_USE)}
+                              </Text>
+                            </Button>
+                          </Box>
+                        </HStack>
+                      </Box>
+                    </VStack>
+                  </Box>
 
-                          <Divider
-                            border={'1px solid #73829D'}
-                            boxSizing="border-box"
-                          />
+                  {/* Payment method Section */}
+                  <Box w={'100%'}>
+                    <VStack spacing={'1.5rem'}>
+                      <Box w={'100%'}>
+                        <Text
+                          color={'#485766'}
+                          fontSize={'1.5rem'}
+                          fontWeight={500}
+                          lineHeight={'2.475rem'}
+                        >
+                          {localeText(LANGUAGES.PAYMENT_METHOD)}
+                        </Text>
+                      </Box>
 
+                      <Divider
+                        border={'1px solid #73829D'}
+                        boxSizing="border-box"
+                      />
+
+                      <Box w={'100%'}>
+                        <VStack>
                           <Box w={'100%'}>
                             <RadioGroup
                               value={selectedCouponId}
@@ -706,233 +648,332 @@ const OrderPage = () => {
                                 setSelectedCouponId(Number(couponId));
                               }}
                             >
-                              <VStack spacing={'1.5rem'}>
-                                {listCoupon.map((item, index) => (
-                                  <CouponCard key={index} item={item} />
-                                ))}
-                              </VStack>
+                              <HStack
+                                justifyContent={'flex-start'}
+                                spacing={'1.5rem'}
+                              >
+                                <Box>
+                                  <HStack
+                                    spacing={'0.75rem'}
+                                    alignItems={'center'}
+                                  >
+                                    <Box>
+                                      <Radio value={1} />
+                                    </Box>
+                                    <Box>
+                                      <Text
+                                        color="#485766"
+                                        fontSize="1rem"
+                                        fontFamily="Poppins"
+                                        fontWeight="400"
+                                        lineHeight="1.75rem"
+                                        wordBreak="break-word"
+                                      >
+                                        {localeText(LANGUAGES.PAYPAL)}
+                                      </Text>
+                                    </Box>
+                                  </HStack>
+                                </Box>
+                                <Box>
+                                  <HStack
+                                    spacing={'0.75rem'}
+                                    alignItems={'center'}
+                                  >
+                                    <Box>
+                                      <Radio value={2} />
+                                    </Box>
+                                    <Box>
+                                      <Text
+                                        color="#485766"
+                                        fontSize="1rem"
+                                        fontFamily="Poppins"
+                                        fontWeight="400"
+                                        lineHeight="1.75rem"
+                                        wordBreak="break-word"
+                                      >
+                                        {localeText(
+                                          LANGUAGES.AUTHORIZE_DOT_NET,
+                                        )}
+                                      </Text>
+                                    </Box>
+                                  </HStack>
+                                </Box>
+                              </HStack>
                             </RadioGroup>
                           </Box>
                         </VStack>
                       </Box>
-
-                      {/* Loyalty Points Section */}
-                      <Box w={'100%'}>
-                        <VStack spacing={'1.5rem'}>
+                      <Box
+                        w={'100%'}
+                        // h={'5.25rem'}
+                      >
+                        <HStack
+                          justifyContent={'space-between'}
+                          spacing={'1.5rem'}
+                        >
                           <Box w={'100%'}>
-                            <Text
-                              color="#485766"
-                              fontSize="1.25rem"
-                              fontFamily="Poppins"
-                              fontWeight="500"
-                              lineHeight="2.25rem"
-                              wordBreak="break-word"
+                            <VStack
+                              alignItems={'flex-start'}
+                              spacing={'0.25rem'}
                             >
-                              적립금
-                            </Text>
-                          </Box>
-
-                          <Divider
-                            border={'1px solid #73829D'}
-                            boxSizing="border-box"
-                          />
-
-                          <Box w={'100%'}>
-                            {/* Total Product Price */}
-                            <VStack spacing={'1.25rem'}>
+                              <Text
+                                color={'#485766'}
+                                fontSize={'1rem'}
+                                fontWeight={400}
+                                lineHeight={'1.75rem'}
+                              >
+                                {localeText(LANGUAGES.CARD)}
+                              </Text>
                               <Box w={'100%'}>
-                                <HStack
-                                  w="full"
-                                  justifyContent="space-between"
-                                  alignItems="flex-start"
-                                  gap="2rem"
+                                <Select
+                                  onChange={(e) => {
+                                    console.log(e.target.value);
+                                  }}
+                                  w={'100%'}
+                                  h={'3.5rem'}
+                                  bg={'#FFF'}
+                                  borderRadius={'0.25rem'}
+                                  border={'1px solid #9CADBE'}
                                 >
-                                  <Text
-                                    w="10rem"
-                                    color="#7895B2"
-                                    fontSize="1rem"
-                                    fontFamily="Poppins"
-                                    fontWeight="400"
-                                    lineHeight="1.75rem"
-                                    wordBreak="break-word"
-                                  >
-                                    Total product price
-                                  </Text>
-                                  <Text
-                                    color="#556A7E"
-                                    fontSize="1rem"
-                                    fontFamily="Poppins"
-                                    fontWeight="500"
-                                    lineHeight="1.75rem"
-                                    wordBreak="break-word"
-                                  >
-                                    $81.00
-                                  </Text>
-                                </HStack>
-                              </Box>
-                              <Box w={'100%'}>
-                                <HStack
-                                  w="full"
-                                  justifyContent="space-between"
-                                  alignItems="flex-start"
-                                  gap="2rem"
-                                >
-                                  <Text
-                                    w="10rem"
-                                    color="#7895B2"
-                                    fontSize="1rem"
-                                    fontFamily="Poppins"
-                                    fontWeight="400"
-                                    lineHeight="1.75rem"
-                                    wordBreak="break-word"
-                                  >
-                                    Total shipping cost
-                                  </Text>
-                                  <Text
-                                    color="#556A7E"
-                                    fontSize="1rem"
-                                    fontFamily="Poppins"
-                                    fontWeight="500"
-                                    lineHeight="1.75rem"
-                                    wordBreak="break-word"
-                                  >
-                                    $3.00
-                                  </Text>
-                                </HStack>
-                              </Box>
-                              <Box w={'100%'}>
-                                <HStack
-                                  w="full"
-                                  justifyContent="space-between"
-                                  alignItems="flex-start"
-                                  gap="2rem"
-                                >
-                                  <Text
-                                    w="10rem"
-                                    color="#66809C"
-                                    fontSize="1.125rem"
-                                    fontFamily="Poppins"
-                                    fontWeight="500"
-                                    lineHeight="1.96875rem"
-                                    wordBreak="break-word"
-                                  >
-                                    Total
-                                  </Text>
-                                  <Text
-                                    color="#485766"
-                                    fontSize="1.125rem"
-                                    fontFamily="Poppins"
-                                    fontWeight="600"
-                                    lineHeight="1.96875rem"
-                                    wordBreak="break-word"
-                                  >
-                                    $84.00
-                                  </Text>
-                                </HStack>
+                                  <option>!</option>
+                                </Select>
                               </Box>
                             </VStack>
                           </Box>
-                        </VStack>
-                      </Box>
-                    </VStack>
-                  </Box>
-
-                  <Box w={'100%'} p={'2.5rem'} border={'1px solid #9CADBE'}>
-                    {/* Total Product Price */}
-                    <VStack spacing={'1.25rem'}>
-                      <Box w={'100%'}>
-                        <HStack
-                          w="full"
-                          justifyContent="space-between"
-                          alignItems="flex-start"
-                          gap="2rem"
-                        >
-                          <Text
-                            w="10rem"
-                            color="#7895B2"
-                            fontSize="1rem"
-                            fontFamily="Poppins"
-                            fontWeight="400"
-                            lineHeight="1.75rem"
-                            wordBreak="break-word"
-                          >
-                            Total product price
-                          </Text>
-                          <Text
-                            color="#556A7E"
-                            fontSize="1rem"
-                            fontFamily="Poppins"
-                            fontWeight="500"
-                            lineHeight="1.75rem"
-                            wordBreak="break-word"
-                          >
-                            $81.00
-                          </Text>
-                        </HStack>
-                      </Box>
-                      <Box w={'100%'}>
-                        <HStack
-                          w="full"
-                          justifyContent="space-between"
-                          alignItems="flex-start"
-                          gap="2rem"
-                        >
-                          <Text
-                            w="10rem"
-                            color="#7895B2"
-                            fontSize="1rem"
-                            fontFamily="Poppins"
-                            fontWeight="400"
-                            lineHeight="1.75rem"
-                            wordBreak="break-word"
-                          >
-                            Total shipping cost
-                          </Text>
-                          <Text
-                            color="#556A7E"
-                            fontSize="1rem"
-                            fontFamily="Poppins"
-                            fontWeight="500"
-                            lineHeight="1.75rem"
-                            wordBreak="break-word"
-                          >
-                            $3.00
-                          </Text>
-                        </HStack>
-                      </Box>
-                      <Box w={'100%'}>
-                        <HStack
-                          w="full"
-                          justifyContent="space-between"
-                          alignItems="flex-start"
-                          gap="2rem"
-                        >
-                          <Text
-                            w="10rem"
-                            color="#66809C"
-                            fontSize="1.125rem"
-                            fontFamily="Poppins"
-                            fontWeight="500"
-                            lineHeight="1.96875rem"
-                            wordBreak="break-word"
-                          >
-                            Total
-                          </Text>
-                          <Text
-                            color="#485766"
-                            fontSize="1.125rem"
-                            fontFamily="Poppins"
-                            fontWeight="600"
-                            lineHeight="1.96875rem"
-                            wordBreak="break-word"
-                          >
-                            $84.00
-                          </Text>
+                          <Box w={'100%'}>
+                            <VStack
+                              alignItems={'flex-start'}
+                              spacing={'0.25rem'}
+                            >
+                              <Text
+                                color={'#485766'}
+                                fontSize={'1rem'}
+                                fontWeight={400}
+                                lineHeight={'1.75rem'}
+                              >
+                                {localeText(LANGUAGES.INSTALLMENT_PERIOD)}
+                              </Text>
+                              <Box w={'100%'}>
+                                <Select
+                                  onChange={(e) => {
+                                    console.log(e.target.value);
+                                  }}
+                                  w={'100%'}
+                                  h={'3.5rem'}
+                                  bg={'#FFF'}
+                                  borderRadius={'0.25rem'}
+                                  border={'1px solid #9CADBE'}
+                                >
+                                  <option>!</option>
+                                </Select>
+                              </Box>
+                            </VStack>
+                          </Box>
                         </HStack>
                       </Box>
                     </VStack>
                   </Box>
                 </VStack>
+              </Box>
+
+              <Box w={'37.5rem'}>
+                <Box w={'100%'} p={'2.5rem'} border={'1px solid #9CADBE'}>
+                  <VStack spacing={'3.5rem'}>
+                    {/* Order Summary Section */}
+                    <Box w={'100%'}>
+                      <VStack spacing={'1.5rem'}>
+                        <Box w={'100%'}>
+                          <Text
+                            color="#485766"
+                            fontSize="1.25rem"
+                            fontFamily="Poppins"
+                            fontWeight="500"
+                            lineHeight="2.25rem"
+                            wordBreak="break-word"
+                          >
+                            {localeText(LANGUAGES.ORDER_SUMMARY)}
+                          </Text>
+                        </Box>
+
+                        <Divider
+                          border={'1px solid #73829D'}
+                          boxSizing="border-box"
+                        />
+
+                        {/* Total Product Price */}
+                        <Box w={'100%'}>
+                          <VStack spacing={'1.25rem'}>
+                            <Box w={'100%'}>
+                              <HStack
+                                w="full"
+                                justifyContent="space-between"
+                                alignItems="flex-start"
+                                gap="2rem"
+                              >
+                                <Text
+                                  w="10rem"
+                                  color="#7895B2"
+                                  fontSize="1rem"
+                                  fontFamily="Poppins"
+                                  fontWeight="400"
+                                  lineHeight="1.75rem"
+                                  wordBreak="break-word"
+                                >
+                                  {localeText(LANGUAGES.ORDER_TOTAL_PRODUCT)}
+                                </Text>
+                                <Text
+                                  color="#556A7E"
+                                  fontSize="1rem"
+                                  fontFamily="Poppins"
+                                  fontWeight="500"
+                                  lineHeight="1.75rem"
+                                  wordBreak="break-word"
+                                >
+                                  $81.00
+                                </Text>
+                              </HStack>
+                            </Box>
+                            <Box w={'100%'}>
+                              <HStack
+                                w="full"
+                                justifyContent="space-between"
+                                alignItems="flex-start"
+                                gap="2rem"
+                              >
+                                <Text
+                                  w="10rem"
+                                  color="#7895B2"
+                                  fontSize="1rem"
+                                  fontFamily="Poppins"
+                                  fontWeight="400"
+                                  lineHeight="1.75rem"
+                                  wordBreak="break-word"
+                                >
+                                  {localeText(LANGUAGES.ORDER_TOTAL_SHIPPING)}
+                                </Text>
+                                <Text
+                                  color="#556A7E"
+                                  fontSize="1rem"
+                                  fontFamily="Poppins"
+                                  fontWeight="500"
+                                  lineHeight="1.75rem"
+                                  wordBreak="break-word"
+                                >
+                                  $3.00
+                                </Text>
+                              </HStack>
+                            </Box>
+                            <Box w={'100%'}>
+                              <HStack
+                                w="full"
+                                justifyContent="space-between"
+                                alignItems="flex-start"
+                                gap="2rem"
+                              >
+                                <Text
+                                  w="10rem"
+                                  color="#7895B2"
+                                  fontSize="1rem"
+                                  fontFamily="Poppins"
+                                  fontWeight="400"
+                                  lineHeight="1.75rem"
+                                  wordBreak="break-word"
+                                >
+                                  {localeText(LANGUAGES.ORDER_COUPON_DISCOUNT)}
+                                </Text>
+                                <Text
+                                  color={'#940808'}
+                                  fontSize={'1rem'}
+                                  fontWeight={500}
+                                  lineHeight={'1.75rem'}
+                                >
+                                  -$3.00
+                                </Text>
+                              </HStack>
+                            </Box>
+                            <Box w={'100%'}>
+                              <HStack
+                                w="full"
+                                justifyContent="space-between"
+                                alignItems="flex-start"
+                                gap="2rem"
+                              >
+                                <Text
+                                  w={'10rem'}
+                                  color={'#7895B2'}
+                                  fontSize={'1rem'}
+                                  fontWeight={400}
+                                  lineHeight={'1.75rem'}
+                                >
+                                  {localeText(LANGUAGES.ORDER_REDEEMING_MILES)}
+                                </Text>
+                                <Text
+                                  color={'#556A7E'}
+                                  fontSize={'1rem'}
+                                  fontWeight={500}
+                                  lineHeight={'1.75rem'}
+                                >
+                                  0 coin
+                                </Text>
+                              </HStack>
+                            </Box>
+                            <Box w={'100%'}>
+                              <HStack
+                                w="full"
+                                justifyContent="space-between"
+                                alignItems="flex-start"
+                                gap="2rem"
+                              >
+                                <Text
+                                  w="10rem"
+                                  color="#66809C"
+                                  fontSize="1.125rem"
+                                  fontFamily="Poppins"
+                                  fontWeight="500"
+                                  lineHeight="1.96875rem"
+                                  wordBreak="break-word"
+                                >
+                                  {localeText(LANGUAGES.ORDER_TOTAL)}
+                                </Text>
+                                <Text
+                                  color="#485766"
+                                  fontSize="1.125rem"
+                                  fontFamily="Poppins"
+                                  fontWeight="600"
+                                  lineHeight="1.96875rem"
+                                  wordBreak="break-word"
+                                >
+                                  $84.00
+                                </Text>
+                              </HStack>
+                            </Box>
+                          </VStack>
+                        </Box>
+                      </VStack>
+                    </Box>
+                    <Box w={'100%'} h={'4rem'}>
+                      <Button
+                        w={'100%'}
+                        h={'100%'}
+                        minW={'8.5rem'}
+                        px={'2rem'}
+                        py={'0.88rem'}
+                        borderRadius={'0.25rem'}
+                        border={'1px solid #73829D'}
+                        bg={'#66809C'}
+                      >
+                        <Text
+                          color={'#FFF'}
+                          fontSize={'1.25rem'}
+                          fontWeight={400}
+                          lineHeight={'2.25rem'}
+                        >
+                          {localeText(LANGUAGES.ORDER_CHECK_OUT)}
+                        </Text>
+                      </Button>
+                    </Box>
+                  </VStack>
+                </Box>
               </Box>
             </HStack>
           </Box>

@@ -45,11 +45,14 @@ import { IoIosArrowBack as arrowLeft } from 'react-icons/io';
 import { IoWarningSharp as fillWarning } from 'react-icons/io5';
 import {
   FiPlusCircle as plusCircle,
-  FiStar as star,
+  // FiStar as star,
   FiSearch as search,
   FiCheck as check,
 } from 'react-icons/fi';
 import {
+  // RiHeartLine as heart,
+  // RiHeartFill as heartFill,
+  RiStarSFill as star,
   RiBusLine as bus,
   RiFileExcel2Line as excel,
   RiDownloadLine as downloadLine,
@@ -70,11 +73,17 @@ import {
   PiArrowRight as arrowRight,
 } from 'react-icons/pi';
 
-import { VscArrowSwap as swap } from 'react-icons/vsc';
+import {
+  VscArrowSwap as swap,
+  VscHeart as heart,
+  VscHeartFilled as heartFill,
+} from 'react-icons/vsc';
 
 import { RxDividerVertical as verticalLine } from 'react-icons/rx';
 
 export default {
+  heart,
+  heartFill,
   verifiedFill,
   pauseFill,
   playFill,
