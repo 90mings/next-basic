@@ -18,8 +18,9 @@ import {
 import BestBanner1 from '@public/svgs/banner/best-brand1.svg';
 
 const ProductItemCard = (props) => {
+  const { rowMaxCount = 5 } = props;
   return (
-    <WrapItem w={1 / 5}>
+    <WrapItem w={1 / rowMaxCount}>
       <Center w={'100%'} h={'100%'}>
         <VStack spacing={0} w={'100%'}>
           <Box w={'100%'} position={'relative'}>

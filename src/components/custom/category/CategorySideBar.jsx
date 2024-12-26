@@ -16,7 +16,7 @@ const CategorySideBar = () => {
   const { category } = useParams();
 
   return (
-    <Box w={'25rem'}>
+    <Box w={'25rem'} maxW={'30%'}>
       <VStack spacing={0}>
         <Box py={'0.75rem'} w={'100%'}>
           <HStack justifyContent={'space-between'}>
