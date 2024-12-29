@@ -2,6 +2,8 @@
 
 import { CustomIcon } from '@/components';
 import StarRating from '@/components/common/StarRating';
+import { LANGUAGES } from '@/constants/lang';
+import useLocale from '@/hooks/useLocale';
 import {
   Box,
   Center,
@@ -18,15 +20,41 @@ import {
 import BestBanner1 from '@public/svgs/banner/best-brand1.svg';
 
 const ProductItemCard = (props) => {
-  const { rowMaxCount = 5 } = props;
+  const { localeText } = useLocale();
+  const { isNew = false, rowMaxCount = 5, w = '0rem', h = '0rem' } = props;
   return (
-    <WrapItem w={1 / rowMaxCount}>
-      <Center w={'100%'} h={'100%'}>
+    <WrapItem w={rowMaxCount !== 0 ? 1 / rowMaxCount : w}>
+      <Center w={`100%`} h={'100%'}>
         <VStack spacing={0} w={'100%'}>
           <Box w={'100%'} position={'relative'}>
-            <Img w={'100%'} src={BestBanner1.src} />
+            <Img
+              w={w}
+              h={h ? h : w}
+              objectFit={'cover'}
+              src={BestBanner1.src}
+            />
+            {isNew && (
+              <Center
+                minW={'5rem'}
+                position={'absolute'}
+                left={'0.75rem'}
+                bottom={'0.75rem'}
+                borderRadius={'5rem'}
+                p={'0.25rem'}
+                bg={'#66809C'}
+              >
+                <Text
+                  color={'#FFF'}
+                  fontSize={'0.9375rem'}
+                  lineHeight={'1.5rem'}
+                  fontWeight={500}
+                >
+                  New
+                </Text>
+              </Center>
+            )}
           </Box>
-          <Box w={'100%'} p={'1rem'}>
+          <Box w={'100%'} py={'1rem'}>
             <VStack spacing={'0.75rem'}>
               <Box w={'100%'}>
                 <VStack spacing={0}>
@@ -68,45 +96,63 @@ const ProductItemCard = (props) => {
               <Box w={'100%'}>
                 <Stat>
                   <StatLabel>
-                    <Text
-                      color={'#66809C'}
-                      fontSize={'1rem'}
-                      lineHeight={'1.75rem'}
-                      fontWeight={400}
-                    >
-                      Collected Fees
-                    </Text>
-                  </StatLabel>
-                  <StatNumber>
-                    <Text
-                      color={'#485766'}
-                      fontSize={'1.5rem'}
-                      lineHeight={'2.475rem'}
-                      fontWeight={600}
-                    >
-                      $27.00
-                    </Text>
-                  </StatNumber>
-                  <StatHelpText>
-                    <HStack>
+                    <HStack spacing={'0.25rem'}>
                       <Text
-                        color={'#B20000'}
-                        fontSize={'0.9375rem'}
-                        lineHeight={'1.5rem'}
+                        color={'#66809C'}
+                        fontSize={'1rem'}
+                        lineHeight={'1.75rem'}
                         fontWeight={400}
                       >
-                        Purchase minimum
+                        {localeText(LANGUAGES.MSRP)}
                       </Text>
                       <Text
-                        color={'#B20000'}
-                        fontSize={'0.9375rem'}
-                        lineHeight={'1.5rem'}
-                        fontWeight={500}
+                        color={'#66809C'}
+                        fontSize={'1rem'}
+                        lineHeight={'1.75rem'}
+                        fontWeight={400}
                       >
-                        $500
+                        $
+                      </Text>
+                      <Text
+                        color={'#66809C'}
+                        fontSize={'1rem'}
+                        lineHeight={'1.75rem'}
+                        fontWeight={400}
+                      >
+                        10.00
                       </Text>
                     </HStack>
-                  </StatHelpText>
+                  </StatLabel>
+                  <StatNumber>
+                    <HStack spacing={'0.75rem'}>
+                      <Text
+                        color={'#485766'}
+                        fontSize={'1.5rem'}
+                        lineHeight={'2.475rem'}
+                        fontWeight={600}
+                      >
+                        $27.00
+                      </Text>
+                      <HStack spacing={'0.25rem'}>
+                        <Text
+                          color={'#7895B2'}
+                          fontSize={'0.9375rem'}
+                          lineHeight={'1.5rem'}
+                          fontWeight={400}
+                        >
+                          {localeText(LANGUAGES.MINIMUM)}
+                        </Text>
+                        <Text
+                          color={'#7895B2'}
+                          fontSize={'0.9375rem'}
+                          lineHeight={'1.5rem'}
+                          fontWeight={500}
+                        >
+                          $50.00
+                        </Text>
+                      </HStack>
+                    </HStack>
+                  </StatNumber>
                 </Stat>
               </Box>
               <Box w={'100%'}>

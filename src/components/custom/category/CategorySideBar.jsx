@@ -1,5 +1,7 @@
 'use client';
 
+import { LANGUAGES } from '@/constants/lang';
+import useLocale from '@/hooks/useLocale';
 import {
   Box,
   Checkbox,
@@ -13,6 +15,7 @@ import {
 import { useParams } from 'next/navigation';
 
 const CategorySideBar = () => {
+  const { localeText } = useLocale();
   const { category } = useParams();
 
   return (
@@ -26,7 +29,7 @@ const CategorySideBar = () => {
               fontWeight={500}
               lineHeight={'2.475rem'}
             >
-              Filters
+              {localeText(LANGUAGES.FILTER)}
             </Text>
             <Text
               color={'#B20000'}
@@ -34,7 +37,7 @@ const CategorySideBar = () => {
               fontWeight={500}
               lineHeight={'1.75rem'}
             >
-              Reset
+              {localeText(LANGUAGES.RESET)}
             </Text>
           </HStack>
         </Box>
@@ -53,7 +56,7 @@ const CategorySideBar = () => {
                   fontWeight={500}
                   lineHeight={'1.96875rem'}
                 >
-                  MoCRA FDA Registered
+                  {localeText(LANGUAGES.MOCRA_FDA_REGISTERED)}
                 </Text>
                 <Box>
                   <Checkbox variant={'customStyle'} />
@@ -69,7 +72,7 @@ const CategorySideBar = () => {
                     fontWeight={500}
                     lineHeight={'1.96875rem'}
                   >
-                    Type
+                    {localeText(LANGUAGES.TYPE)}
                   </Text>
                 </Box>
                 <RadioGroup
@@ -144,7 +147,7 @@ const CategorySideBar = () => {
                     fontWeight={500}
                     lineHeight={'1.96875rem'}
                   >
-                    Promotion
+                    {localeText(LANGUAGES.PROMOTION)}
                   </Text>
                 </Box>
                 <RadioGroup
@@ -209,7 +212,7 @@ const CategorySideBar = () => {
                     fontWeight={500}
                     lineHeight={'1.96875rem'}
                   >
-                    Purchase minimum
+                    {localeText(LANGUAGES.PURCHASE_MINIMUM)}
                   </Text>
                 </Box>
                 <RadioGroup
@@ -294,7 +297,7 @@ const CategorySideBar = () => {
                     fontWeight={500}
                     lineHeight={'1.96875rem'}
                   >
-                    Shipping
+                    {localeText(LANGUAGES.SHIPPING)}
                   </Text>
                 </Box>
                 <RadioGroup

@@ -243,10 +243,108 @@ const LANGUAGES = {
     KR: '우편번호',
     EN: 'Zip code',
   },
+  // 브랜드
+  BEST_BRAND: {
+    KR: '베스트 브랜드',
+    EN: 'Best Brand',
+  },
+  NEW_BRAND: {
+    KR: '새로운 브랜드',
+    EN: 'New Brand',
+  },
+  BRAND_INFO: {
+    KR: '브랜드 정보',
+    EN: 'Brand info',
+  },
+  BRAND_PRODUCT: {
+    KR: '브랜드 상품',
+    EN: 'Brand product',
+  },
+  SEE_OTHER_BRANDED_PRODUCTS: {
+    KR: '다른 브랜드 제품 보기',
+    EN: 'See other branded products',
+  },
+  PRODUCT_INFO: {
+    KR: '상품 정보',
+    EN: 'Product info',
+  },
+  PRODUCT_INQUIRY: {
+    KR: '상품 문의',
+    EN: 'Product inquiry',
+  },
+  // 브랜드 상품 추가
+  RETURN_TO_CART: {
+    KR: '장바구니로 돌아가기',
+    EN: 'Return to cart',
+  },
+  PURCHASE_MINIMUM: {
+    KR: '구매 최소금액',
+    EN: 'Purchase minimum',
+  },
+  MINIMUM: {
+    KR: '최소금액',
+    EN: 'Minimum',
+  },
+  MSRP: {
+    KR: '권장소비자가격',
+    EN: 'MSRP',
+  },
+  SHIPPING: {
+    KR: '배송',
+    EN: 'Shipping',
+  },
+  EXCHANGES: {
+    KR: '교환',
+    EN: 'Exchanges',
+  },
+  RETURNS: {
+    KR: '반품',
+    EN: 'Returns',
+  },
   // 기본
+  ITEMS: {
+    KR: '개의 상품',
+    EN: 'items',
+  },
+  REVIEWS: {
+    KR: '리뷰',
+    EN: 'reviews',
+  },
+  UPPER_REVIEWS: {
+    KR: '리뷰',
+    EN: 'Reviews',
+  },
   ORDER: {
     KR: '주문',
     EN: 'Order',
+  },
+  FILTER: {
+    KR: '필터',
+    EN: 'Filters',
+  },
+  RESET: {
+    KR: '초기화',
+    EN: 'Reset',
+  },
+  MOCRA_FDA_REGISTERED: {
+    KR: '모크라 / FDA 등록 여부',
+    EN: 'MoCRA FDA Registered',
+  },
+  TYPE: {
+    KR: '타입',
+    EN: 'Type',
+  },
+  ALL: {
+    KR: '전체',
+    EN: 'All',
+  },
+  ALL: {
+    KR: '전체',
+    EN: 'All',
+  },
+  OILY: {
+    KR: '유분',
+    EN: 'Oily',
   },
   INFO: {
     KR: '안내',

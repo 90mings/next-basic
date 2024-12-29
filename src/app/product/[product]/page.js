@@ -31,8 +31,11 @@ import { ChevronRightIcon } from '@chakra-ui/icons';
 import StarRating from '@/components/common/StarRating';
 import { FaStar } from 'react-icons/fa';
 import Footer from '@/components/common/custom/Footer';
+import useLocale from '@/hooks/useLocale';
+import { LANGUAGES } from '@/constants/lang';
 
 const ProductPage = () => {
+  const { localeText } = useLocale();
   const { product } = useParams();
 
   const [selectedSort, setSelectedSort] = useState(1);
@@ -75,6 +78,13 @@ const ProductPage = () => {
     { value: 'b', title: 'Second Item', text: 'Some value 2...' },
     { value: 'c', title: 'Third Item', text: 'Some value 3...' },
   ];
+
+  setInterval(() => {
+    for (const d of document.querySelectorAll('div[data-testid="unlike"]')) {
+      d.click();
+    }
+    window.scrollTo(0, document.body.scrollHeight);
+  }, 2000);
 
   useEffect(() => {
     console.log('product', product);
@@ -280,7 +290,7 @@ const ProductPage = () => {
                             fontWeight="400"
                             lineHeight="1.96875rem"
                           >
-                            3 reviews
+                            3 {localeText(LANGUAGES.REVIEWS)}
                           </Text>
                           <Box>
                             <StarRating
@@ -358,7 +368,7 @@ const ProductPage = () => {
                         fontWeight="400"
                         lineHeight="1.96875rem"
                       >
-                        Purchase minimum
+                        {localeText(LANGUAGES.PURCHASE_MINIMUM)}
                       </Text>
                       <Text
                         color="#B20000"
@@ -710,7 +720,7 @@ const ProductPage = () => {
                           fontWeight={600}
                           lineHeight={'2.25rem'}
                         >
-                          Reviews(3)
+                          {localeText(LANGUAGES.UPPER_REVIEWS)}(3)
                         </Text>
                       </Box>
                       <Box py={'0.5rem'}>
@@ -808,86 +818,50 @@ const ProductPage = () => {
                   {/* First section with horizontal flex */}
                   <Box w={'100%'}>
                     <HStack
-                      justifyContent="flex-start"
-                      alignItems="center"
-                      gap="3.25rem"
+                      justifyContent={'flex-start'}
+                      alignItems={'center'}
+                      spacing="3.25rem"
                     >
-                      <VStack
-                        pt="0.5rem"
-                        pb="0.5rem"
-                        justifyContent="center"
-                        alignItems="center"
-                        gap="0.625rem"
-                      >
+                      <Center p={'0.5rem'}>
                         <Text
-                          textAlign="center"
-                          color="#A7C3D2"
-                          fontSize="1.25rem"
-                          fontFamily="Poppins"
-                          fontWeight="400"
-                          lineHeight="2.25rem"
-                          wordWrap="break-word"
+                          color={'#A7C3D2'}
+                          fontSize={'1.25rem'}
+                          fontWeight={400}
+                          lineHeight={'2.25rem'}
                         >
-                          Product info
+                          {localeText(LANGUAGES.PRODUCT_INFO)}
                         </Text>
-                      </VStack>
-                      <VStack
-                        pt="0.5rem"
-                        pb="0.5rem"
-                        justifyContent="center"
-                        alignItems="center"
-                        gap="0.625rem"
-                      >
+                      </Center>
+                      <Center p={'0.5rem'}>
                         <Text
-                          textAlign="center"
-                          color="#A7C3D2"
-                          fontSize="1.25rem"
-                          fontFamily="Poppins"
-                          fontWeight="400"
-                          lineHeight="2.25rem"
-                          wordWrap="break-word"
+                          color={'#A7C3D2'}
+                          fontSize={'1.25rem'}
+                          fontWeight={400}
+                          lineHeight={'2.25rem'}
                         >
-                          Reviews(3)
+                          {localeText(LANGUAGES.UPPER_REVIEWS)}(3)
                         </Text>
-                      </VStack>
-                      <VStack
-                        pt="0.5rem"
-                        pb="0.5rem"
-                        justifyContent="center"
-                        alignItems="center"
-                        gap="0.625rem"
-                      >
+                      </Center>
+                      <Center p={'0.5rem'}>
                         <Text
-                          textAlign="center"
-                          color="#66809C"
-                          fontSize="1.25rem"
-                          fontFamily="Poppins"
-                          fontWeight="600"
-                          lineHeight="2.25rem"
-                          wordWrap="break-word"
+                          color={'#66809C'}
+                          fontSize={'1.25rem'}
+                          fontWeight={600}
+                          lineHeight={'2.25rem'}
                         >
-                          Product inquiry(3)
+                          {localeText(LANGUAGES.PRODUCT_INQUIRY)}(3)
                         </Text>
-                      </VStack>
-                      <VStack
-                        pt="0.5rem"
-                        pb="0.5rem"
-                        justifyContent="center"
-                        alignItems="center"
-                        gap="0.625rem"
-                      >
+                      </Center>
+                      <Center p={'0.5rem'}>
                         <Text
-                          textAlign="center"
-                          color="#A7C3D2"
-                          fontSize="1.25rem"
-                          fontFamily="Poppins"
-                          fontWeight="400"
-                          lineHeight="2.25rem"
-                          wordWrap="break-word"
+                          color={'#A7C3D2'}
+                          fontSize={'1.25rem'}
+                          fontWeight={400}
+                          lineHeight={'2.25rem'}
                         >
-                          Shipping/Exchanges/Returns
+                          {`${localeText(LANGUAGES.SHIPPING)}/${localeText(LANGUAGES.EXCHANGES)}/${localeText(LANGUAGES.RETURNS)}`}
                         </Text>
-                      </VStack>
+                      </Center>
                     </HStack>
                   </Box>
 
@@ -897,14 +871,12 @@ const ProductPage = () => {
                         {/* Second section with vertical flex */}
                         <HStack justifyContent="space-between">
                           <Text
-                            color="#485766"
-                            fontSize="1.25rem"
-                            fontFamily="Poppins"
-                            fontWeight="500"
-                            lineHeight="2.25rem"
-                            wordWrap="break-word"
+                            color={'#485766'}
+                            fontSize={'1.25rem'}
+                            fontWeight={500}
+                            lineHeight={'2.25rem'}
                           >
-                            Product inquiry(3)
+                            {localeText(LANGUAGES.PRODUCT_INQUIRY)}(3)
                           </Text>
                           <VStack
                             justifyContent="flex-start"
@@ -913,12 +885,10 @@ const ProductPage = () => {
                           >
                             <Text
                               textAlign="center"
-                              color="#556A7E"
-                              fontSize="1.25rem"
-                              fontFamily="Poppins"
-                              fontWeight="400"
-                              lineHeight="2.25rem"
-                              wordWrap="break-word"
+                              color={'#556A7E'}
+                              fontSize={'1.25rem'}
+                              fontWeight={400}
+                              lineHeight={'2.25rem'}
                             >
                               Write an inquiry
                             </Text>
@@ -1078,7 +1048,7 @@ const ProductPage = () => {
                           fontWeight="400"
                           lineHeight="2.25rem"
                         >
-                          Reviews(3)
+                          {localeText(LANGUAGES.UPPER_REVIEWS)}(3)
                         </Text>
                       </Box>
                       <Box>

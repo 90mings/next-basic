@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Box, Center, HStack, Text, VStack, Wrap } from '@chakra-ui/react';
 
@@ -11,9 +11,12 @@ import CategorySideBar from '@/components/custom/category/CategorySideBar';
 import { DefaultPaginate } from '@/components';
 import Footer from '@/components/common/custom/Footer';
 import ProductItemCard from '@/components/custom/product/ProductItemCard';
+import { LANGUAGES } from '@/constants/lang';
+import useLocale from '@/hooks/useLocale';
 
 const CategoryPage = () => {
   const { currentMenu } = useMenu();
+  const { localeText } = useLocale();
   const [selectedSort, setSelectedSort] = useState(1);
 
   useEffect(() => {
@@ -65,6 +68,25 @@ const CategoryPage = () => {
     );
   };
 
+  const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // 총 10개의 항목
+  const listItems = useCallback(() => {
+    return (
+      <Wrap spacingX={'1.25rem'} spacingY={'5rem'}>
+        {items.map((item, itemIndex) => (
+          <ProductItemCard
+            isNew
+            key={itemIndex}
+            rowMaxCount={0}
+            w={'20.9375rem'}
+            h={'20.9375rem'}
+            // rowMaxCount={rowMaxCount}
+            // spacingX={'1.25rem'}
+          />
+        ))}
+      </Wrap>
+    );
+  });
+
   return (
     <main>
       <Center w={'100%'}>
@@ -97,7 +119,7 @@ const CategoryPage = () => {
                             fontWeight={400}
                             lineHeight={'1.96875rem'}
                           >
-                            1207 items
+                            1207 {localeText(LANGUAGES.ITEMS)}
                           </Text>
                           <Box>
                             <HStack spacing={'1.3rem'}>
@@ -109,14 +131,7 @@ const CategoryPage = () => {
                         </HStack>
                       </Box>
                       <Box borderRadius={'0.06rem'} w={'100%'}>
-                        <Wrap spacingX={0} spacingY={'5rem'}>
-                          <ProductItemCard />
-                          <ProductItemCard />
-                          <ProductItemCard />
-                          <ProductItemCard />
-                          <ProductItemCard />
-                          <ProductItemCard />
-                        </Wrap>
+                        {listItems()}
                       </Box>
                       <Center w={'100%'} pt={'5rem'}>
                         <DefaultPaginate

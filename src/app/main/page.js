@@ -110,7 +110,7 @@ const MainPage = () => {
           />
           <ContentBR />
           <BrandHeader
-            headerTitle={'Best Brand'}
+            headerTitle={localeText(LANGUAGES.BEST_BRAND)}
             targetMenu={brandMenu}
             setTargetMenu={setBrandMenu}
             listMenu={[
@@ -242,7 +242,7 @@ const MainPage = () => {
           />
           <ContentBR />
           <BrandHeader
-            headerTitle={'New Brand'}
+            headerTitle={localeText(LANGUAGES.NEW_BRAND)}
             targetMenu={brandMenu}
             setTargetMenu={setBrandMenu}
             listMenu={[

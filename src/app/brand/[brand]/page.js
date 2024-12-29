@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 
 import { Box, Center, HStack, Img, Text, VStack, Wrap } from '@chakra-ui/react';
@@ -15,8 +15,11 @@ import BrandSub from '@public/svgs/brand/brand-sub.svg';
 import ContentBR from '@/components/custom/ContentBR';
 import Footer from '@/components/common/custom/Footer';
 import ProductItemCard from '@/components/custom/product/ProductItemCard';
+import useLocale from '@/hooks/useLocale';
+import { LANGUAGES } from '@/constants/lang';
 
 const CategoryPage = () => {
+  const { localeText } = useLocale();
   const { brand } = useParams();
 
   const [selectedSort, setSelectedSort] = useState(1);
@@ -92,6 +95,24 @@ const CategoryPage = () => {
     );
   };
 
+  const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // 총 10개의 항목
+  const listItems = useCallback(() => {
+    return (
+      <Wrap spacingX={'1.25rem'} spacingY={'5rem'}>
+        {items.map((item, itemIndex) => (
+          <ProductItemCard
+            key={itemIndex}
+            rowMaxCount={0}
+            w={'19rem'}
+            h={'20rem'}
+            // rowMaxCount={rowMaxCount}
+            // spacingX={'1.25rem'}
+          />
+        ))}
+      </Wrap>
+    );
+  });
+
   return (
     <main>
       <Center w={'100%'}>
@@ -115,7 +136,6 @@ const CategoryPage = () => {
                     fontWeight={400}
                     lineHeight={'4.5rem'}
                   >
-                    {/* {headerMenu} */}
                     Rampal Latour
                   </Text>
                 </Box>
@@ -123,8 +143,8 @@ const CategoryPage = () => {
                   <VStack spacing={'2.5rem'}>
                     <Box w={'100%'}>
                       <HStack spacing={'1.3rem'}>
-                        {TextChecker('Brand info', 1)}
-                        {TextChecker('Brand product', 2)}
+                        {TextChecker(localeText(LANGUAGES.BRAND_INFO), 1)}
+                        {TextChecker(localeText(LANGUAGES.BRAND_PRODUCT), 2)}
                       </HStack>
                     </Box>
                     <Box w={'100%'}>
@@ -155,8 +175,8 @@ const CategoryPage = () => {
                   <VStack spacing={'2.5rem'}>
                     <Box w={'100%'}>
                       <HStack spacing={'1.3rem'}>
-                        {TextChecker('Brand info', 1)}
-                        {TextChecker('Brand product', 2)}
+                        {TextChecker(localeText(LANGUAGES.BRAND_INFO), 1)}
+                        {TextChecker(localeText(LANGUAGES.BRAND_PRODUCT), 2)}
                       </HStack>
                     </Box>
                     <Box>
@@ -168,7 +188,7 @@ const CategoryPage = () => {
                             fontWeight={400}
                             lineHeight={'1.96875rem'}
                           >
-                            120 items
+                            120 {localeText(LANGUAGES.ITEMS)}
                           </Text>
                           <Box>
                             <HStack spacing={'1.3rem'}>
@@ -181,13 +201,7 @@ const CategoryPage = () => {
                       </Box>
                       <VStack spacing={'5rem'} h={'100%'}>
                         <Box borderRadius={'0.06rem'} w={'100%'}>
-                          <Wrap spacingX={0} spacingY={'5rem'}>
-                            <ProductItemCard />
-                            <ProductItemCard />
-                            <ProductItemCard />
-                            <ProductItemCard />
-                            <ProductItemCard />
-                          </Wrap>
+                          {listItems()}
                         </Box>
                         <Center w={'100%'}>
                           <DefaultPaginate
